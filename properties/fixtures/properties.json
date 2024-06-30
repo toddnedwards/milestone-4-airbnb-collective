@@ -1,0 +1,48 @@
+{
+    "properties": [
+        {
+            "id": "home-1",
+            "name": "Cozy Cottage",
+            "location": "London, UK",
+            "description": "A cozy 2 bedroom cottage in the heart of London.",
+            "price_per_night": 120,
+            "amenities": ["Wifi", "Kitchen", "Free parking"],
+            "availability": "Available",
+            "distance_from_airport_km": 15,
+            "image": "",
+        },
+        {
+            "id": "home-2",
+            "name": "Country Manor",
+            "location": "Yorkshire, UK",
+            "description": "A spacious manor in the beautiful Yorkshire countryside.",
+            "price_per_night": 200,
+            "amenities": ["Garden", "Wifi", "Kitchen"],
+            "availability": "Available",
+            "distance_from_airport_km": 30,
+            "image": "",
+        },
+        {
+            "id": "home-3",
+            "name": "Lakeside Retreat",
+            "location": "Lake District, UK",
+            "description": "A tranquil retreat with stunning views of the lake.",
+            "price_per_night": 180,
+            "amenities": ["Lake view", "Kitchen", "Free parking"],
+            "availability": "Unavailable",
+            "distance_from_airport_km": 45,
+            "image": "",
+        },
+        {
+            "id": "home-4",
+            "name": "City Apartment",
+            "location": "Edinburgh, UK",
+            "description": "Modern apartment in the city center with a castle view.",
+            "price_per_night": 90,
+            "amenities": ["Wifi", "Kitchen", "Washer"],
+            "availability": "Available",
+            "distance_from_airport_km": 10,
+            "image": "",
+        }
+    ]
+}

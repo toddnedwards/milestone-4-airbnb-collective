@@ -1,14 +1,16 @@
 .carousel h2 {
+    text-decoration: underline rgb(109, 114, 255);
     position: absolute;
     z-index: 3; /* To appear above the slides */
     background-color: rgb(255, 255, 255, 0.6);;
-    top: 20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Adjusts the position of the text to ensure it's in the center */
     text-align: center; /* Centers the text horizontally */
     height: 10rem;
     width: 40rem;
     align-content: center;
+    border-radius: 5%;
 }
 
 .slide {
@@ -24,3 +26,7 @@
     right:0;
     background:rgba(0,0,0,0.3);
   }
+
+.carousel-inner {
+    height: 500px;
+}
