@@ -9,7 +9,7 @@
             "amenities": ["Wifi", "Kitchen", "Free parking"],
             "availability": "Available",
             "distance_from_airport_km": 15,
-            "image": "",
+            "image": ""
         },
         {
             "id": "home-2",
@@ -20,7 +20,7 @@
             "amenities": ["Garden", "Wifi", "Kitchen"],
             "availability": "Available",
             "distance_from_airport_km": 30,
-            "image": "",
+            "image": ""
         },
         {
             "id": "home-3",
@@ -31,7 +31,7 @@
             "amenities": ["Lake view", "Kitchen", "Free parking"],
             "availability": "Unavailable",
             "distance_from_airport_km": 45,
-            "image": "",
+            "image": ""
         },
         {
             "id": "home-4",
@@ -42,7 +42,7 @@
             "amenities": ["Wifi", "Kitchen", "Washer"],
             "availability": "Available",
             "distance_from_airport_km": 10,
-            "image": "",
+            "image": ""
         }
     ]
 }
