@@ -1,0 +1,26 @@
+.carousel h2 {
+    position: absolute;
+    z-index: 3; /* To appear above the slides */
+    background-color: rgb(255, 255, 255, 0.6);;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjusts the position of the text to ensure it's in the center */
+    text-align: center; /* Centers the text horizontally */
+    height: 10rem;
+    width: 40rem;
+    align-content: center;
+}
+
+.slide {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  }
+
+  .drk:after {
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.3);
+  }

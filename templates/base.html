@@ -47,8 +47,8 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="#">My Bookings</a>
                           <a class="dropdown-item" href="#">Personal Details</a>
-                          {% if user request.user.is_authenticated %}
-                            {% if user request.user.is_superuser %}
+                          {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
                                 <a class="dropdown-item" href="#">Manage</a>
                             {% endif %}
                             <a class="dropdown-item" href="#">Logout</a>
@@ -73,7 +73,7 @@
         {% endblock %}
 
         <footer>
-            <div class="container-fluid fixed-bottom bg-light p-4">
+            <div class="container-fluid bg-light p-4">
                 <div class="row">
                     <div class="col-4">
                         <h3 class="text-center"><strong>My</strong> AirBnb Collective</h3>
@@ -92,13 +92,13 @@
                         <h5 class="text-center">Find Us On:</h5>
                         <ul class="list-unstyled pl-4 pt-1">
                             <li class="p-1">
-                                <a href="" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
                             </li>
                             <li class="p-1">
-                                <a href="" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
                             </li>
                             <li class="p-1">
-                                <a href="" target="_blank"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+                                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
                             </li>
 
                         </ul>
