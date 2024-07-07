@@ -1,0 +1,170 @@
+[
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-1",
+            "name": "Cozy Cottage",
+            "location": "London, UK",
+            "description": "A cozy 2 bedroom cottage in the heart of London.",
+            "price_per_night": "120.00",
+            "availability": "Available",
+            "image": "cozy-cottage-exterior.jpg",
+            "distance_to_airport": 20,
+            "bedrooms": 2
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-2",
+            "name": "Country Manor",
+            "location": "Yorkshire, UK",
+            "description": "A spacious manor in the beautiful Yorkshire countryside.",
+            "price_per_night": "200.00",
+            "availability": "Available",
+            "image": "country-manor-exterior.jpg",
+            "distance_to_airport": 30,
+            "bedrooms": 4
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-3",
+            "name": "Lakeside Retreat",
+            "location": "Lake District, UK",
+            "description": "A tranquil retreat with stunning views of the lake.",
+            "price_per_night": "180.00",
+            "availability": "Unavailable",
+            "image": "lakeside-retreat-exterior.jpg",
+            "distance_to_airport": 40,
+            "bedrooms": 3
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-4",
+            "name": "City Apartment",
+            "location": "Edinburgh, UK",
+            "description": "Modern apartment in the city center with a castle view.",
+            "price_per_night": "90.00",
+            "availability": "Available",
+            "image": "city-apartment-exterior.jpg",
+            "distance_to_airport": 15,
+            "bedrooms": 2
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-5",
+            "name": "Rustic Barn",
+            "location": "Cornwall, UK",
+            "description": "A rustic barn conversion in the Cornish countryside.",
+            "price_per_night": "110.00",
+            "availability": "Available",
+            "image": "rustic-barn-exterior.jpg",
+            "distance_to_airport": 50,
+            "bedrooms": 3
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-6",
+            "name": "Modern Loft",
+            "location": "Manchester, UK",
+            "description": "A modern loft apartment in the heart of Manchester.",
+            "price_per_night": "130.00",
+            "availability": "Unavailable",
+            "image": "modern-loft-exterior.jpg",
+            "distance_to_airport": 20,
+            "bedrooms": 2
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-7",
+            "name": "Beach House",
+            "location": "Brighton, UK",
+            "description": "A charming beach house with sea views in Brighton.",
+            "price_per_night": "150.00",
+            "availability": "Available",
+            "image": "beach-house-exterior.jpg",
+            "distance_to_airport": 30,
+            "bedrooms": 3
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-8",
+            "name": "Country Cottage",
+            "location": "Cotswolds, UK",
+            "description": "A quaint country cottage in the peaceful Cotswolds.",
+            "price_per_night": "100.00",
+            "availability": "Unavailable",
+            "image": "country-cottage-exterior.jpg",
+            "distance_to_airport": 60,
+            "bedrooms": 3
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-9",
+            "name": "City Penthouse",
+            "location": "Birmingham, UK",
+            "description": "A luxury city penthouse with panoramic views in Birmingham.",
+            "price_per_night": "200.00",
+            "availability": "Available",
+            "image": "city-penthouse-exterior.jpg",
+            "distance_to_airport": 25,
+            "bedrooms": 3
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-10",
+            "name": "Lakeside Cabin",
+            "location": "Lake District, UK",
+            "description": "A cozy lakeside cabin in the beautiful Lake District.",
+            "price_per_night": "90.00",
+            "availability": "Available",
+            "image": "lakeside-cabin-exterior.jpg",
+            "distance_to_airport": 45,
+            "bedrooms": 2
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-11",
+            "name": "Historic Manor",
+            "location": "York, UK",
+            "description": "A historic manor house with beautiful gardens in York.",
+            "price_per_night": "210.00",
+            "availability": "Unavailable",
+            "image": "historic-manor-exterior.jpg",
+            "distance_to_airport": 35,
+            "bedrooms": 4
+        }
+    },
+    {
+        "model": "airbnb_properties.property",
+        "fields": {
+            "id": "property-12",
+            "name": "Terraced House",
+            "location": "Norfolk, UK",
+            "description": "A convenient home in the heart of Norfolk City.",
+            "price_per_night": "75.00",
+            "availability": "Available",
+            "image": "terraced-house-exterior.jpg",
+            "distance_to_airport": 40,
+            "bedrooms": 2
+        }
+    }
+]

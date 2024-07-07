@@ -1,8 +1,17 @@
 from django.shortcuts import render
-
+from .models import Property
+Property.objects.all().delete()
 
 # Create your views here.
 
 def airbnb_properties(request):
+    """ A view to show all properties that exist in properties DB """
 
-    return render(request, 'properties/index.html')
+    properties = Property.objects.all()
+
+    context = {
+        'properties': properties,
+    }
+
+
+    return render(request, 'properties/index.html', context)

@@ -8,26 +8,32 @@
   <div class="container">
     <div class="row">
       <div class="col pt-4">
-        <h3 class="text-center">At My AirBnb Collective, we offer convenient properties<br>
-          across the UK to make your travels easier!</h3>
-          <br>
-          <hr>
-        <h4 class="text-center">Check Out Our Properties below:</h4>
-        <div class="row">
-          <div class="col-4">
-            {% for property in properties %}
-            {% endfor %}
-          </div>
-        </div>
+        <h1 class="text-center">See Our Properties Below</h1>
+        <br>
+        <hr>
       </div>
     </div>
   </div>
 
+  <div class="container-fluid"></div>
+    <div class="row">
+      {% for property in properties %}
+      <div class="card col-3 mb-4">
+        {% if property.image %}
+          <img class="card-img-top img-fluid img-card mt-4" src="{{ property.image.url }}" alt="Card image cap">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ property.name }}</h5>
+          <p class="card-text">{{ property.description }}</p>
+          <p class="card-text"><strong>Location: </strong>{{ property.location }}</p>
+          <p class="card-text"><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
+          <a href="#" class="btn btn-primary">Find Out More</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
 {% block postloadjs %}
-    <script>
-        $('.carousel').carousel({
-            interval: 4000
-        })
-    </script>   
 {% endblock %}
 {% endblock %}

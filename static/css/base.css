@@ -28,3 +28,12 @@
 .carousel-inner {
     height: 500px;
 }
+
+
+/* Properties html */
+
+.img-card {
+  height: 230px;
+  width: 400px;
+  align-self: center;
+}
