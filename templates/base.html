@@ -38,23 +38,23 @@
                 <div class="col-12 col-lg-8">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="list-inline-item"><a href="{% url 'airbnb_properties' %}">Properties</a></li>
                     <li class="list-inline-item"><a href="#">About Us</a></li>
                     <li class="list-inline-item"><a href="#">FAQs</a></li>
                     <div class="dropdown show list-inline-item">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           My Account
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="#">My Bookings</a>
-                          <a class="dropdown-item" href="#">Personal Details</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                          
                           {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                                <a class="dropdown-item" href="#">Manage</a>
+                                <a class="dropdown-item" href="#">Manage Properties</a>
                             {% endif %}
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="#">My Bookings</a>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                           {% else %}
-                            <a class="dropdown-item" href="#">Register</a>
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                            <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                           {% endif %}
                         </div>
                     </div>
