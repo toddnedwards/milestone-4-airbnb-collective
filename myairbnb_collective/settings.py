@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
 
+SITE_ID=1
 
 # Application definition
 
