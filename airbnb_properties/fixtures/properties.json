@@ -6,12 +6,16 @@
             "name": "Cozy Cottage",
             "location": "London, UK",
             "description": "A cozy 2 bedroom cottage in the heart of London.",
+            "full_description": "This cozy 2 bedroom cottage is located in the heart of London. It's the perfect place to relax after a day of exploring the city.",
             "price_per_night": "120.00",
             "availability": "Available",
             "image": "cozy-cottage-exterior.jpg",
             "distance_to_airport": 20,
-            "bedrooms": 2
-        }
+            "bedrooms": 2,
+            "has_wifi": false,
+            "has_parking": true,
+            "non_smoking": true
+        }   
     },
     {
         "model": "airbnb_properties.property",
@@ -20,11 +24,15 @@
             "name": "Country Manor",
             "location": "Yorkshire, UK",
             "description": "A spacious manor in the beautiful Yorkshire countryside.",
+            "full_description": "This spacious manor is located in the beautiful Yorkshire countryside. With plenty of room and stunning views, it's the perfect getaway.",
             "price_per_night": "200.00",
             "availability": "Available",
             "image": "country-manor-exterior.jpg",
             "distance_to_airport": 30,
-            "bedrooms": 4
+            "bedrooms": 4,
+            "has_wifi": true,
+            "has_parking": false,
+            "non_smoking": true
         }
     },
     {
@@ -34,11 +42,15 @@
             "name": "Lakeside Retreat",
             "location": "Lake District, UK",
             "description": "A tranquil retreat with stunning views of the lake.",
+            "full_description": "This tranquil retreat offers stunning views of the lake. Located in the Lake District, it's the perfect place for a peaceful getaway.",
             "price_per_night": "180.00",
             "availability": "Unavailable",
             "image": "lakeside-retreat-exterior.jpg",
             "distance_to_airport": 40,
-            "bedrooms": 3
+            "bedrooms": 3,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -48,11 +60,15 @@
             "name": "City Apartment",
             "location": "Edinburgh, UK",
             "description": "Modern apartment in the city center with a castle view.",
+            "full_description": "This modern apartment is located in the city center of Edinburgh. With a view of the castle, it's the perfect place for a city break.",
             "price_per_night": "90.00",
             "availability": "Available",
             "image": "city-apartment-exterior.jpg",
             "distance_to_airport": 15,
-            "bedrooms": 2
+            "bedrooms": 2,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -62,11 +78,15 @@
             "name": "Rustic Barn",
             "location": "Cornwall, UK",
             "description": "A rustic barn conversion in the Cornish countryside.",
+            "full_description": "This rustic barn conversion offers a unique stay in the beautiful Cornish countryside. With its original features and modern amenities, it's the perfect blend of old and new.",
             "price_per_night": "110.00",
             "availability": "Available",
             "image": "rustic-barn-exterior.jpg",
             "distance_to_airport": 50,
-            "bedrooms": 3
+            "bedrooms": 3,
+            "has_wifi": true,
+            "has_parking": false,
+            "non_smoking": true
         }
     },
     {
@@ -76,11 +96,15 @@
             "name": "Modern Loft",
             "location": "Manchester, UK",
             "description": "A modern loft apartment in the heart of Manchester.",
+            "full_description": "This modern loft apartment offers a chic and stylish stay in the heart of Manchester. With its open-plan design and contemporary furnishings, it's the perfect city retreat.",
             "price_per_night": "130.00",
             "availability": "Unavailable",
             "image": "modern-loft-exterior.jpg",
             "distance_to_airport": 20,
-            "bedrooms": 2
+            "bedrooms": 2,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -90,11 +114,15 @@
             "name": "Beach House",
             "location": "Brighton, UK",
             "description": "A charming beach house with sea views in Brighton.",
+            "full_description": "This charming beach house offers stunning sea views and easy access to the beach. With its cozy interiors and seaside location, it's the perfect place for a relaxing beach holiday.",
             "price_per_night": "150.00",
             "availability": "Available",
             "image": "beach-house-exterior.jpg",
             "distance_to_airport": 30,
-            "bedrooms": 3
+            "bedrooms": 3,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -104,11 +132,15 @@
             "name": "Country Cottage",
             "location": "Cotswolds, UK",
             "description": "A quaint country cottage in the peaceful Cotswolds.",
+            "full_description": "This quaint country cottage offers a peaceful stay in the heart of the Cotswolds. With its charming interiors and beautiful surroundings, it's the perfect place for a tranquil retreat.",
             "price_per_night": "100.00",
             "availability": "Unavailable",
             "image": "country-cottage-exterior.jpg",
             "distance_to_airport": 60,
-            "bedrooms": 3
+            "bedrooms": 3,
+            "has_wifi": false,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -118,11 +150,15 @@
             "name": "City Penthouse",
             "location": "Birmingham, UK",
             "description": "A luxury city penthouse with panoramic views in Birmingham.",
+            "full_description": "This luxury city penthouse offers panoramic views of Birmingham. With its modern amenities and central location, it's the perfect place for a city break.",
             "price_per_night": "200.00",
             "availability": "Available",
             "image": "city-penthouse-exterior.jpg",
             "distance_to_airport": 25,
-            "bedrooms": 3
+            "bedrooms": 3,
+            "has_wifi": true,
+            "has_parking": false,
+            "non_smoking": true
         }
     },
     {
@@ -132,11 +168,15 @@
             "name": "Lakeside Cabin",
             "location": "Lake District, UK",
             "description": "A cozy lakeside cabin in the beautiful Lake District.",
+            "full_description": "This cozy lakeside cabin offers a tranquil stay in the beautiful Lake District. With its stunning lake views and cozy interiors, it's the perfect place for a peaceful retreat.",
             "price_per_night": "90.00",
             "availability": "Available",
             "image": "lakeside-cabin-exterior.jpg",
             "distance_to_airport": 45,
-            "bedrooms": 2
+            "bedrooms": 2,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     },
     {
@@ -146,11 +186,15 @@
             "name": "Historic Manor",
             "location": "York, UK",
             "description": "A historic manor house with beautiful gardens in York.",
+            "full_description": "This historic manor house offers a unique stay in the historic city of York. With its beautiful gardens and original features, it's the perfect place for a luxury getaway.",
             "price_per_night": "210.00",
             "availability": "Unavailable",
             "image": "historic-manor-exterior.jpg",
             "distance_to_airport": 35,
-            "bedrooms": 4
+            "bedrooms": 4,
+            "has_wifi": true,
+            "has_parking": false,
+            "non_smoking": true
         }
     },
     {
@@ -160,11 +204,15 @@
             "name": "Terraced House",
             "location": "Norfolk, UK",
             "description": "A convenient home in the heart of Norfolk City.",
+            "full_description": "This convenient terraced house offers a comfortable stay in the heart of Norfolk City. With its modern amenities and central location, it's the perfect place for a city break.",
             "price_per_night": "75.00",
             "availability": "Available",
             "image": "terraced-house-exterior.jpg",
             "distance_to_airport": 40,
-            "bedrooms": 2
+            "bedrooms": 2,
+            "has_wifi": true,
+            "has_parking": true,
+            "non_smoking": true
         }
     }
 ]

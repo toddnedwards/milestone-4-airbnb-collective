@@ -37,3 +37,11 @@
   width: 400px;
   align-self: center;
 }
+
+.property-img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.property-img:hover {
+  transform: scale(1.05);
+}

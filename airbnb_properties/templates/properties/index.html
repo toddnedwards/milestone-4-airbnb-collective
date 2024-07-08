@@ -20,7 +20,9 @@
       {% for property in properties %}
       <div class="card col-3 mb-4">
         {% if property.image %}
-          <img class="card-img-top img-fluid img-card mt-4" src="{{ property.image.url }}" alt="Card image cap">
+        <a href="{% url 'property_details' property.id %}">
+          <img class="card-img-top img-fluid img-card mt-4 property-img" src="{{ property.image.url }}" alt="Card image cap">
+        </a>
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ property.name }}</h5>
