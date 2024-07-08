@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'home',
     'airbnb_properties',
     'contact',
+    'faqs',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
