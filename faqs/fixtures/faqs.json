@@ -1,34 +1,58 @@
 [
     {
-        "question": "How do I create an account?",
-        "answer": "You can create an account by clicking on the 'Sign Up' button on our homepage. You'll need to provide some basic information like your name, email address, and create a password."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "How do I create an account?",
+            "answer": "You can create an account by clicking on the 'Sign Up' button on our homepage. You'll need to provide some basic information like your name, email address, and create a password."
+        }
     },
     {
-        "question": "How do I book a property?",
-        "answer": "Once you've created an account and logged in, you can browse through the properties listed on our site. When you find a property you're interested in, click on the 'Book Now' button and follow the prompts to complete your booking."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "How do I book a property?",
+            "answer": "Once you've created an account and logged in, you can browse through the properties listed on our site. When you find a property you're interested in, click on the 'Book Now' button and follow the prompts to complete your booking."
+        }
     },
     {
-        "question": "How do I make a payment?",
-        "answer": "We use Stripe for all our transactions. When you're ready to make a payment, you'll be redirected to the secure Stripe checkout page where you can enter your payment details."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "How do I make a payment?",
+            "answer": "We use Stripe for all our transactions. When you're ready to make a payment, you'll be redirected to the secure Stripe checkout page where you can enter your payment details."
+        }
     },
     {
-        "question": "Is my payment information secure?",
-        "answer": "Yes, all payment information is handled by Stripe, a trusted and secure payment gateway. We do not store any of your payment information on our servers."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "Is my payment information secure?",
+            "answer": "Yes, all payment information is handled by Stripe, a trusted and secure payment gateway. We do not store any of your payment information on our servers."
+        }
     },
     {
-        "question": "How do I cancel a booking?",
-        "answer": "You can cancel a booking by going to 'My Bookings' in your account, finding the booking you want to cancel, and clicking on the 'Cancel Booking' button. Please note that cancellation fees may apply depending on the timing of the cancellation."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "How do I cancel a booking?",
+            "answer": "You can cancel a booking by going to 'My Bookings' in your account, finding the booking you want to cancel, and clicking on the 'Cancel Booking' button. Please note that cancellation fees may apply depending on the timing of the cancellation."
+        }
     },
     {
-        "question": "What happens if a property I booked is not as described?",
-        "answer": "We take such matters very seriously. If a property is not as described, please contact our customer service immediately. We will investigate the issue and take appropriate action."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "What happens if a property I booked is not as described?",
+            "answer": "We take such matters very seriously. If a property is not as described, please contact our customer service immediately. We will investigate the issue and take appropriate action."
+        }
     },
     {
-        "question": "How do I change my account information?",
-        "answer": "You can change your account information by logging into your account and going to 'My Bookings'. Here, you can update your name, email address, and password."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "How do I change my account information?",
+            "answer": "You can change your account information by logging into your account and going to 'My Bookings'. Here, you can update your name, email address, and password."
+        }
     },
     {
-        "question": "What if I need help or have questions?",
-        "answer": "Our customer service team is here to help! You can reach us via the 'Contact Us' page on our website."
+        "model": "faqs.faq",
+        "fields": {
+            "question": "What if I need help or have questions?",
+            "answer": "Our customer service team is here to help! You can reach us via the 'Contact Us' page on our website."
+        }
     }
 ]

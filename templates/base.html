@@ -38,7 +38,7 @@
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
                     <li class="list-inline-item"><a href="{% url 'properties' %}">Properties</a></li>
-                    <li class="list-inline-item"><a href="#">FAQs</a></li>
+                    <li class="list-inline-item"><a href="{% url 'faqs' %}">FAQs</a></li>
                     <div class="dropdown show list-inline-item">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           My Account
@@ -79,10 +79,9 @@
                         <br>
                         <h5 class="text-center">Explore</h5>
                         <ul class="list-unstyled pl-4 pt-1">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">My Account</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                            <li><a href="#">My Bookings</a></li>
                         </ul>
                     </div>
                     <div class="col-4 border-right border-left border-dark">
@@ -113,7 +112,7 @@
                                 <a href="tel:080080808"><i class="fa-solid fa-phone"></i> 0800 80808</a>
                             </li>
                             <li class="p-1">
-                                <a href="#"><i class="fa-regular fa-clipboard"></i> Contact Form</a>
+                                <a href="{% url 'contact' %}"><i class="fa-regular fa-clipboard"></i> Contact Form</a>
                             </li>
                         </ul>
                     </div>
