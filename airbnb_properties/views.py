@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Property
-Property.objects.all().delete()
 
 # Create your views here.
 
