@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'airbnb_properties',
     'contact',
     'faqs',
+    'checkout',
     'user_profile',
     'crispy_forms',
 ]
