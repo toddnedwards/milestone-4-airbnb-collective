@@ -31,7 +31,16 @@
           <p class=""><strong>Location: </strong>{{ property.location }}</p>
           <p class=""><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
           <p class=""><strong>Bedrooms: </strong>{{ property.bedrooms }}</p>
-          <a href="#" class="btn btn-primary">Make A Booking</a>
+          <hr>
+          <!-- Date Picker for Booking -->
+          <h5>Choose Dates</h5>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" type="submit">Go To Checkout</button>
+            </form>
+
           {% if request.user.is_superuser %}
             <div class="mt-2">
               <a href="#" class="btn btn-success btn-sm" role="button" aria-disabled="true">Edit</a>

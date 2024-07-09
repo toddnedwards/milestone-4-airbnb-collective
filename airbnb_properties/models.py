@@ -20,3 +20,9 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+
+class Date(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+
+    start_date = models.DateField()
+    end_date = models.DateField()

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Property
+from .models import Property, Date
+from .forms import DateForm
 
 # Create your views here.
 
@@ -19,12 +20,24 @@ def airbnb_properties(request):
 
 
 def property_details(request, property_id):
-    """ A view to show an individual page for each property to find out more information and to book selected property"""
+    """ A view to show an individual page for each property to find out more
+        information and to book selected property"""
 
     property = get_object_or_404(Property, pk=property_id)
+    if request.method == 'POST':
+        form = DateForm(request.POST)
+        if form.is_valid():
+            date = form.save(commit=False)
+            date.property = property
+            date.save()
+        return redirect('checkout')
+
+    else:
+        form = DateForm()
 
     context = {
         'property': property,
+        'form':form,
     }
 
     return render(request, 'properties/property_details.html', context)
@@ -67,3 +80,4 @@ def delete_property(request, property_id):
     property.delete()
     messages.success(request, 'Property Deleted')
     return redirect(reverse('home'))
+   
