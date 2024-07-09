@@ -46,8 +46,14 @@
   transform: scale(1.05);
 }
 
-.box-shadow {
+.box-shadow-footer {
   box-shadow: rgb(0 0 0 / 50%) 0px -6px 6px -6px;
   margin-top:10px;
   background-color:white;
+}
+
+.box-shadow-header {
+  box-shadow: rgb(0 0 0 / 50%) 0px 6px 6px -6px;
+  margin-bottom: 10px;
+  background-color: white;
 }

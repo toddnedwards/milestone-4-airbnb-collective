@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 pt-4">
+            <h1 class="text-center">My Bookings</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h5>Account Details:</h5>
+            <br>
+            <p><strong>Username: </strong>{{ user.username }}</p>
+            <p><strong>First Name: </strong>{% if user.first_name %}{{ user.first_name }}{% endif %}</p>
+            <p><strong>Last Name: </strong>{% if user.last_name %}{{ user.last_name }}{% endif %}</p>
+            <br>
+            <h5>Address</h5>
+            
+        </div>
+    </div>
+
+</div>
+
+{% block postloadjs %}
+
+{% endblock %}
+{% endblock %}

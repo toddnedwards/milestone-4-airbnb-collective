@@ -27,7 +27,7 @@
         <title>My AirBnB Collective {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid sticky-top bg-light">
+        <header class="container-fluid sticky-top bg-light box-shadow-header">
             <div id="topnav" class="row d-lg-flex d-flex mb-3 pt-4 align-items-center">
                 <div class="my-auto text-lg-left p-2">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link navbar-brand">
@@ -71,7 +71,7 @@
         {% block postloadjs %}
         {% endblock %}
 
-        <footer class="box-shadow">
+        <footer class="box-shadow-footer">
             <div class="container-fluid bg-light p-4">
                 <div class="row">
                     <div class="col-4">

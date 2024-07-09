@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'airbnb_properties',
     'contact',
     'faqs',
+    'user_profile',
     'crispy_forms',
 ]
 
@@ -103,6 +104,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
 
 
 # Password validation

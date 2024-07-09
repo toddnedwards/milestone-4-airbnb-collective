@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('contact/', include('contact.urls')),
     path('faqs/', include('faqs.urls')),
+    path('my_bookings/', include('user_profile.urls')),
     path('properties/', include('airbnb_properties.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
