@@ -64,10 +64,10 @@ def edit_property(request, property_id):
             form = PropertyForm(instance=property)
             messages.info(request, f'You are editing {property.name}- {property.location}')
 
-    template = 'products/edit_product.html'
+    template = 'properties/edit_properties.html'
     context = {
         'form': form,
-        'product': product, 
+        'property': property, 
     }
 
     return render(request, template, context)
