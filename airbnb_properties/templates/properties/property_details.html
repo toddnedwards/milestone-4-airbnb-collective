@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -37,10 +38,10 @@
             <br>
             <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.date_range|as_crispy_field }}
                 <button class="btn btn-primary" type="submit">Go To Checkout</button>
             </form>
-
+            
           {% if request.user.is_superuser %}
             <div class="mt-2">
               <a href="#" class="btn btn-success btn-sm" role="button" aria-disabled="true">Edit</a>
@@ -156,5 +157,11 @@
 
 
 {% block postloadjs %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock %}
+{% include 'properties/includes/date_picker_script.html' %}
 {% endblock %}

@@ -22,7 +22,8 @@ class Property(models.Model):
         return self.name
 
 class Date(models.Model):
-    property = models.ForeignKey(Property, on_delete=models.CASCADE)
 
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    date_range = models.CharField(max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()

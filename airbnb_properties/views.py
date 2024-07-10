@@ -29,6 +29,9 @@ def property_details(request, property_id):
         if form.is_valid():
             date = form.save(commit=False)
             date.property = property
+            start_date_str, end_date_str = date.date_range.split(' - ')
+            date.start_date = datetime.strptime(start_date_str, '%d %b %Y')
+            date.end_date = datetime.strptime(end_date_str, '%d %b %Y')
             date.save()
         return redirect('checkout')
 

@@ -12,15 +12,14 @@ class PropertyForm(forms.ModelForm):
 
     image = forms.ImageField(label='Image', required=False)
 
-class DateInput(forms.DateInput):
-    input_type = "date"
+class DateRangeInput(forms.DateInput):
+    input_type = "text"
 
 class DateForm(forms.ModelForm):
 
     class Meta:
         model = Date
-        fields = ['start_date', 'end_date']
+        fields = ['date_range']
         widgets = {
-            "start_date": DateInput(),
-            "end_date": DateInput()
+            'date_range': DateRangeInput()
         }
