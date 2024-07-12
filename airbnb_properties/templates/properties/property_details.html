@@ -36,10 +36,11 @@
           <!-- Date Picker for Booking -->
           <h5>Choose Dates</h5>
             <br>
-            <form method="POST">
+            <form class="form" action="{% url 'cart' %}" method="POST">
                 {% csrf_token %}
                 {{ form.date_range|as_crispy_field }}
                 <button class="btn btn-primary" type="submit">Go To Checkout</button>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             
           {% if request.user.is_superuser %}
@@ -162,6 +163,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 {% endblock %}
 {% include 'properties/includes/date_picker_script.html' %}
 {% endblock %}
