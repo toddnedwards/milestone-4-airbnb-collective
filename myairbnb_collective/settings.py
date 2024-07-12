@@ -27,6 +27,8 @@ SECRET_KEY = '(+@mp8(gee_zk3jajl9vp%z)x3&vemahtcyfn5m%4ar23uv3h8'
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'airbnb_properties',
     'contact',
     'faqs',
+    'cart',
     'checkout',
     'user_profile',
     'crispy_forms',

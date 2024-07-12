@@ -9,3 +9,8 @@ couldn't get crispy forms to work, followed this: https://stackoverflow.com/ques
 help with date picker:
 
 https://stackoverflow.com/questions/59450570/how-to-create-start-date-and-end-date-picker-in-one-textbox-using-jquery-and-the
+
+
+strip time datetime function:
+
+https://www.geeksforgeeks.org/python-datetime-strptime-function/

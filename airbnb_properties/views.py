@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -33,7 +34,18 @@ def property_details(request, property_id):
             date.start_date = datetime.strptime(start_date_str, '%d %b %Y')
             date.end_date = datetime.strptime(end_date_str, '%d %b %Y')
             date.save()
-        return redirect('checkout')
+
+            if 'cart' not in request.session:
+                request.session['cart'] = {}
+            request.session['cart']['property_id'] = {
+                'date_ranges': [date.date_range],
+                'property_details': {
+                    'name': property.name,
+                    'location': property.location,
+                },
+            }
+            request.session.modified = True
+            return redirect('cart')
 
     else:
         form = DateForm()

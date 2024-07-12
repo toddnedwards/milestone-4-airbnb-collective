@@ -19,12 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('home.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', include('home.urls')),
     path('contact/', include('contact.urls')),
-    path('checkout/', include('checkout.urls')),
     path('faqs/', include('faqs.urls')),
+    path('cart/', include('cart.urls')),
     path('my_bookings/', include('user_profile.urls')),
     path('properties/', include('airbnb_properties.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

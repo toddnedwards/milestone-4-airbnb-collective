@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>Cart Summary</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Information</h3>
+            {% for item in cart_items %}
+                <p>Property : {{ item.property.name }}</p>
+                <p>Date Range : {{ item.date_range }}</p>
+                <p>Amount Of Days : {{ item.days }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% block postloadjs %}
+
+{% endblock %}
+{% endblock %}
