@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'user_profile',
     'crispy_forms',
     'crispy_bootstrap4',
+    'bootstrap_daterangepicker',
 ]
 
 MIDDLEWARE = [

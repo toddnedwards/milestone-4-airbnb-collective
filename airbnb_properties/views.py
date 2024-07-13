@@ -37,13 +37,14 @@ def property_details(request, property_id):
 
             if 'cart' not in request.session:
                 request.session['cart'] = {}
-            request.session['cart']['property_id'] = {
+            request.session['cart'][property_id] = {
                 'date_ranges': [date.date_range],
                 'property_details': {
                     'name': property.name,
                     'location': property.location,
                 },
             }
+
             request.session.modified = True
             return redirect('cart')
 
@@ -56,6 +57,10 @@ def property_details(request, property_id):
     }
 
     return render(request, 'properties/property_details.html', context)
+
+def datepicker_view(request):
+    if request.method == 'POST':
+        date_range = request.POST.get('date_range')
 
 
 @login_required

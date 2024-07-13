@@ -36,9 +36,12 @@
           <!-- Date Picker for Booking -->
           <h5>Choose Dates</h5>
             <br>
-            <form class="form" action="{% url 'cart' %}" method="POST">
+            <form class="form" action="{% url 'cart_add' property.id %}" method="POST">
                 {% csrf_token %}
-                {{ form.date_range|as_crispy_field }}
+                <label for="id_date_range">Date Range:</label>
+                <input type="text" name="date_range" id="id_date_range">
+                <input type="hidden" name="property_id" value="{{ property.id }}">
+                <input type="hidden" name="total_days" value="{{ total_days }}">
                 <button class="btn btn-primary" type="submit">Go To Checkout</button>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
