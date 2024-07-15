@@ -2,11 +2,16 @@
     font-size: 60px;
 }
 
-.cart-image {
+/* .cart-image {
     height: 200px;
-    width: 300px;
-}
+    width: auto;
+} */
 
 .cart-container {
     border-style: groove;
+    border-radius: 10px;
+}
+
+.taxi-section {
+    border-left: 2px solid #c8c8c8;
 }

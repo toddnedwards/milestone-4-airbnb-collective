@@ -4,7 +4,7 @@ from airbnb_properties.models import Property
 
 # Create your views here.
 def cart(request):
-    return render(request, "cart.html", {})
+    return render(request, "cart.html")
 
 
 def cart_add(request, item_id):
@@ -22,14 +22,20 @@ def cart_add(request, item_id):
     print(request.session['cart'])
     return redirect(reverse('cart'))
 
+def remove_from_cart(request, item_id):
+    """Remove property from cart"""
 
-def cart_delete(request, item_id):
-    cart = request.session.get('cart', {})
-    if item_id in cart:
-        del cart[item_id]
+    try:
+        product = get_object_or_404(Property, pk=item_id)
+        cart = request.session.get('cart', {})
+        cart.pop(item_id)
+        
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
 
-    request.session['cart'] = cart
-    return redirect(reverse('cart'))
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)
 
 
 def cart_update(request):

@@ -22,36 +22,49 @@
         {% if cart_items %}
             {% for item in cart_items %}
         <div class="container-fluid">
-            <div class="row cart-container pt-2 m-4">
-                <div class="col-3 cart-item">
-                    <img class="cart-image" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
+            <div class="row cart-container m-4">
+                <div class="col-3 cart-item m-4">
+                    <img class="cart-image img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
                 </div>
-                <div class="col-4">
+                <div class="col m-4">
+                    <h5><i class="fa-solid fa-house pr-2"></i>Property Details</h5>
+                    <br>
                     <p><strong>Property Name: </strong>{{ item.property.name }}</p>
                     <p><strong>Location : </strong>{{ item.property.location }}</p>
                     <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
                     <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
-                    <p><strong>Grand Total : </strong>£{{ item.grand_total }}</p>
+                    <p><strong>Total : </strong>£{{ item.property_total }}</p>
                 </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6 m-4">
-                    <h5>Need Taxi To the Airport?</h5>
+                <div class=" m-4 pr-4">
+                    <a href="" class="btn btn-primary">
+                        <span class="text-uppercase">Edit Booking</span>
+                        <span class="icon">
+                            <i class="fa-solid fa-pen"></i>
+                        </span>
+                    </a>
+                    <br>
+                    <a id="remove_{{ item.item_id }}" class="remove-property btn btn-danger mt-2">
+                        <span class="text-uppercase">Delete Booking</span>
+                        <span class="icon">
+                            <i class="fa-solid fa-trash"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="col m-4 taxi-section">
+                    <h5><i class="fa-solid fa-taxi pr-2"></i>Need Taxi To the Airport?</h5>
                     <br>
                     <p>Make life easier by letting us take care of the hard work for you. Our taxi services use local approved taxi's and are charged at £3.00 per mile</p>
                     <p><strong>Distance from Airport: </strong>{{ item.property.distance_to_airport }} miles</p>
                     <p><strong>Price for taxi from airport to property: </strong>£{{ item.taxi_price|floatformat:2 }}</p>
                     <p>Would you like to add a taxi service from the airport to the property?</p>
                     <button class="btn btn-primary">Yes please!</button>
-                    <button class="btn btn-secondary">No, thankyou</button>
-
                 </div>
             </div>
+            
         </div>
+                
             {% endfor %}
         {% else %}
         <div class="m-4">
@@ -67,10 +80,42 @@
         {% endif %}
     </div>
 </div>
-
+{% if cart_items %}
+<div class="container-fluid">
+    <div class="row mr-4">
+        <div class="col-12 text-right">
+            <h3><strong>Grand Total: </strong>£{{ grand_total }}</h3>
+            <p>Taxes and local tariffs included in grand total</p>
+        </div>
+    </div>
+</div>
+<div class="text-right m-4 pr-4">
+    <a href="" class="btn btn-primary">
+        <span class="text-uppercase">Secure Checkout</span>
+        <span class="icon">
+            <i class="fas fa-lock"></i>
+        </span>
+    </a>
+</div>
+{% endif %}
 
 
 {% block postloadjs %}
+
+<script type="text/javascript">
+    // Remove item on click
+    $('.remove-property').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+            location.reload();
+         });
+    })
+</script>
 
 {% endblock %}
 {% endblock %}
