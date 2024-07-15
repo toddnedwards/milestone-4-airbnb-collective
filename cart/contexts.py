@@ -21,11 +21,15 @@ def cart_contents(request):
                 days = (end_date - start_date).days
                 total_days += days
                 property_count += 1
+                grand_total = total_days * property.price_per_night
+                taxi_price = property.distance_to_airport * 3
                 cart_items.append({
                     'item_id': item_id,
                     'date_range': date_range,
                     'days': days,
-                    'property': property
+                    'property': property,
+                    'grand_total': grand_total,
+                    'taxi_price': taxi_price,
                 })
 
     context = {
