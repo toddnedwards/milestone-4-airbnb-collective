@@ -18,6 +18,11 @@
     $('#id_date_range').on('cancel.daterangepicker', function(ev, picker) {
       $(this).val('');
     });
-  });
+
+    if (dateRangeValue.trim() === '') {
+      alert('Please choose a date.');
+      return;
+      }
+    });
     
 </script>

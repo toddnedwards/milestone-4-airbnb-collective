@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+
 from .models import Property, Date
-from .forms import DateForm
+from .forms import PropertyForm, DateForm
 
 # Create your views here.
 
@@ -67,7 +68,7 @@ def datepicker_view(request):
 def edit_property(request, property_id):
     """ Edit property details """
     if not request.user.is_superuser:
-        messages.error(request, 'You do not have permission to see this page.')
+        messages.error.request(request, 'You do not have permission to see this page.')
         return redirect(reverse('home'))
 
     property = get_object_or_404(Property, pk=property_id)
@@ -76,12 +77,14 @@ def edit_property(request, property_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Property details have been successfully edited')
-            return redirect(reverse('property_details', args=[property_id]))
+            return redirect(reverse('property_details', args=[property.id]))
         else:
-            form = PropertyForm(instance=property)
-            messages.info(request, f'You are editing {property.name}- {property.location}')
+            messages.error(request, 'Failed to update property. Please ensure the form is valid.')
+    else:
+        form = PropertyForm(instance=property)
+        messages.info(request, f'You are editing {property.name}')
 
-    template = 'properties/edit_properties.html'
+    template = 'properties/edit_property.html'
     context = {
         'form': form,
         'property': property, 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.contrib import messages
 
 from airbnb_properties.models import Property
 
@@ -26,10 +27,10 @@ def remove_from_cart(request, item_id):
     """Remove property from cart"""
 
     try:
-        product = get_object_or_404(Property, pk=item_id)
         cart = request.session.get('cart', {})
         cart.pop(item_id)
-        
+
+        messages.success(request, 'Property removed from cart successfully')
         request.session['cart'] = cart
         return HttpResponse(status=200)
 
