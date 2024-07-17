@@ -25,12 +25,6 @@ class Order(models.Model):
         """ Generate random unique order number using UUID """
         return uuid.uuid4().hex.upper()
 
-    # def update_total(self):
-    #     """
-    #     Update grand total each time a line item is added
-    #     """
-    #     self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        
 
     def save(self, *args, **kwargs):
         """ 
@@ -45,9 +39,8 @@ class Order(models.Model):
         return self.order_number
 
 class OrderLineItem(models.Model):
-    Order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     property = models.ForeignKey(Property, null=False, blank=False, on_delete=models.CASCADE)
-    # add_taxi
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def __str__(self):

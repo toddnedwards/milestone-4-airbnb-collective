@@ -21,6 +21,9 @@ class Property(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "properties"
+
 class Date(models.Model):
 
     property = models.ForeignKey(Property, on_delete=models.CASCADE, null=True)
