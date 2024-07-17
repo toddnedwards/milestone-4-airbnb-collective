@@ -35,8 +35,10 @@
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
                     <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
-                    <p class="add-taxi"><strong>Taxi Added. Total: </strong>£{{ item.taxi_price|floatformat:2 }}</p>
-                    <p><strong>Sub Total : </strong>£{{ item.property_total }}</p>               
+                    {% if item.taxi_price %}
+                        <p class="taxi"><strong>Taxi Price : </strong>£{{ item.property_total }}</p> 
+                    {% endif %}
+                    <p><strong>Sub Total : </strong>£{{ item.property_total }}</p>
                 </div>
                 <div class=" m-4 pr-4">
                     <a href="" class="btn btn-primary">
@@ -60,7 +62,10 @@
                     <p><strong>Distance from Airport: </strong>{{ item.property.distance_to_airport }} miles</p>
                     <p><strong>Price for taxi from airport to property: </strong>£{{ item.taxi_price|floatformat:2 }}</p>
                     <p>Would you like to add a taxi service from the airport to the property?</p>
-                    <button class="taxi-button btn btn-primary">Yes please!</button>
+                    <form action="{% url 'add_taxi' %}" method="post">
+                        {% csrf_token %}
+                        <button id="addTaxiButton" class="btn btn-primary" type="submit">Add Taxi</button>
+                    </form>    
                 </div>
             </div>
             
@@ -118,13 +123,6 @@
             location.reload();
          });
     });
-    
-    // Add taxi fare to booking on click for add taxi button
-
-    $(".taxi-button").click(function(){
-        $(".add-taxi").hide();
-    });
-
 </script>
 
 {% endblock %}

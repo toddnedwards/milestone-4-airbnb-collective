@@ -41,3 +41,7 @@ def remove_from_cart(request, item_id):
 
 def cart_update(request):
     pass
+
+
+def add_taxi(request):
+            return redirect(reverse('cart'))

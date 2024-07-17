@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'contact',
     'faqs',
     'cart',
+    'checkout',
     'user_profile',
     'crispy_forms',
     'crispy_bootstrap4',
