@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
+from datetime import datetime
 
 from airbnb_properties.models import Property
 
@@ -10,15 +11,26 @@ def cart(request):
 
 def cart_add(request, item_id):
 
+    print(request.POST)
     property = get_object_or_404(Property, pk=item_id)
-    total_days = int(request.POST.get('total_days'))
     date_range = request.POST.get('date_range')
+    print(f"Date range from POST: {date_range}")
+
+    start_date_str, end_date_str = date_range.split(' - ')
+    start_date = datetime.strptime(start_date_str, '%d %b %Y')
+    end_date = datetime.strptime(end_date_str, '%d %b %Y')
+    total_days = (end_date - start_date).days
+    print(f"Calculated total days: {total_days}")
 
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if item_id not in cart:
         cart[item_id] = {'total_days': total_days, 'date_ranges': [date_range]}
+    else:
+        cart[item_id]['total_days'] = total_days
+        cart[item_id]['date_ranges'].append(date_range)
+    
     request.session['cart'] = cart
     print(request.session['cart'])
     return redirect(reverse('cart'))

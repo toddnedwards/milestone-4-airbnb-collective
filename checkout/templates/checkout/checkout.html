@@ -50,7 +50,7 @@
                     <p>{% if item.property.non_smoking%}<i class="fa-solid fa-xmark text-danger"></i> Non Smoking Property{% else %}<i class="fa-solid fa-check text-success"></i> Smoking Allowed{% endif %}</p>
                 </div>
                 <div class="col-3 text-right">
-                    <p class="my-0 small">£{{ item.property_total }}</p>
+                    <p class="my-0 small">£{{ order.name }}</p>
                 </div>
             </div>
             <hr>
@@ -80,7 +80,7 @@
                     <legend class="fieldset-label small text-black w-auto">Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.street_address1 | as_crispy_field }}
-                    {{ order_form.street_address1 | as_crispy_field }}
+                    {{ order_form.street_address2 | as_crispy_field }}
                     {{ order_form.town_or_city | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
                     {{ order_form.county | as_crispy_field }}
