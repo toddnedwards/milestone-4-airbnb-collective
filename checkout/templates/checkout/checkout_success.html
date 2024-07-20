@@ -15,14 +15,53 @@
             <p>Your order information is below. A confirmation email will be sent to {{ order.email }} shortly</p>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-12 col-lg-7">
-            <p>{{ order.order_number }}</p>
-            <p>{{ order.lineitem_total }}</p>
+
+    <div class="row mt-4 offset-1">
+        <div class="col-12 col-lg-6">
+            <h3>Order Details</h3>
+            <br>
+            <p><strong>Your order number is: </strong>{{ order.order_number }}</p>
+            <br>
+            <h5><strong>Your Booking</strong></h5>
+            {% for item in order.lineitems.all %}
+            <div class="container-fluid checkout-success-item m-4">
+                <div class="row cart-container m-4">
+                    <div class="col-4 cart-item m-4">
+                        <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
+                    </div>
+                    <div class="col">
+                        <br>
+                        <p><strong>Property Name: </strong>{{ item.property.name }}</p>
+                        <p><strong>Location : </strong>{{ item.property.location }}</p>
+                        <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
+                        <p><strong>Date Range : </strong>{{ item.date_range }} FIX!!!!!!!!</p>
+                        <p><strong>Amount Of Days : </strong>{{ item.total_days }}</p>
+                        <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
+                    </div>                  
+                </div>   
+            </div>
+            {% endfor %}
+
+            <p><i class="fa-regular fa-credit-card text-primary"></i><strong> The total charged to your card is: </strong>£{{ order.grand_total }}</p>
+            <br>
+            <h4>Your Details</h4>
+            <br>
+            <p><strong>Name: </strong>{{order.full_name}}</p>
+            <p><strong>Phone Number: </strong>{{order.phone_number}}</p>
+            <br>
+            <h5>Address</h5>
+            <br>
+            <p><strong>Street Address 1: </strong><span class="text-right">{% if order.street_address1 %}{{ order.street_address1 }}{% else %} N/A{% endif %}</p>
+            <p><strong>Street Address 2: </strong>{% if order.street_address2 %}{{ order.street_address2 }}{% else %} N/A{% endif %}</p>
+            <p><strong>Town Or City: </strong>{% if order.town_or_city %}{{ order.town_or_city }}{% else %} N/A{% endif %}</p>
+            <p><strong>Postcode: </strong>{% if order.postcode %}{{ order.postcode }}{% else %} N/A{% endif %}</p>
+            <p><strong>County: </strong>{% if order.county %}{{ order.county }}{% else %} N/A{% endif %}</p>
+            <p><strong>Country: </strong>{% if order.country %}{{ order.country }}{% else %} N/A{% endif %}</p>
         </div>
     </div>
 </div>
+{% endblock %}
 
 {% block postloadjs %}
-{% endblock %}
+
 {% endblock %}
