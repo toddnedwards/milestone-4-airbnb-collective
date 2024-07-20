@@ -16,7 +16,7 @@ class Property(models.Model):
     has_parking = models.BooleanField(default=False)
     non_smoking = models.BooleanField(default=False)
     image = models.ImageField(null=True, blank=True)
-
+    total_days = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name

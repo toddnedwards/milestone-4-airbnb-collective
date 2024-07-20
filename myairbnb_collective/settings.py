@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'user_profile',
+
+    #other
     'crispy_forms',
     'crispy_bootstrap4',
     'bootstrap_daterangepicker',
