@@ -54,7 +54,7 @@
             <p><strong>Street Address 1: </strong><span class="text-right">{% if order.street_address1 %}{{ order.street_address1 }}{% else %} N/A{% endif %}</p>
             <p><strong>Street Address 2: </strong>{% if order.street_address2 %}{{ order.street_address2 }}{% else %} N/A{% endif %}</p>
             <p><strong>Town Or City: </strong>{% if order.town_or_city %}{{ order.town_or_city }}{% else %} N/A{% endif %}</p>
-            <p><strong>Postcode: </strong>{% if order.postcode %}{{ order.postcode }}{% else %} N/A{% endif %}</p>
+            <p><strong>Postcode: </strong><span class="text-uppercase">{% if order.postcode %}{{ order.postcode }}{% else %} N/A{% endif %}</span></p>
             <p><strong>County: </strong>{% if order.county %}{{ order.county }}{% else %} N/A{% endif %}</p>
             <p><strong>Country: </strong>{% if order.country %}{{ order.country }}{% else %} N/A{% endif %}</p>
         </div>

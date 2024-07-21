@@ -3,9 +3,11 @@
     // Allow user to choose a start date and end date for date picker, and highlight dates chosen
 
   $(function() {
+    
     $('#id_date_range').daterangepicker({
       autoUpdateInput: false,
       showDropdowns: true,
+      minDate: new Date(),
       locale: {
         cancelLabel: 'Clear'
       }
