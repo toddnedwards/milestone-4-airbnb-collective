@@ -14,14 +14,10 @@ def cart_add(request, item_id):
     print(request.POST)
     property = get_object_or_404(Property, pk=item_id)
     date_range = request.POST.get('date_range')
-    print(f"Date range from POST: {date_range}")
-
     start_date_str, end_date_str = date_range.split(' - ')
     start_date = datetime.strptime(start_date_str, '%d %b %Y')
     end_date = datetime.strptime(end_date_str, '%d %b %Y')
     total_days = (end_date - start_date).days
-    print(f"Calculated total days: {total_days}")
-
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
@@ -55,5 +51,15 @@ def cart_update(request):
     pass
 
 
-def add_taxi(request):
-            return redirect(reverse('cart'))
+def add_taxi(request, item_id):
+    property = get_object_or_404(Property, pk=item_id)
+    taxi_price = property.distance_to_airport * 3
+    cart = request.session.get('cart', {})
+
+    if item_id in cart:
+        cart[item_id]['add_taxi'] = taxi_price
+    else:
+        cart[item_id] = {'add_taxi': taxi_price}
+    
+    request.session['cart'] = cart
+    return redirect(reverse('cart'))

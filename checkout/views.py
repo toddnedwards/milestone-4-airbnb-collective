@@ -48,10 +48,11 @@ def checkout(request):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
+                                date_range=date_range,
                                 total_days=days
                             )
-                        order_line_item.save()
-                except Property.DoesNotExist:
+                            order_line_item.save()
+                except Property.DoesNotExist:   
                     messages.error(request, (
                         "One of the properties in your cart wasn't found in our database. "
                         "Please call us for assistance!")

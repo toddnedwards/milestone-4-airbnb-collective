@@ -6,12 +6,12 @@ from airbnb_properties.models import Property
 
 def cart_contents(request):
 
+    cart = request.session.get('cart', {})
     cart_items = []
     total_days = 0
     property_count = 0
     grand_total = 0
-    cart = request.session.get('cart', {})
-
+    
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
         if 'date_ranges' in item_data:
@@ -24,9 +24,7 @@ def cart_contents(request):
                     total_days += days
                     property_count += 1
 
-
-                    taxi_price = property.distance_to_airport * 3
-                    property_total = (total_days * property.price_per_night) + taxi_price
+                    property_total = (total_days * property.price_per_night)
 
                     grand_total += property_total
                     cart_items.append({
@@ -35,7 +33,6 @@ def cart_contents(request):
                         'days': days,
                         'property': property,
                         'property_total': property_total,
-                        'taxi_price': taxi_price,
                         'grand_total': grand_total,
                     })
                 except ValueError:

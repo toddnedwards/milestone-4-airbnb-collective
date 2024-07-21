@@ -62,10 +62,7 @@
                     <p><strong>Distance from Airport: </strong>{{ item.property.distance_to_airport }} miles</p>
                     <p><strong>Price for taxi from airport to property: </strong>£{{ item.taxi_price|floatformat:2 }}</p>
                     <p>Would you like to add a taxi service from the airport to the property?</p>
-                    <form action="{% url 'add_taxi' %}" method="post">
-                        {% csrf_token %}
-                        <button id="addTaxiButton" class="btn btn-primary" type="submit">Add Taxi</button>
-                    </form>    
+                    <a href="#">Add Taxi</a>
                 </div>
             </div>
             
