@@ -53,6 +53,9 @@ def checkout(request):
             current_cart = cart_contents(request)
             total_days = current_cart['total_days']
             order.total_days = total_days
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
             order.save()
             for item_id, item_data in cart.items():
                 try:

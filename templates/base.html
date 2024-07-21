@@ -54,7 +54,7 @@
                             {% if request.user.is_superuser %}
                                 <a class="dropdown-item" href="{% url 'properties' %}">Manage Properties</a>
                             {% endif %}
-                            <a class="dropdown-item" href="#">My Bookings</a>
+                            <a class="dropdown-item" href="{% url 'user_profile' %}">My Bookings</a>
                             <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                           {% else %}
                             <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
