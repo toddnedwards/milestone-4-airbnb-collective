@@ -70,3 +70,9 @@
 input#id_date_range {
   width: 250px !important;
 }
+
+/* Property Details */
+
+img.property-details-img:hover {
+  cursor: zoom-in;
+}
