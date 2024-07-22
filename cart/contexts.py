@@ -14,6 +14,7 @@ def cart_contents(request):
     
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
+        taxi_price = item_data.get('add_taxi', 0)
         if 'date_ranges' in item_data:
             for date_range in item_data['date_ranges']:
                 try:
@@ -23,17 +24,21 @@ def cart_contents(request):
                     days = (end_date - start_date).days
                     total_days += days
                     property_count += 1
+                    property_total = (days * property.price_per_night)
+                    taxi_quote = property.distance_to_airport * 3
+                    sub_total = (days * property.price_per_night) + taxi_price
 
-                    property_total = (total_days * property.price_per_night)
+                    grand_total += sub_total
 
-                    grand_total += property_total
                     cart_items.append({
                         'item_id': item_id,
                         'date_range': date_range,
                         'days': days,
                         'property': property,
                         'property_total': property_total,
-                        'grand_total': grand_total,
+                        'sub_total': sub_total,
+                        'taxi_price': taxi_price,
+                        'taxi_quote': taxi_quote,
                     })
                 except ValueError:
                     pass

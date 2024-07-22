@@ -24,29 +24,30 @@
             <br>
             <h4><strong>Your Booking</strong></h4>
             {% for item in order.lineitems.all %}
-                    <div class="container-fluid checkout-success-item m-4 bg-light">
-                        <div class="row cart-container m-4">
-                            <div class="col-4 cart-item m-4">
-                                <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <br>
-                                <p><strong>Property Name: </strong>{{ item.property.name }}</p>
-                                <p><strong>Location : </strong>{{ item.property.location }}</p>
-                                <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
-                                <p><strong>Date Range : </strong>{{ item.date_range }}</p>
-                                <p><strong>Amount Of Days : </strong>{{ item.total_days }}</p>
-                                <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
-                                <p><strong>Subtotal : </strong>£{{ item.lineitem_total }}</p>
-                            </div>                                    
-                        </div> 
-                    </div>
+                <div class="container-fluid checkout-success-item m-4 bg-light">
+                    <div class="row cart-container m-4">
+                        <div class="col-4 cart-item m-4">
+                            <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <br>
+                            <p><strong>Property Name: </strong>{{ item.property.name }}</p>
+                            <p><strong>Location : </strong>{{ item.property.location }}</p>
+                            <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
+                            <p><strong>Date Range : </strong>{{ item.date_range }}</p>
+                            <p><strong>Amount Of Days : </strong>{{ item.total_days }}</p>
+                            <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
+                            <p><strong>Subtotal : </strong>£{{ item.lineitem_total }}</p>
+                        </div>                                    
+                    </div> 
+                </div>
             {% endfor %}
             <p><i class="fa-regular fa-credit-card text-primary ml-4"></i><strong> The total charged to your card is: </strong>£{{ order.grand_total }}</p>
             <br>
             <h4>Your Details</h4>
             <br>
-            <div class="row m-4 p-4 bg-light personal-info">
+            <div class="container-fluid checkout-success-item m-4 bg-light">
+            <div class="row m-4 p-4 bg-light">
                 <div class="col-12 col-lg-6 small">
                     <h5>Personal Details</h5>
                     <br>

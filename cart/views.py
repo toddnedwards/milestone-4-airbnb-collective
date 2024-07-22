@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
+from django.urls import reverse
 from datetime import datetime
 
 from airbnb_properties.models import Property
+
 
 # Create your views here.
 def cart(request):
@@ -30,6 +32,7 @@ def cart_add(request, item_id):
     request.session['cart'] = cart
     print(request.session['cart'])
     return redirect(reverse('cart'))
+
 
 def remove_from_cart(request, item_id):
     """Remove property from cart"""
@@ -60,6 +63,19 @@ def add_taxi(request, item_id):
         cart[item_id]['add_taxi'] = taxi_price
     else:
         cart[item_id] = {'add_taxi': taxi_price}
+    
+    request.session['cart'] = cart
+    return redirect(reverse('cart'))
+
+
+def remove_taxi(request, item_id):
+    cart = request.session.get('cart', {})
+
+    if item_id in cart and 'add_taxi' in cart[item_id]:
+        del cart[item_id]['add_taxi']
+
+        if not cart[item_id]:
+            del cart[item_id]
     
     request.session['cart'] = cart
     return redirect(reverse('cart'))

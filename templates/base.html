@@ -69,6 +69,23 @@
                 </div>
                 </div>
         </header>
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
     
         {% block page_header %}
         {% endblock %}
@@ -88,8 +105,11 @@
                         <h5 class="text-center">Explore</h5>
                         <ul class="list-unstyled pl-4 pt-1">
                             <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'properties' %}">Properties</a></li>
                             <li><a href="{% url 'faqs' %}">FAQs</a></li>
-                            <li><a href="{% url 'profile' %}">My Bookings</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'profile' %}">My Profile</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="col-4 border-right border-left border-dark">

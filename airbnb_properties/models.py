@@ -15,6 +15,7 @@ class Property(models.Model):
     has_wifi = models.BooleanField(default=False)
     has_parking = models.BooleanField(default=False)
     non_smoking = models.BooleanField(default=False)
+    pet_friendly = models.BooleanField(default=False)
     image = models.ImageField(null=True, blank=True)
     image_kitchen = models.ImageField(null=True, blank=True)
     image_bathroom = models.ImageField(null=True, blank=True)

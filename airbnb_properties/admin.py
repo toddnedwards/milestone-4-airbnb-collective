@@ -12,6 +12,8 @@ class PropertyAdmin(admin.ModelAdmin):
         'price_per_night',
         'availability',
         'image',
+        'image_kitchen',
+        'image_bathroom',
         'distance_to_airport',
         'bedrooms'
     )

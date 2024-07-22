@@ -35,6 +35,7 @@
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
                     <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
+                    <p><strong>Property Total : </strong>£{{ item.property_total }}</p>
                     {% if item.taxi_price %}
                         <p class="taxi"><strong>Taxi Price : </strong>£{{ item.taxi_price|floatformat:2 }}</p> 
                     {% endif %}
@@ -60,9 +61,14 @@
                     <br>
                     <p>Make life easier by letting us take care of the hard work for you. Our taxi services use local approved taxi's and are charged at £3.00 per mile</p>
                     <p><strong>Distance from Airport: </strong>{{ item.property.distance_to_airport }} miles</p>
-                    <p><strong>Price for taxi from airport to property: </strong>£{{ item.taxi_price|floatformat:2 }}</p>
+                    <p><strong>Price for taxi from airport to property: </strong>£{{ item.taxi_quote|floatformat:2 }}</p>
                     <p>Would you like to add a taxi service from the airport to the property?</p>
-                    <a href="#">Add Taxi</a>
+                
+                    {% if item.taxi_price %}
+                        <a href="{% url 'remove_taxi' item.property.id %}" class="btn btn-danger">Remove Taxi</a>
+                    {% else %}
+                        <a href="{% url 'add_taxi' item.property.id %}" class="btn btn-primary">Add Taxi</a>
+                    {% endif %}
                 </div>
             </div>
             

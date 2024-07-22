@@ -16,7 +16,8 @@
             "bedrooms": 2,
             "has_wifi": false,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }   
     },
     {
@@ -36,7 +37,8 @@
             "bedrooms": 4,
             "has_wifi": true,
             "has_parking": false,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }
     },
     {
@@ -56,7 +58,8 @@
             "bedrooms": 3,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }
     },
     {
@@ -76,7 +79,8 @@
             "bedrooms": 2,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     },
     {
@@ -96,7 +100,8 @@
             "bedrooms": 3,
             "has_wifi": true,
             "has_parking": false,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }
     },
     {
@@ -116,7 +121,8 @@
             "bedrooms": 2,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     },
     {
@@ -136,7 +142,8 @@
             "bedrooms": 3,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     },
     {
@@ -156,7 +163,8 @@
             "bedrooms": 3,
             "has_wifi": false,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     },
     {
@@ -176,7 +184,8 @@
             "bedrooms": 3,
             "has_wifi": true,
             "has_parking": false,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     },
     {
@@ -196,7 +205,8 @@
             "bedrooms": 2,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }
     },
     {
@@ -216,7 +226,8 @@
             "bedrooms": 4,
             "has_wifi": true,
             "has_parking": false,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": true
         }
     },
     {
@@ -236,7 +247,8 @@
             "bedrooms": 2,
             "has_wifi": true,
             "has_parking": true,
-            "non_smoking": true
+            "non_smoking": true,
+            "pet_friendly": false
         }
     }
 ]
