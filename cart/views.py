@@ -31,6 +31,7 @@ def cart_add(request, item_id):
     
     request.session['cart'] = cart
     print(request.session['cart'])
+    messages.success(request, 'Property added to cart successfully')
     return redirect(reverse('cart'))
 
 
@@ -42,6 +43,7 @@ def remove_from_cart(request, item_id):
         cart.pop(item_id)
 
         messages.success(request, 'Property removed from cart successfully')
+        print(messages.get_messages(request))
         request.session['cart'] = cart
         return HttpResponse(status=200)
 

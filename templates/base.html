@@ -41,35 +41,37 @@
                     </a>
                 </div> 
                 <div class="col-12 col-lg-8">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="list-inline-item"><a href="{% url 'properties' %}">Properties</a></li>
-                    <li class="list-inline-item"><a href="{% url 'faqs' %}">FAQs</a></li>
-                    <div class="dropdown show list-inline-item">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          My Account
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                          
-                          {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a class="dropdown-item" href="{% url 'properties' %}">Manage Properties</a>
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="list-inline-item"><a href="{% url 'properties' %}">Properties</a></li>
+                        <li class="list-inline-item"><a href="{% url 'faqs' %}">FAQs</a></li>
+                        <div class="dropdown show list-inline-item">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                          
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a class="dropdown-item" href="{% url 'properties' %}">Manage Properties</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                             {% endif %}
-                            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                          {% else %}
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
-                            <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                          {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li class="list-inline-item ml-2 shopping-bag"><a href="{% url 'cart' %}">{% if cart_items %}<i class="fa-solid fa-bag-shopping cart-full"></i>{% else %}<i class="fa-solid fa-bag-shopping"></i>{% endif %}</li></a>
-
-                </ul>
+                        <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li class="list-inline-item ml-2 shopping-bag"><a href="{% url 'cart' %}">{% if cart_items %}
+                            <i class="fa-solid fa-bag-shopping cart-full"></i>{% else %}<i class="fa-solid fa-bag-shopping">
+                            </i>{% endif %}</li></a>
+                    </ul>
                 </div>
-                </div>
+            </div>            
         </header>
-        {% if messages %}
+
+{% if messages %}
         <div class="message-container">
             {% for message in messages %}
                 {% with message.level as level %}
@@ -86,7 +88,7 @@
             {% endfor %}
         </div>
     {% endif %}
-    
+       
         {% block page_header %}
         {% endblock %}
 
@@ -94,6 +96,9 @@
         {% endblock %}
 
         {% block postloadjs %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
         {% endblock %}
 
         <footer class="box-shadow-footer">

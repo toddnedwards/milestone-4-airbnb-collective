@@ -33,7 +33,7 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details # updated
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2) # updated
-        
+
 
     def handle_payment_intent_payment_failed(self, event):
         """

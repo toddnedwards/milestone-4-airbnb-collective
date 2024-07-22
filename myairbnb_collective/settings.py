@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -97,7 +98,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myairbnb_collective.wsgi.application'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+WSGI_APPLICATION = 'myairbnb_collective.wsgi.application' 
 
 
 # Database
