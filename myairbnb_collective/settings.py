@@ -26,7 +26,7 @@ SECRET_KEY = '(+@mp8(gee_zk3jajl9vp%z)x3&vemahtcyfn5m%4ar23uv3h8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['my-airbnb-collective.herokuapp.com', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
 CSRF_COOKIE_SECURE = True
 
@@ -105,12 +105,17 @@ WSGI_APPLICATION = 'myairbnb_collective.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

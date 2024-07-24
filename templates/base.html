@@ -29,48 +29,17 @@
 
         {% block extra_js %}
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="media/favicon.jpeg">
+        <link rel="shortcut icon" type="favicon" href="{{ MEDIA_URL }}favicon.ico" >
         <title>My AirBnB Collective {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
+        
+        <!-- Show header/ navbar section -->
         <header class="container-fluid sticky-top bg-light box-shadow-header">
-            <div id="topnav" class="row d-lg-flex d-flex mb-3 pt-4 align-items-center">
-                <div class="my-auto text-lg-left p-2">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link navbar-brand">
-                        <h2 class="text-dark"><strong>My</strong> AirBnb Collective</h2>
-                    </a>
-                </div> 
-                <div class="col-12 col-lg-8">
-                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                        <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="list-inline-item"><a href="{% url 'properties' %}">Properties</a></li>
-                        <li class="list-inline-item"><a href="{% url 'faqs' %}">FAQs</a></li>
-                        <div class="dropdown show list-inline-item">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My Account
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                          
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a class="dropdown-item" href="{% url 'properties' %}">Manage Properties</a>
-                                {% endif %}
-                                <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
-                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                            {% else %}
-                                <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
-                                <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                            {% endif %}
-                            </div>
-                        </div>
-                        <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
-                        <li class="list-inline-item ml-2 shopping-bag"><a href="{% url 'cart' %}">{% if cart_items %}
-                            <i class="fa-solid fa-bag-shopping cart-full"></i>{% else %}<i class="fa-solid fa-bag-shopping">
-                            </i>{% endif %}</li></a>
-                    </ul>
-                </div>
-            </div>            
+            {% include 'includes/header.html' %}
         </header>
 
+        <!-- Show toast messages -->
         {% if messages %}
             <div class="message-container">
                 {% for message in messages %}
@@ -94,69 +63,15 @@
 
         {% block content %}
         {% endblock %}
+        
+        <!-- Footer -->
 
+        {% include 'includes/footer.html' %}
+        
         {% block postloadjs %}
-        <script type="text/javascript">
-            $('.toast').toast('show');
-        </script>
+            <script type="text/javascript">
+                $('.toast').toast('show');
+            </script>
         {% endblock %}
-
-        <footer class="box-shadow-footer">
-            <div class="container-fluid bg-light p-4">
-                <div class="row">
-                    <div class="col-4">
-                        <h3 class="text-center"><strong>My</strong> AirBnb Collective</h3>
-                        <br>
-                        <h5 class="text-center">Explore</h5>
-                        <ul class="list-unstyled pl-4 pt-1">
-                            <li><a href="{% url 'home' %}">Home</a></li>
-                            <li><a href="{% url 'properties' %}">Properties</a></li>
-                            <li><a href="{% url 'faqs' %}">FAQs</a></li>
-                            {% if user.is_authenticated %}
-                                <li><a href="{% url 'profile' %}">My Profile</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                    <div class="col-4 border-right border-left border-dark">
-                        <h3 class="text-center">Social Media</h3>
-                        <br>
-                        <h5 class="text-center">Find Us On:</h5>
-                        <ul class="list-unstyled pl-4 pt-1">
-                            <li class="p-1">
-                                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-                            </li>
-                            <li class="p-1">
-                                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                            </li>
-                            <li class="p-1">
-                                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
-                            </li>
-
-                        </ul>
-                    </div><div class="col-4">
-                        <h3 class="text-center">Contact Us</h3>
-                        <br>
-                            <h5 class="text-center">Have questions? Contact us at:</h5>
-                        <ul class="list-unstyled pl-4 pt-1">                  
-                            <li class="p-1">
-                                <a href="mailto:info@myairbnbcollective.com"><i class="fa-regular fa-envelope"></i> info@myairbnbcollective.com</a>
-                            </li>
-                            <li class="p-1">
-                                <a href="tel:080080808"><i class="fa-solid fa-phone"></i> 0800 80808</a>
-                            </li>
-                            <li class="p-1">
-                                <a href="{% url 'contact' %}"><i class="fa-regular fa-clipboard"></i> Contact Form</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        © <span id="year"></span> My AirBnb Collective
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
     </body>
 </html>

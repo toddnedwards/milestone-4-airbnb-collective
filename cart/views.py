@@ -40,12 +40,14 @@ def remove_from_cart(request, item_id):
 
     try:
         cart = request.session.get('cart', {})
-        cart.pop(item_id)
+        if item_id in cart:
+                cart.pop(item_id)
+                messages.success(request, 'Property removed from cart successfully')
+        else:
+            messages.warning(request, 'Property not found in cart')
 
-        messages.success(request, 'Property removed from cart successfully')
         request.session['cart'] = cart
         return redirect('cart')
-        return HttpResponse(status=200)
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
@@ -81,4 +83,4 @@ def remove_taxi(request, item_id):
             del cart[item_id]
     
     request.session['cart'] = cart
-    return redirect('cart')
+    return redirect(reverse('cart'))

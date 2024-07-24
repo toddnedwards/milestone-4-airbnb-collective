@@ -24,9 +24,11 @@
       {% for property in properties %}
       <div class="card col-lg-3 col-md-4 mb-4">
         {% if property.image %}
-        <a href="{% url 'property_details' property.id %}">
-          <img class="card-img-top img-fluid img-card mt-4 property-img" src="{{ property.image.url }}" alt="Card image cap">
-        </a>
+        <div class="justify-content-center">
+          <a href="{% url 'property_details' property.id %}">
+            <img class="card-img-top img-fluid img-card mt-4 property-img" src="{{ property.image.url }}" alt="Card image cap">
+          </a>
+        </div>
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ property.name }}</h5>
@@ -68,7 +70,7 @@
       {% endfor %}
     </div>
 
+{% endblock %}
 
 {% block postloadjs %}
-{% endblock %}
 {% endblock %}

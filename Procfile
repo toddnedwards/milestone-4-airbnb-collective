@@ -1,0 +1,1 @@
+web: gunicorn myairbnb_collective.wsgi:application
