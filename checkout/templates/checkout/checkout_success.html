@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block extra_title %}
+| Checkout Completed
+{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -37,7 +41,7 @@
                             <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                             <p><strong>Amount Of Days : </strong>{{ item.total_days }}</p>
                             <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
-                            <p><strong>Subtotal : </strong>£{{ item.lineitem_total }}</p>
+                            <p><strong>Subtotal : </strong>£{{ item.sub_total }}</p>
                         </div>                                    
                     </div> 
                 </div>

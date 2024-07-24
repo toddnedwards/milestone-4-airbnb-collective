@@ -1,0 +1,28 @@
+Hi {{ order.full_name }}!
+
+Thank you for placing your order with us!
+
+Here are your booking details:
+
+Order Number: {{ order.order_number }}
+{% for item in order.lineitems.all %}
+    Property Booked: {{ item.property.name }}
+    Location: {{ item.property.location }}
+    Chosen Dates: {{ item.date_range }}
+    Taxi added from airport: {% if item.add_taxi %} Yes. Taxi cost is £{{ item.taxi_price }}{% else %}No.
+    Subtotal: £{{ item.sub_total }}
+
+    Grand Total: {{ item.grand_total }}
+{% endfor %}
+
+Your phone number on file is: {{ order.phone_number }}
+
+If this is incorrect, please update it on<a href="{% url 'profile' %}">your profile</a> as we may need
+to contact you for booking details.
+
+Thanks again for your order!
+
+Yours sincerely,
+
+MyAirBnBCollective
+

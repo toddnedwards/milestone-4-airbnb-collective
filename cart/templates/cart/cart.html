@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
 {% endblock %}
 
+{% block extra_title %}
+| Shopping Cart
+{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -22,7 +26,7 @@
         {% if cart_items %}
             {% for item in cart_items %}
         <div class="container-fluid">
-            <div class="row cart-container m-4">
+            <div class="row cart-container m-4 bg-light">
                 <div class="col-3 cart-item m-4">
                     <img class="cart-image img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
                 </div>
@@ -39,22 +43,23 @@
                     {% if item.taxi_price %}
                         <p class="taxi"><strong>Taxi Price : </strong>£{{ item.taxi_price|floatformat:2 }}</p> 
                     {% endif %}
-                    <p><strong>Sub Total : </strong>£{{ item.property_total }}</p>
+                    <p><strong>Sub Total : </strong>£{{ item.sub_total }}</p>
                 </div>
                 <div class=" m-4 pr-4">
-                    <a href="" class="btn btn-primary">
+                    <a href="{% url 'cart_update' item.property.id %}" class="btn btn-primary">
                         <span class="text-uppercase">Edit Booking</span>
                         <span class="icon">
                             <i class="fa-solid fa-pen"></i>
                         </span>
                     </a>
                     <br>
-                    <a id="remove_{{ item.item_id }}" class="remove-property btn btn-danger mt-2">
-                        <span class="text-uppercase">Delete Booking</span>
-                        <span class="icon">
-                            <i class="fa-solid fa-trash"></i>
-                        </span>
-                    </a>
+                    
+                    <button type="button" class="btn btn-danger mt-4 text-uppercase" data-toggle="modal" data-target="#deleteModal-{{ item.item_id }}">
+                        Delete Booking<i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    {% include 'cart/includes/delete_booking_modal.html' %}
+                    
                 </div>
                 <div class="col m-4 taxi-section">
                     <h5><i class="fa-solid fa-taxi pr-2"></i>Need Taxi To the Airport?</h5>
@@ -106,11 +111,9 @@
         </span>
     </a>
 </div>
-
-
 {% endif %}
 
-
+{% endblock %}
 {% block postloadjs %}
 
 <script type="text/javascript">
@@ -127,6 +130,4 @@
          });
     });
 </script>
-
-{% endblock %}
 {% endblock %}

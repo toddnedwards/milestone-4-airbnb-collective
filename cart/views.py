@@ -8,7 +8,7 @@ from airbnb_properties.models import Property
 
 # Create your views here.
 def cart(request):
-    return render(request, "cart.html")
+    return render(request, "cart/cart.html")
 
 
 def cart_add(request, item_id):
@@ -43,8 +43,8 @@ def remove_from_cart(request, item_id):
         cart.pop(item_id)
 
         messages.success(request, 'Property removed from cart successfully')
-        print(messages.get_messages(request))
         request.session['cart'] = cart
+        return redirect('cart')
         return HttpResponse(status=200)
 
     except Exception as e:
@@ -53,7 +53,8 @@ def remove_from_cart(request, item_id):
 
 
 def cart_update(request):
-    pass
+    
+        return redirect(reverse('property_details'))
 
 
 def add_taxi(request, item_id):
@@ -80,4 +81,4 @@ def remove_taxi(request, item_id):
             del cart[item_id]
     
     request.session['cart'] = cart
-    return redirect(reverse('cart'))
+    return redirect('cart')

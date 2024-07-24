@@ -2,6 +2,10 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}
+| Edit {{ property.name }}, {{ property.location }}
+{% endblock %}
+
 {% block content %}
 
 <!-- Properties section -->
