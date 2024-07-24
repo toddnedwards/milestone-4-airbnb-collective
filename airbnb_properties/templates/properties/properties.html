@@ -24,9 +24,9 @@
       {% for property in properties %}
       <div class="card col-lg-3 col-md-4 mb-4">
         {% if property.image %}
-        <div class="justify-content-center">
+        <div class="">
           <a href="{% url 'property_details' property.id %}">
-            <img class="card-img-top img-fluid img-card mt-4 property-img" src="{{ property.image.url }}" alt="Card image cap">
+            <img class="card-img-top img-fluid img-card mt-4" src="{{ property.image.url }}" alt="Card image cap">
           </a>
         </div>
         {% endif %}

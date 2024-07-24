@@ -1,11 +1,6 @@
-a {
+.nav-link {
   color: blue !important;
 }
-
-a:hover {
-  color: #0039a6 !important;
-}
-
 
 .message-container {
     position: fixed;
@@ -66,9 +61,9 @@ a:hover {
 /* Properties html */
 
 .img-card {
-  height: 230px;
-  width: 400px;
-  align-self: center;
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .property-img {

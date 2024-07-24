@@ -18,7 +18,7 @@ def airbnb_properties(request):
         'properties': properties,
     }
 
-    return render(request, 'properties/index.html', context)
+    return render(request, 'properties/properties.html', context)
 
 
 def property_details(request, property_id):

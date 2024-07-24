@@ -69,6 +69,7 @@ def add_taxi(request, item_id):
     else:
         cart[item_id] = {'add_taxi': taxi_price}
     
+    messages.success(request, 'Taxi Added to booking')
     request.session['cart'] = cart
     return redirect(reverse('cart'))
 

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-# import dj_database_url
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,10 +26,11 @@ SECRET_KEY = '(+@mp8(gee_zk3jajl9vp%z)x3&vemahtcyfn5m%4ar23uv3h8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['my-airbnb-collective.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net', 'my-airbnb-collective.herokuapp.com/', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
 CSRF_COOKIE_SECURE = True
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Application definition
 

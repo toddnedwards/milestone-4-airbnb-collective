@@ -2,10 +2,6 @@
     font-size: 60px;
 }
 
-/* .cart-image {
-    height: 200px;
-    width: auto;
-} */
 
 .cart-container {
     border-style: groove;
@@ -15,3 +11,5 @@
 .taxi-section {
     border-left: 2px solid #c8c8c8;
 }
+
+/* Breakpoints */

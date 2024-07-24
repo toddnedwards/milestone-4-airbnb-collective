@@ -1,1 +1,1 @@
-web: gunicorn myairbnb_collective.wsgi:application
+web: gunicorn perfect_fit.wsgi:application
