@@ -1,0 +1,32 @@
+<div id="Lightbox" class="modal">
+  <span class="close pointer" onclick="closeLightbox()">&times;</span>
+  <div class="modal-content">
+    <div class="slide">
+        <img src="{{ property.image.url }}" class="image-slide" alt="{{ property.name }}"/>
+        <p class="text-overlay">{{ property.name }} exterior, {{ property.location }}</p>
+    </div>
+    <div class="slide">
+        <img src="{{ property.image_bathroom.url }}" class="image-slide" alt="{{ property.name }} bathroom"/>
+        <p class="text-overlay">{{ property.name }} bathroom, {{ property.location }}</p>
+    </div>    
+    <div class="slide">
+        <img src="{{ property.image_kitchen.url }}" class="image-slide" alt="{{ property.name }} kitchen"/>
+        <p class="text-overlay">{{ property.name }} kitchen, {{ property.location }}</p>
+    </div>
+  
+    <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  
+    <div class="dots">
+      <div class="col">
+        <img src="{{ property.image.url }}" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="{{ property.name }}"/>
+      </div>
+      <div class="col">
+        <img src="{{ property.image_bathroom.url }}" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="{{ property.name }} bathroom"/>
+      </div>
+      <div class="col">
+        <img src="{{ property.image_kitchen.url }}" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="{{ property.name }} kitchen"/>
+      </div>
+    </div>
+  </div>
+</div>
