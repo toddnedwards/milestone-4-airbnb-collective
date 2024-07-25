@@ -30,20 +30,20 @@
             <div class="col-12">
                 {% if property.image %}
                     <img id="mainImage" src="{{ property.image.url }}" onclick="openLightbox();toSlide(1)" 
-                        class="hover-shadow preview property-details-img img-fluid m-2" alt="{{ property.name }}" title="{{ property.name }} exterior, {{ property.location }}">
+                        class="hover-shadow preview property-details-img img-fluid m-2" alt="{{ property.name }}" title="{{ property.name }} Exterior, {{ property.location }}">
                 {% endif %}
             </div>
             <div class="row px-3">
                 <div class="col-6">
                     {% if property.image_kitchen %}
                         <img id="image2" src="{{ property.image_kitchen.url }}" onclick="openLightbox();toSlide(2)" 
-                            class="hover-shadow preview property-details-img img-fluid img-card m-2" alt="{{ property.name }}" title="{{ property.name }} kitchen, {{ property.location }}">
+                            class="hover-shadow preview property-details-img img-fluid img-card m-2" alt="{{ property.name }}" title="{{ property.name }} Kitchen, {{ property.location }}">
                     {% endif %}
                 </div>
                 <div class="col-6">
                     {% if property.image_bathroom %}
                         <img id="image3" src="{{ property.image_bathroom.url }}" onclick="openLightbox();toSlide(3)" 
-                            class="hover-shadow preview property-details-img img-fluid img-card m-2" alt="{{ property.name }}" title="{{ property.name }} bathroom, {{ property.location }}">
+                            class="hover-shadow preview property-details-img img-fluid img-card m-2" alt="{{ property.name }}" title="{{ property.name }} Bathroom, {{ property.location }}">
                     {% endif %}
                 </div>
             </div>
