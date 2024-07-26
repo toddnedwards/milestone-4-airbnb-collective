@@ -1,4 +1,5 @@
 asgiref==3.8.1
+boto==2.49.0
 boto3==1.34.149
 botocore==1.34.149
 chardet==3.0.4
