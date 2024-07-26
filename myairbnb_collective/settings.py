@@ -27,6 +27,8 @@ SECRET_KEY = '(+@mp8(gee_zk3jajl9vp%z)x3&vemahtcyfn5m%4ar23uv3h8'
 DEBUG = True
 
 ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['my-airbnb-collective-57b00b515cab.herokuapp.com']
+CSRF_COOKIE_SECURE = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
