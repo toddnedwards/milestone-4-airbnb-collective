@@ -95,3 +95,14 @@ input#id_date_range {
 img.property-details-img:hover {
   cursor: zoom-in;
 }
+
+
+/* Media Queries */
+
+@media (max-width: 480px) {
+   {
+    .footer-links a {
+      text-align: center;
+    }
+  }
+}
