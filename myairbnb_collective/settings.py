@@ -30,6 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['my-airbnb-collective-57b00b515cab.herokuapp.com/']
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Application definition
@@ -71,6 +73,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'myairbnb_collective.urls'
 
