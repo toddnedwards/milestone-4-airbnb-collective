@@ -14,3 +14,10 @@ https://stackoverflow.com/questions/59450570/how-to-create-start-date-and-end-da
 strip time datetime function:
 
 https://www.geeksforgeeks.org/python-datetime-strptime-function/
+
+
+
+
+redirect timeout found at:
+
+https://stackoverflow.com/questions/16890899/how-can-i-make-a-delay-of-5-sec-while-redirecting-one-page-to-another-in-django

@@ -26,6 +26,8 @@ def property_details(request, property_id):
         information and to book selected property"""
 
     property = get_object_or_404(Property, pk=property_id)
+    date_range = request.GET.get('date_range', '')
+
     if request.method == 'POST':
         form = DateForm(request.POST)
         if form.is_valid():
@@ -50,11 +52,12 @@ def property_details(request, property_id):
             return redirect('cart')
 
     else:
-        form = DateForm()
+        form = DateForm(initial={'date_range': date_range})
 
     context = {
         'property': property,
-        'form':form,
+        'form': form,
+        'date_range': date_range,
     }
 
     return render(request, 'properties/property_details.html', context)
@@ -103,4 +106,3 @@ def delete_property(request, property_id):
     property.delete()
     messages.success(request, 'Property Deleted')
     return redirect(reverse('home'))
-   

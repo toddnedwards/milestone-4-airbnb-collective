@@ -13,3 +13,32 @@
 }
 
 /* Breakpoints */
+
+@media (max-width: 480px) {
+
+    h3 {
+        margin-top: 10px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    .taxi-section {
+        border-left: 0px solid !important;
+    }
+
+    .property-details {
+        margin-bottom: 0px !important;
+    }
+
+    .cart-container {
+        border-style: none;
+        border-bottom: 1px solid #000;
+        border-radius: 0px;
+    }
+}

@@ -26,11 +26,11 @@
         {% if cart_items %}
             {% for item in cart_items %}
         <div class="container-fluid">
-            <div class="row cart-container m-4 bg-light">
+            <div class="row cart-container m-lg-4 bg-light">
                 <div class="col-10 col-lg-3 cart-item mx-auto mt-4">
                     <img class="cart-image img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
                 </div>
-                <div class="col m-4">
+                <div class="col m-4 property-details">
                     <h5><i class="fa-solid fa-house pr-2"></i>Property Details</h5>
                     <br>
                     <p><strong>Property Name: </strong>{{ item.property.name }}</p>
@@ -45,7 +45,7 @@
                     {% endif %}
                     <p><strong>Sub Total : </strong>£{{ item.sub_total }}</p>
                 </div>
-                <div class="m-4 pr-4 col-3">
+                <div class="m-4 pr-4 col-lg-3">
                         <a href="{% url 'cart_update' item.property.id %}" class="btn btn-primary">
                             <span class="text-uppercase">Edit Booking</span>
                             <span class="icon">
@@ -53,7 +53,7 @@
                             </span>
                         </a>
                     <br>
-                        <button type="button" class="btn btn-danger mt-4 text-uppercase" data-toggle="modal" data-target="#deleteModal-{{ item.item_id }}">
+                        <button type="button" class="btn btn-danger mt-lg-4 text-uppercase" data-toggle="modal" data-target="#deleteModal-{{ item.item_id }}">
                             Delete Booking<i class="fa-solid fa-trash"></i>
                         </button>
                     {% include 'cart/includes/delete_booking_modal.html' %}

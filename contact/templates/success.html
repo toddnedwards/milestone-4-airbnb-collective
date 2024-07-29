@@ -9,19 +9,28 @@
 
 <!-- Heading -->
 
-<div class="container-fluid">
+<div class="container-fluid wrapper">
     <div class="row">
         <div class="col text-center">
-            <h1>Contact Us</h1>
+            <h1>Message Sent!</h1>
             <br>
-            <h3>Have Questions? Contact Us Below:</h3>
+            <h3>Thankyou for your message. We will reply to your query as soon as possible</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <p>You will be redirected to the properties page in 5 seconds.</p>
+            <p>If you are not automatically redirected, <a href="{% url 'properties' %}">click here</a></p>
         </div>
     </div>
 </div>
 
-<h2>Email Sent Successfully</h2>
-
 {% block postloadjs %}
+<!-- <script>
+   setTimeout(function() {
+            window.location.href = "{% url 'properties' %}";
+        }, 5000);
+</script> -->
 
 {% endblock %}
 {% endblock %}

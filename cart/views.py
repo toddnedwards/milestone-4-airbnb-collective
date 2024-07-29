@@ -54,9 +54,18 @@ def remove_from_cart(request, item_id):
         return HttpResponse(status=500)
 
 
-def cart_update(request):
-    
-        return redirect(reverse('property_details'))
+def cart_update(request, property_id):
+    property = get_object_or_404(Property, pk=property_id)
+    cart = request.session.get('cart', {})
+    date_range = request.session.get('cart', {}).get(str(property_id), {}).get('date_ranges', [])[0]
+
+    if property_id in cart:
+        del cart[property_id]
+        request.session['cart'] = cart
+        request.session.modified = True
+
+
+    return redirect(f"{reverse('property_details', args=[property_id])}?date_range={date_range}")
 
 
 def add_taxi(request, item_id):

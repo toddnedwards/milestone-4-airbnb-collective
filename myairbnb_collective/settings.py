@@ -28,7 +28,7 @@ DEBUG = True
 # 
 # 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost', '8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
 
 CSRF_TRUSTED_ORIGINS = ['my-airbnb-collective-57b00b515cab.herokuapp.com/']
 

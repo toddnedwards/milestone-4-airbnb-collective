@@ -1,3 +1,24 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  overflow:auto;
+  padding-bottom: 200px;
+}
+
+footer {
+  margin-top: auto;
+  bottom: 0;
+  left: 0;
+}
+
 .nav-link {
   color: blue !important;
 }
@@ -11,6 +32,7 @@
 
 .custom-toast {
     overflow: visible;
+    background-color: #fff;
 }
 
 .toast-capper {
@@ -57,7 +79,6 @@
   color: green;
 }
 
-
 /* Properties html */
 
 .img-card {
@@ -100,9 +121,33 @@ img.property-details-img:hover {
 /* Media Queries */
 
 @media (max-width: 480px) {
-   {
     .footer-links a {
-      text-align: center;
+        text-align: center;
     }
-  }
+    .img-card {
+        height: auto;
+    }
+    #Lightbox {
+        padding: 0;
+        padding-top: 300px;
+        width: 100%;
+        margin-top: 60px;
+    }
+    .modal-content {
+        width: 100%;
+    }
+    .modal-dialog-centered {
+        display: flex;
+        align-items: center;
+        min-height: calc(100% - 1rem);
+    }
+    .modal-header .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 1051;
+    }
+    #image2, #image3 {
+      margin-top: 20px;
+    }
 }

@@ -1,30 +1,31 @@
 <script type="text/javascript">
-
-    // Allow user to choose a start date and end date for date picker, and highlight dates chosen
-
   $(function() {
-    
-    $('#id_date_range').daterangepicker({
-      autoUpdateInput: false,
-      showDropdowns: true,
-      minDate: new Date(),
-      locale: {
-        cancelLabel: 'Clear'
+      var initialDateRange = "{{ date_range }}";
+      
+      $('#id_date_range').daterangepicker({
+          autoUpdateInput: false,
+          showDropdowns: true,
+          minDate: new Date(),
+          locale: {
+              format: 'DD MMM YYYY',
+              cancelLabel: 'Clear'
+          }
+      });
+
+      // Set initial value if date range is provided
+      if (initialDateRange) {
+          var dates = initialDateRange.split(' - ');
+          $('#id_date_range').data('daterangepicker').setStartDate(dates[0]);
+          $('#id_date_range').data('daterangepicker').setEndDate(dates[1]);
+          $('#id_date_range').val(initialDateRange);
       }
-    });
 
-    $('#id_date_range').on('apply.daterangepicker', function(ev, picker) {
-      $(this).val(picker.startDate.format('DD MMM YYYY') + ' - ' + picker.endDate.format('DD MMM YYYY'));
-    });
+      $('#id_date_range').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('DD MMM YYYY') + ' - ' + picker.endDate.format('DD MMM YYYY'));
+      });
 
-    $('#id_date_range').on('cancel.daterangepicker', function(ev, picker) {
-      $(this).val('');
-    });
-
-    if (dateRangeValue.trim() === '') {
-      alert('Please choose a date.');
-      return;
-      }
-    });
-    
+      $('#id_date_range').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+      });
+  });
 </script>
