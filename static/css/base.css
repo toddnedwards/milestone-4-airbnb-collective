@@ -150,4 +150,11 @@ img.property-details-img:hover {
     #image2, #image3 {
       margin-top: 20px;
     }
+    .border-left {
+      border-left: 0px solid !important;
+    }
+    
+    .border-right {
+      border-right: 0px solid !important;
+    }
 }
