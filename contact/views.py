@@ -21,7 +21,7 @@ def contact(request):
     else:
         form = ContactForm()
     
-    return render(request, 'contact_us.html', {'form': form})
+    return render(request, 'contact.html', {'form': form})
 
 def success(request):
     return render(request, 'success.html')
