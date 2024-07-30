@@ -42,6 +42,7 @@ footer {
 
 .search-button {
   height: 100%;
+  margin: 0;
 }
 
 .custom-toast {

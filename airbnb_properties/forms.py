@@ -12,8 +12,10 @@ class PropertyForm(forms.ModelForm):
 
     image = forms.ImageField(label='Image', required=False)
 
+
 class DateRangeInput(forms.DateInput):
     input_type = "text"
+
 
 class DateForm(forms.ModelForm):
 

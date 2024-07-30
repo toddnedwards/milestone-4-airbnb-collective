@@ -67,7 +67,7 @@ If the customer has any issues with their bookings, they also need the ability t
 
 ### User Stories
 
-##### Viewing and Navigation
+#### Viewing and Navigation
 
 As a shopper:
 
@@ -82,7 +82,7 @@ As a shopper:
 | View a date range                                       | See what dates that I would like to book                                                                  |
 | See how much my booking is once I have chosen dates     | See quickly if it is too expensive for me and possibly adjust the dates                                   |
 
-##### Registration And User Accounts
+#### Registration And User Accounts
 
 As a registered user/ user about to create an account:
 
@@ -96,6 +96,18 @@ As a registered user/ user about to create an account:
 | Be able to save my personal information to my profile when using checkout  | Save time having to enter my details again on future bookings                           |
 | Be able to edit my personal information in my profile view                 | Update any change to my personal details or address                                     |
 | Be able to logout from my account                                          | Keep my information safe if my device is left unattended                                |
+
+#### Sorting And Searching
+
+As a shopper:
+
+FINISH FINISH FINISH!!!!!
+
+
+#### Purchasing And Checkout
+
+As a shopper:
+
 
 
 

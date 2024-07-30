@@ -17,8 +17,23 @@ def airbnb_properties(request):
     query = None
     no_results = False
     filtered = False
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                properties = properties.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            properties = properties.order_by(sortkey)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -33,13 +48,15 @@ def airbnb_properties(request):
                 messages.error(request, "No results for your search. Please try again")
                 properties = filtered_properties
                 filtered = True
-                
+
+    current_sorting = f'{sort}_{direction}'    
 
     context = {
         'properties': properties,
         'search_term': query,
         'no_results': no_results,
         'filtered': filtered,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'properties/properties.html', context)

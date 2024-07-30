@@ -16,36 +16,58 @@
         <div class="col pt-4">
             <h1 class="text-center">Manage Property</h1>
             <h2 class="text-center">{{ property.name}}- {{ property.location }}</h2>
-            {% if property.image %}
-                <a href="{% url 'property_details' property.id %}">
-                    <img class="card-img-top img-fluid m-2 img-thumbnail" src="{{ property.image.url }}" alt="Card image cap">
-                </a>
-            {% endif %}
-            <br>
-            <hr>
         </div>
     </div>
-</div>
+
+    <div class="row">
+        {% if property.image %}
+            <div class="col-4">
+                <a href="{% url 'property_details' property.id %}">
+                    <img class="card-img-top img-fluid m-2 img-thumbnail" src="{{ property.image.url }}" alt="{{ property.name }} Exterior">
+                </a>
+                <p class="text-center">{{ property.name }} Exterior</p>
+            </div>
+        {% endif %}
+        {% if property.image_kitchen %}
+            <div class="col-4">
+                <a href="{% url 'property_details' property.id %}">
+                    <img class="card-img-top img-fluid m-2 img-thumbnail" src="{{ property.image_kitchen.url }}" alt="{{ property.name }} Kitchen">
+                </a>
+                <p class="text-center">{{ property.name }} Kitchen</p>
+            </div>
+        {% endif %}
+        {% if property.image_kitchen %}
+            <div class="col-4">
+                <a href="{% url 'property_details' property.id %}">
+                    <img class="card-img-top img-fluid m-2 img-thumbnail" src="{{ property.image_bathroom.url }}" alt="{{ property.name }} Bathroom">
+                </a>
+                <p class="text-center">{{ property.name }} Bathroom</p>
+            </div>
+        {% endif %}
+        <br>
+        <hr>
+    </div>
 
 
-<div class="container-fluid">
-    <div class="row justify-content-around">
-        <div class="col-6">
-            <form method="POST" action="{% url 'edit_property' property.id %}" class="form mb-2" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field|as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
-                {% endfor %}
-                <div class="text-right">
-                    <button class="btn btn-primary" type="submit">Update Property</button>
-                    <a class="btn btn-secondary" href="{% url 'properties' %}">Cancel</a>
-                </div>
-            </form>
-        </div>            
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="col-lg-6">
+                <form method="POST" action="{% url 'edit_property' property.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' and field.name != 'total_days' %}
+                            {{ field|as_crispy_field }}
+                        {% elif field.name == 'image' %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit">Update Property</button>
+                        <a class="btn btn-secondary" href="{% url 'properties' %}">Cancel</a>
+                    </div>
+                </form>
+            </div>            
+        </div>
     </div>
 </div>
 
