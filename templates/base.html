@@ -37,6 +37,29 @@
         <!-- Show header/ navbar section -->
         <header class="container-fluid sticky-top bg-light box-shadow-header">
             {% include 'includes/header.html' %}
+            <div class="row justify-content-center">
+                <div class="col-4 mb-4">
+                    <form method="GET" action="{% url 'properties' %}">
+                        <div class="input-group w-60">
+                            <input class="form-control border" type="text" name="q" placeholder="Search Our Site">
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-primary" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>  
+            {% if filtered %}
+            <div class="col text-center mb-4">
+                <form method="GET" action="{% url 'properties' %}">
+                    <button class="btn btn-primary" type="submit">Reset Search</button>
+                </form>
+            </div>
+                {% endif %}
         </header>
 
         <!-- Show toast messages -->

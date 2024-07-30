@@ -10,17 +10,23 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            # Send an email
             send_mail(
-                form.cleaned_data['subject'],
-                f"Message from {form.cleaned_data['name']} <{form.cleaned_data['email']}>\n\n"
-                f"{form.cleaned_data['message']}",
-                None,
-                ['myairbnbcollective@gmail.com'],
+                f'From {name}, Subject: {subject}',
+                f'Message: {message}\nContact Phone: {phone}',
+                email,  # From email
+                [settings.ADMIN_EMAIL],
+                fail_silently=False,
             )
-            return render(request, 'success.html')
+
+            return redirect('success')
     else:
         form = ContactForm()
-    
+
     return render(request, 'contact.html', {'form': form})
 
 def success(request):
