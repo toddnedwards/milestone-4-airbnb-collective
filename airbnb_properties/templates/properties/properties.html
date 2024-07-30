@@ -9,66 +9,68 @@
 
 <!-- Properties section -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col pt-4">
-        <h1 class="text-center">See Our Properties Below</h1>
-        <br>
-        <hr>
-      </div>
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col pt-4">
+      <h1 class="text-center">See Our Properties Below</h1>
+      <br>
+      <hr>
     </div>
   </div>
+</div>
 
-  <div class="container-fluid"></div>
-    <div class="row">
-      {% for property in properties %}
-      <div class="col-lg-3 col-md-4 mb-4">
-        {% if property.image %}
-        <div class="">
-          <a href="{% url 'property_details' property.id %}">
-            <img class="card-img-top img-fluid img-card mt-4" src="{{ property.image.url }}" alt="Card image cap">
-          </a>
+<div class="container-fluid">
+  <div class="row">
+    {% for property in properties %}
+    <div class="col-lg-3 col-md-4 mb-4">
+      {% if property.image %}
+      <div class="">
+        <a href="{% url 'property_details' property.id %}">
+          <img class="card-img-top img-fluid img-card mt-4" src="{{ property.image.url }}" alt="Card image cap">
+        </a>
+      </div>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ property.name }}</h5>
+        <p class="card-text">{{ property.description }}</p>
+        <p class="card-text"><strong>Location: </strong>{{ property.location }}</p>
+        <p class="card-text"><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
+        <p class="card-text"><strong>Bedrooms: </strong>{{ property.bedrooms }}</p>
+        <a href="{% url 'property_details' property.id %}" class="btn btn-primary">Find Out More</a>
+        {% if request.user.is_superuser %}
+          <div class="mt-2">
+            <a href="{% url 'edit_property' property.id %}" class="btn btn-success btn-sm" role="button" aria-disabled="true">Edit</a>
+            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ property.id }}">
+              Delete
+            </button>
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal-{{ property.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          Are you sure you want to delete this property?
+                      </div>
+                      <div class="modal-footer">
+                          <a href="{% url 'delete_property' property.id %}" class="btn btn-danger">Delete</a>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>                          
+                      </div>
+                  </div>
+              </div>
+            </div>
         </div>
         {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{ property.name }}</h5>
-          <p class="card-text">{{ property.description }}</p>
-          <p class="card-text"><strong>Location: </strong>{{ property.location }}</p>
-          <p class="card-text"><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
-          <p class="card-text"><strong>Bedrooms: </strong>{{ property.bedrooms }}</p>
-          <a href="{% url 'property_details' property.id %}" class="btn btn-primary">Find Out More</a>
-          {% if request.user.is_superuser %}
-            <div class="mt-2">
-              <a href="{% url 'edit_property' property.id %}" class="btn btn-success btn-sm" role="button" aria-disabled="true">Edit</a>
-              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ property.id }}">
-                Delete
-              </button>
-              <!-- Delete Modal -->
-              <div class="modal fade" id="deleteModal-{{ property.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete this property?
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{% url 'delete_property' property.id %}" class="btn btn-danger">Delete</a>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>                          
-                        </div>
-                    </div>
-                </div>
-              </div>
-          </div>
-          {% endif %}
-        </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}
 

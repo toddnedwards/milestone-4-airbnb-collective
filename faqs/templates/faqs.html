@@ -9,28 +9,29 @@
 
 <!-- Properties section -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col pt-4">
-        <h1 class="text-center">Frequently Asked Questions</h1>
-        <br>
-        <hr>
-      </div>
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col pt-4">
+      <h1 class="text-center">Frequently Asked Questions</h1>
+      <br>
+      <hr>
     </div>
   </div>
+</div>
 
-    <div class="container-fluid"></div>
-        <div class="row justify-content-center mb-4">
-            {% for faq in faqs %}
-            <div class="card col-10 bg-light">
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{ faq.question }}</h5>
-                    <p class="card-text text-center text-md-left">{{ faq.answer }}</p>
-                </div>
+<div class="container-fluid"></div>
+    <div class="row justify-content-center m-0 mb-4">
+        {% for faq in faqs %}
+        <div class="card col-10 bg-light">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ faq.question }}</h5>
+                <p class="card-text text-center text-md-left">{{ faq.answer }}</p>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+</div>
 
 {% block postloadjs %}
 {% endblock %}

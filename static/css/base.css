@@ -8,6 +8,16 @@ body {
   flex-direction: column;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 .wrapper {
   overflow:auto;
   padding-bottom: 200px;
@@ -28,6 +38,10 @@ footer {
     top: 72px;
     right: 15px;
     z-index: 99999999999;
+}
+
+.search-button {
+  height: 100%;
 }
 
 .custom-toast {
@@ -137,7 +151,7 @@ img.property-details-img:hover {
     }
     #Lightbox {
         padding: 0;
-        padding-top: 300px;
+        padding-top: 200px;
         width: 100%;
         margin-top: 60px;
     }

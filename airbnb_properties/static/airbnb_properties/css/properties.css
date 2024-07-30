@@ -1,17 +1,12 @@
+.property-description-section {
+  border-top: 1px solid #000;
+}
+
 
 .preview {
   width: 100%;
 }
 
-
-.row > .col {
-  padding: 0 8px;
-}
-
-.col {
-  float: left;
-  width: 25%;
-}
     
 .modal {
   display: none;
@@ -87,7 +82,7 @@ img.hover-shadow {
 .close {
   color: white;
   position: absolute;
-  top: 10px;
+  top: 70px;
   right: 25px;
   font-size: 35px;
   font-weight: bold;
