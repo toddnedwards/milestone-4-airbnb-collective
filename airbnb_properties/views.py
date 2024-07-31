@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 
-from .models import Property, Date
+from .models import Property, Date, Category
 from .forms import PropertyForm, DateForm
 
 # Create your views here.
@@ -27,7 +27,8 @@ def airbnb_properties(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 properties = properties.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':

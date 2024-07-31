@@ -27,11 +27,11 @@
 </div>
 
 {% block postloadjs %}
-<!-- <script>
-   setTimeout(function() {
-            window.location.href = "{% url 'properties' %}";
-        }, 5000);
-</script> -->
-
+    {{ block.super }}
+    <script>
+    setTimeout(function() {
+                window.location.href = "{% url 'properties' %}";
+            }, 5000);
+    </script>
 {% endblock %}
 {% endblock %}
