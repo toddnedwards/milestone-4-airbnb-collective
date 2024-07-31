@@ -9,6 +9,10 @@ body {
 }
 
 .overlay {
+  min-height: 100vh;
+}
+
+.overlay {
 	height: 100%;
 	width: 100%;
 	top: 0;

@@ -69,6 +69,7 @@ def property_details(request, property_id):
 
     property = get_object_or_404(Property, pk=property_id)
     date_range = request.GET.get('date_range', '')
+    guest_count = request.GET.get('guest_count', 1)
 
     if request.method == 'POST':
         form = DateForm(request.POST)
@@ -80,10 +81,13 @@ def property_details(request, property_id):
             date.end_date = datetime.strptime(end_date_str, '%d %b %Y')
             date.save()
 
+            guest_count = request.POST.get('guest_count')
+
             if 'cart' not in request.session:
                 request.session['cart'] = {}
             request.session['cart'][property_id] = {
                 'date_ranges': [date.date_range],
+                'guest_count': guest_count,
                 'property_details': {
                     'name': property.name,
                     'location': property.location,
@@ -100,6 +104,8 @@ def property_details(request, property_id):
         'property': property,
         'form': form,
         'date_range': date_range,
+        'max_length': property.bedrooms * 2,
+        'guest_count_range': range(1, property.bedrooms * 2 + 1),
     }
 
     return render(request, 'properties/property_details.html', context)

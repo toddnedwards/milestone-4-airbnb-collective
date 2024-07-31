@@ -63,10 +63,19 @@
             <br>
             <form class="form" action="{% url 'cart_add' property.id %}" method="POST">
                 {% csrf_token %}
-                <label for="id_date_range">Date Range:</label>
+                <label for="id_date_range"><i class="fa-regular fa-calendar text-primary"></i> Date Range:</label>
                 <input type="text" name="date_range" id="id_date_range" autocomplete="off" value="{{ date_range }}">
                 <input type="hidden" name="property_id" value="{{ property.id }}">
                 <input type="hidden" name="total_days" value="{{ total_days }}">
+                <input type="hidden" name="guest_count" value="{{ guest_count }}">
+                <br>
+                <br>
+                <label for="guest_count"><i class="fa-solid fa-person text-primary"></i> Guest Count:</label>
+                    <select name="guest_count" id="guest_count">
+                        {% for i in guest_count_range %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
                 <br>
                 <br>
                 <button class="btn btn-primary" type="submit">Go To Checkout</button>

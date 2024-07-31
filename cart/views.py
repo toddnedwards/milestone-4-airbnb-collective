@@ -16,6 +16,7 @@ def cart_add(request, item_id):
     print(request.POST)
     property = get_object_or_404(Property, pk=item_id)
     date_range = request.POST.get('date_range')
+    guest_count = request.POST.get('guest_count')
     start_date_str, end_date_str = date_range.split(' - ')
     start_date = datetime.strptime(start_date_str, '%d %b %Y')
     end_date = datetime.strptime(end_date_str, '%d %b %Y')
@@ -24,10 +25,15 @@ def cart_add(request, item_id):
     cart = request.session.get('cart', {})
 
     if item_id not in cart:
-        cart[item_id] = {'total_days': total_days, 'date_ranges': [date_range]}
+        cart[item_id] = {
+            'total_days': total_days,
+            'date_ranges': [date_range],
+            'guest_count': guest_count,
+        }
     else:
         cart[item_id]['total_days'] = total_days
         cart[item_id]['date_ranges'].append(date_range)
+        cart[item_id]['guest_count'] = guest_count,
     
     request.session['cart'] = cart
     print(request.session['cart'])
@@ -78,7 +84,7 @@ def add_taxi(request, item_id):
     else:
         cart[item_id] = {'add_taxi': taxi_price}
     
-    messages.success(request, 'Taxi Added to booking')
+    messages.success(request, 'Taxi Successfully Added To Booking')
     request.session['cart'] = cart
     return redirect(reverse('cart'))
 
@@ -92,5 +98,6 @@ def remove_taxi(request, item_id):
         if not cart[item_id]:
             del cart[item_id]
     
+    messages.success(request, 'Taxi Removed From Booking')
     request.session['cart'] = cart
     return redirect(reverse('cart'))

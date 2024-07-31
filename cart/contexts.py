@@ -17,6 +17,7 @@ def cart_contents(request):
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
         taxi_price = item_data.get('add_taxi', 0)
+        guest_count = item_data.get('guest_count')
         if 'date_ranges' in item_data:
             for date_range in item_data['date_ranges']:
                 try:
@@ -40,6 +41,7 @@ def cart_contents(request):
                         'property_total': property_total,
                         'sub_total': sub_total,
                         'taxi_price': taxi_price,
+                        'guest_count': guest_count,
                     })
 
                 except ValueError:
