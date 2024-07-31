@@ -1,11 +1,25 @@
 from django.db import models
 
-# Create your models here.
+
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    name = models.CharField(max_length=254, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
 class Property(models.Model):
 
-    id = models.CharField(max_length=254, primary_key=True)
-    name = models.CharField(max_length=254)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)  
     location = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254, null=True)
     description = models.TextField()
     full_description = models.TextField(null=True, blank=True)
     price_per_night = models.DecimalField(max_digits=6, decimal_places=2)
@@ -26,6 +40,7 @@ class Property(models.Model):
 
     class Meta:
         verbose_name_plural = "properties"
+        
 
 class Date(models.Model):
 
@@ -33,3 +48,6 @@ class Date(models.Model):
     date_range = models.CharField(max_length=255, blank=True, null=True)
     start_date = models.DateField()
     end_date = models.DateField()
+
+    def __str__(self):
+        return self.name

@@ -38,8 +38,8 @@ def cart_contents(request):
                         'property_total': property_total,
                         'sub_total': sub_total,
                         'taxi_price': taxi_price,
-                        'taxi_quote': taxi_quote,
                     })
+
                 except ValueError:
                     pass
 
@@ -47,7 +47,9 @@ def cart_contents(request):
         'cart_items': cart_items,
         'total_days': total_days,
         'property_count': property_count,
+        'property_total': property_total,
         'grand_total': grand_total,
+        'taxi_quote': taxi_quote,
     }
 
     return context

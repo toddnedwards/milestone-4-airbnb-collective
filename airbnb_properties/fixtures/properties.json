@@ -1,9 +1,10 @@
 [
-    {
+    {   
+        "pk": 1,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-1",
             "name": "Cozy Cottage",
+            "category": 1,
             "location": "London, UK",
             "description": "A cozy 2 bedroom cottage in the heart of London.",
             "full_description": "This cozy 2 bedroom cottage is located in the heart of London. It's the perfect place to relax after a day of exploring the city.",
@@ -20,11 +21,12 @@
             "pet_friendly": true
         }   
     },
-    {
+    {   
+        "pk": 2,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-2",
             "name": "Country Manor",
+            "category": [1, 3],
             "location": "Yorkshire, UK",
             "description": "A spacious manor in the beautiful Yorkshire countryside.",
             "full_description": "This spacious manor is located in the beautiful Yorkshire countryside. With plenty of room and stunning views, it's the perfect getaway.",
@@ -41,11 +43,12 @@
             "pet_friendly": true
         }
     },
-    {
+    {   
+        "pk": 3,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-3",
             "name": "Lakeside Retreat",
+            "category": [1, 3],
             "location": "Lake District, UK",
             "description": "A tranquil retreat with stunning views of the lake.",
             "full_description": "This tranquil retreat offers stunning views of the lake. Located in the Lake District, it's the perfect place for a peaceful getaway.",
@@ -62,11 +65,12 @@
             "pet_friendly": true
         }
     },
-    {
+    {   
+        "pk": 4,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-4",
             "name": "City Apartment",
+            "category": [2, 3],
             "location": "Edinburgh, UK",
             "description": "Modern apartment in the city center with a castle view.",
             "full_description": "This modern apartment is located in the city center of Edinburgh. With a view of the castle, it's the perfect place for a city break.",
@@ -83,11 +87,12 @@
             "pet_friendly": false
         }
     },
-    {
+    {   
+        "pk": 5,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-5",
             "name": "Rustic Barn",
+            "category": 1,
             "location": "Cornwall, UK",
             "description": "A rustic barn conversion in the Cornish countryside.",
             "full_description": "This rustic barn conversion offers a unique stay in the beautiful Cornish countryside. With its original features and modern amenities, it's the perfect blend of old and new.",
@@ -104,11 +109,12 @@
             "pet_friendly": true
         }
     },
-    {
+    {   
+        "pk": 6,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-6",
             "name": "Modern Loft",
+            "category": 2,
             "location": "Manchester, UK",
             "description": "A modern loft apartment in the heart of Manchester.",
             "full_description": "This modern loft apartment offers a chic and stylish stay in the heart of Manchester. With its open-plan design and contemporary furnishings, it's the perfect city retreat.",
@@ -125,11 +131,12 @@
             "pet_friendly": false
         }
     },
-    {
+    {   
+        "pk": 7,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-7",
             "name": "Beach House",
+            "category": 4,
             "location": "Brighton, UK",
             "description": "A charming beach house with sea views in Brighton.",
             "full_description": "This charming beach house offers stunning sea views and easy access to the beach. With its cozy interiors and seaside location, it's the perfect place for a relaxing beach holiday.",
@@ -146,11 +153,12 @@
             "pet_friendly": false
         }
     },
-    {
+    {   
+        "pk": 8,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-8",
             "name": "Country Cottage",
+            "category": 2,
             "location": "Cotswolds, UK",
             "description": "A quaint country cottage in the peaceful Cotswolds.",
             "full_description": "This quaint country cottage offers a peaceful stay in the heart of the Cotswolds. With its charming interiors and beautiful surroundings, it's the perfect place for a tranquil retreat.",
@@ -167,11 +175,12 @@
             "pet_friendly": false
         }
     },
-    {
+    {   
+        "pk": 9,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-9",
             "name": "City Penthouse",
+            "category": 2,
             "location": "Birmingham, UK",
             "description": "A luxury city penthouse with panoramic views in Birmingham.",
             "full_description": "This luxury city penthouse offers panoramic views of Birmingham. With its modern amenities and central location, it's the perfect place for a city break.",
@@ -188,11 +197,12 @@
             "pet_friendly": false
         }
     },
-    {
+    {   
+        "pk": 10,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-10",
             "name": "Lakeside Cabin",
+            "category": [1, 3, 4],
             "location": "Lake District, UK",
             "description": "A cozy lakeside cabin in the beautiful Lake District.",
             "full_description": "This cozy lakeside cabin offers a tranquil stay in the beautiful Lake District. With its stunning lake views and cozy interiors, it's the perfect place for a peaceful retreat.",
@@ -209,11 +219,12 @@
             "pet_friendly": true
         }
     },
-    {
+    {   
+        "pk": 11,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-11",
             "name": "Historic Manor",
+            "category": [1, 3],
             "location": "York, UK",
             "description": "A historic manor house with beautiful gardens in York.",
             "full_description": "This historic manor house offers a unique stay in the historic city of York. With its beautiful gardens and original features, it's the perfect place for a luxury getaway.",
@@ -230,11 +241,12 @@
             "pet_friendly": true
         }
     },
-    {
+    {   
+        "pk": 12,
         "model": "airbnb_properties.property",
         "fields": {
-            "id": "property-12",
             "name": "Terraced House",
+            "category": 2,
             "location": "Norfolk, UK",
             "description": "A convenient home in the heart of Norfolk City.",
             "full_description": "This convenient terraced house offers a comfortable stay in the heart of Norfolk City. With its modern amenities and central location, it's the perfect place for a city break.",
