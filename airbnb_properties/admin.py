@@ -19,3 +19,4 @@ class PropertyAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Property, PropertyAdmin)
+admin.site.register(Category)

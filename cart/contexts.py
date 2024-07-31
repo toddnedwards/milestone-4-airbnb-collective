@@ -11,6 +11,8 @@ def cart_contents(request):
     total_days = 0
     property_count = 0
     grand_total = 0
+    property_total = 0
+    taxi_quote = 0
     
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)

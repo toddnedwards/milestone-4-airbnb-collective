@@ -26,7 +26,7 @@
         "model": "airbnb_properties.property",
         "fields": {
             "name": "Country Manor",
-            "category": [1, 3],
+            "category": 1,
             "location": "Yorkshire, UK",
             "description": "A spacious manor in the beautiful Yorkshire countryside.",
             "full_description": "This spacious manor is located in the beautiful Yorkshire countryside. With plenty of room and stunning views, it's the perfect getaway.",
@@ -48,7 +48,7 @@
         "model": "airbnb_properties.property",
         "fields": {
             "name": "Lakeside Retreat",
-            "category": [1, 3],
+            "category": 1,
             "location": "Lake District, UK",
             "description": "A tranquil retreat with stunning views of the lake.",
             "full_description": "This tranquil retreat offers stunning views of the lake. Located in the Lake District, it's the perfect place for a peaceful getaway.",
@@ -70,7 +70,7 @@
         "model": "airbnb_properties.property",
         "fields": {
             "name": "City Apartment",
-            "category": [2, 3],
+            "category": 2,
             "location": "Edinburgh, UK",
             "description": "Modern apartment in the city center with a castle view.",
             "full_description": "This modern apartment is located in the city center of Edinburgh. With a view of the castle, it's the perfect place for a city break.",
@@ -202,7 +202,7 @@
         "model": "airbnb_properties.property",
         "fields": {
             "name": "Lakeside Cabin",
-            "category": [1, 3, 4],
+            "category": 1,
             "location": "Lake District, UK",
             "description": "A cozy lakeside cabin in the beautiful Lake District.",
             "full_description": "This cozy lakeside cabin offers a tranquil stay in the beautiful Lake District. With its stunning lake views and cozy interiors, it's the perfect place for a peaceful retreat.",
@@ -224,7 +224,7 @@
         "model": "airbnb_properties.property",
         "fields": {
             "name": "Historic Manor",
-            "category": [1, 3],
+            "category": 1,
             "location": "York, UK",
             "description": "A historic manor house with beautiful gardens in York.",
             "full_description": "This historic manor house offers a unique stay in the historic city of York. With its beautiful gardens and original features, it's the perfect place for a luxury getaway.",
