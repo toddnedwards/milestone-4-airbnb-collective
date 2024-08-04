@@ -10,6 +10,7 @@ from user_profile.models import UserProfile
 
 import json
 import time
+import stripe
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -30,7 +31,7 @@ class StripeWH_Handler:
         send_mail(
             subject,
             body,
-            setting.DEFAULT_FROM_EMAIL,
+            settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
 
@@ -56,9 +57,9 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         for field, value in shipping_details.address.items():
             if value == "":

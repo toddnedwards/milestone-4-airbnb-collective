@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 html {
   height: 100%;
 }
 
 body {
+  font-family: 'Lato', 'Open Sans', sans-serif;
+  font-weight: 400;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,6 +41,10 @@ footer {
   color: blue !important;
 }
 
+.nav-link:hover {
+  color: darkblue !important;
+}
+
 .message-container {
     position: fixed;
     top: 72px;
@@ -60,12 +68,12 @@ footer {
 
 .carousel h2 {
     position: absolute;
-    z-index: 3; /* To appear above the slides */
+    z-index: 3;
     background-color: rgb(255, 255, 255, 0.6);;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Adjusts the position of the text to ensure it's in the center */
-    text-align: center; /* Centers the text horizontally */
+    transform: translate(-50%, -50%);
+    text-align: center; 
     height: 10rem;
     width: 40rem;
     align-content: center;
