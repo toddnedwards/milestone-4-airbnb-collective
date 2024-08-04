@@ -60,35 +60,20 @@
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small">£{{ item.property_total }}</p>
+                    <p class="my-0 small">Taxi Added? {% if item.taxi_price %}<i class="fa-solid fa-check text-success"></i>
+                        {% else %}<i class="fa-solid fa-xmark text-danger"></i>{% endif %}</p>
+                    {% if item.taxi_price %} 
+                        <p class="my-0 small"> £{{ item.taxi_price | floatformat:2 }}</p>
+                        <br>
+                        <p>Subtotal:</p>
+                        <p class="my-0 small"> £{{ item.sub_total }}</p>
+                    {% endif %}
                 </div>
             </div>
             <hr>
             {% endfor %}
 
             <div class="row text-right">
-                <div class="col-7 offset-2">
-                    <p class="my-0">Property Total:</p>
-                </div>
-                <div class="col-3">
-                    <div class="my-0"> £ {{ property_total }}</div>
-                </div>
-                {% for item in cart_items %}
-                    <div class="col-7 offset-2">
-                        <p class="my-0">Taxi Added?</p>
-                    </div>
-                    <div class="col-3">
-                        <div class="my-0"> {% if item.taxi_price %}<i class="fa-solid fa-check text-success"></i>
-                            {% else %}<i class="fa-solid fa-xmark text-danger"></i>{% endif %}</div>
-                    </div>
-                    {% if item.taxi_price %}  
-                    <div class="col-7 offset-2">
-                        <p class="my-0">Taxi Total:</p>
-                    </div>                
-                        <div class="col-3">
-                            <div class="my-0"> £{{ item.taxi_price | floatformat:2 }}</div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
                 <div class="col-7 offset-2">
                     <p class="my-0">Grand Total:</p>
                 </div>

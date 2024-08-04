@@ -136,6 +136,11 @@ def checkout(request):
     return render(request, template, context)
 
 
+def booked_dates(request, property_id):
+    booked_dates = OrderLineItem.objects.filter(property_id=property_id).values('date_range')
+    return render(request, 'booked_dates.html', {'booked_dates': booked_dates})
+
+
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
