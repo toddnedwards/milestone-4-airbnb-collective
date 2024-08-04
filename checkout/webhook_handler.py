@@ -129,7 +129,7 @@ class StripeWH_Handler:
                 for item_id, item_data in json.loads(cart).items():
                     property = Property.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        order_line_item = OrderLineItem (
+                        order_line_item = OrderLineItem(
                             order=order,
                             property=property,
                             date_range=date_range,
@@ -153,8 +153,7 @@ class StripeWH_Handler:
                     status=500)
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=(f'Webhook received: {event["type"]} | SUCCESS: '
-                     'Created order in webhook'),
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
 
 
