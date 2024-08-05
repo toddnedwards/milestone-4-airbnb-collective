@@ -141,6 +141,7 @@ def booked_dates(request, property_id):
     return render(request, 'booked_dates.html', {'booked_dates': booked_dates})
 
 
+@login_required
 def checkout_success(request, order_number):
     """
     Handle successful checkouts

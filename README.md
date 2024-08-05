@@ -597,7 +597,11 @@ On the right hand side of the screen (on full screen. It remains underneath in m
 
 **Checkout Success Page**
 
-Once the checkout has been successful, the user is
+Once the checkout has been successful, the user is taken to the checkout success page. Here their order is confirmed, providing the user with a UUID order number for their order reference, all details about the booking itself that has been provided in the cart view.
+
+It also contains one more section which shows the users personal details that they used to make the booking.
+
+Both of these sections are in containers which also use the bootstrap CSS class bg-light
 
 **FAQs Page**
 
