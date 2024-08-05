@@ -192,4 +192,14 @@ img.property-details-img:hover {
     .border-right {
       border-right: 0px solid !important;
     }
+    .carousel-inner {
+      height: auto;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    .carousel h2 {
+      height: 50%;
+      width: 80%;
+  }
 }
