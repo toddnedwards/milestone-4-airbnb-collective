@@ -84,75 +84,69 @@ If the customer has any issues with their bookings, they also need the ability t
 
 ### User Stories
 
-#### Viewing and Navigation
 
-As a shopper:
+**Viewing & Navigation**
 
+|As a ...            | I want to...                                            | So I can...                                                                                               |
+|--------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+|Shopper/ First Time | See all menu options on all devices clearly             | Navigate easily around the site to find what I want                                                       |
+|Shopper/ First Time | See the purpose of the site immediately                 | To see if it is a product that I want or not, and understand it quickly before I leave the site           |
+|Shopper/ First Time | View a list of properties                               | Choose a property that I would like to visit                                                              |
+|Shopper/ First Time | View the properties locations                           | Decide if it is the right location for me to visit                                                        |
+|Shopper/ First Time | View facilities such as wifi, pet friendly, parking etc | Decide quickly if it has the facilities that I need quickly, so I can find something suitable to my needs |
+|Shopper/ First Time | View the properties details individual                  | Find out more about the specific property and its amenities that I wish to potentially book               |
+|Shopper/ First Time | View a date range                                       | See what dates that I would like to book                                                                  |
+|Shopper/ First Time | See how much my booking is once I have chosen dates     | See quickly if it is too expensive for me and possibly adjust the dates                                   |
 
-| I want to...                                            | So I can...                                                                                               |
-|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| See all menu options on all devices clearly             | Navigate easily around the site to find what I want                                                       |
-| See the purpose of the site immediately                 | To see if it is a product that I want or not, and understand it quickly before I leave the site           |
-| View a list of properties                               | Choose a property that I would like to visit                                                              |
-| View the properties locations                           | Decide if it is the right location for me to visit                                                        |
-| View facilities such as wifi, pet friendly, parking etc | Decide quickly if it has the facilities that I need quickly, so I can find something suitable to my needs |
-| View the properties details individual                  | Find out more about the specific property and its amenities that I wish to potentially book               |
-| View a date range                                       | See what dates that I would like to book                                                                  |
-| See how much my booking is once I have chosen dates     | See quickly if it is too expensive for me and possibly adjust the dates                                   |
+**Registration And User Accounts**
 
-#### Registration And User Accounts
+|As a ...                    | I want to...                                                               | So I can...                                                                             |
+|----------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+|registered/ registering user | Be able to register an account easily                                      | Have an account to view my profile                                                      |
+|registered/ registering user | Be able to login in to my registered account                               | See my account details                                                                  |
+|registered/ registering user | Recover my password incase I forget                                        | Continue to use my account I have created                                               |
+|registered/ registering user | Receive an email confirmation when registering                             | Confirm that I have entered my correct details and the account will be registered to me |
+|registered/ registering user | Have a user profile                                                        | See my personal information and view order history                                      |
+|registered/ registering user | Be able to save my personal information to my profile when using checkout  | Save time having to enter my details again on future bookings                           |
+|registered/ registering user | Be able to edit my personal information in my profile view                 | Update any change to my personal details or address                                     |
+|registered/ registering user | Be able to logout from my account                                          | Keep my information safe if my device is left unattended                                |
 
-As a registered user/ user about to create an account:
-
-| I want to...                                                               | So I can...                                                                             |
-|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Be able to register an account easily                                      | Have an account to view my profile                                                      |
-| Be able to login in to my registered account                               | See my account details                                                                  |
-| Recover my password incase I forget                                        | Continue to use my account I have created                                               |
-| Receive an email confirmation when registering                             | Confirm that I have entered my correct details and the account will be registered to me |
-| Have a user profile                                                        | See my personal information and view order history                                      |
-| Be able to save my personal information to my profile when using checkout  | Save time having to enter my details again on future bookings                           |
-| Be able to edit my personal information in my profile view                 | Update any change to my personal details or address                                     |
-| Be able to logout from my account                                          | Keep my information safe if my device is left unattended                                |
-
-#### Sorting And Searching
+#### Sorting And Searchings
 
 As a shopper:
 
 FINISH FINISH FINISH!!!!!
 
 
-#### Purchasing And Checkout
+**Purchasing And Checkout**
 
-As a shopper:
-
-| I want to...                                                               | So I can...                                                                                                                                                                     |
-|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Easily select the specific dates of the property                           | Choose when I want to visit the property                                                                                                                                        |
-| View items in my cart to be purchased                                      | View the total cost and list of the items I have added to my cart altogether                                                                                                    |
-| View the total cost of my booking before checking out                      | Be aware beforehand of how much my purchase is before committing a payment                                                                                                      |
-| Easily enter my payment information                                        | Complete my purchase with ease and not run into problems whilst trying to pay                                                                                                   |
-| Know my personal information is secure                                     | Not worry about my payment and personal details being shared and potentially hacked                                                                                             |
-| Save my personal details after filling them in                             | Make purchases quicker in the future by calling on the information already created in my account.                                                                               |
-| View an order confirmation                                                 | See that my payment has been submitted successfully and my booking has been accepted                                                                                            |
-| Receive an email to confirm my complete order                              | See further confirmation of my booking and have the details for my personal records.                                                                                            |
-| Contact the store if i have any concerns regarding my account or purchases | Be assured that help is available and to confirm the sale as legitimate to me.                                                                                                  |
-| See if there items in my cart visually                                     | Carry on shopping if i wish to do so knowing the previously chosen item is available for me to confirm later. Confirm that I have items that I have chosen in my shopping cart. |
-| Be able to checkout without registering an account                         | Save time on completing my order if i do not wish to create an account                                                                                                          |
-| Be able to create an account from the checkout page or login               | login or create an account if i do wish to save my information for personal use or to save time with my personal information next time i purchase from the site.                |
+|As a ...            | I want to...                                                               | So I can...                                                                                                                                                                     |
+|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Shopper/ First Time | Easily select the specific dates of the property                           | Choose when I want to visit the property                                                                                                                                        |
+|Shopper/ First Time | View items in my cart to be purchased                                      | View the total cost and list of the items I have added to my cart altogether                                                                                                    |
+|Shopper/ First Time | View the total cost of my booking before checking out                      | Be aware beforehand of how much my purchase is before committing a payment                                                                                                      |
+|Shopper/ First Time | Easily enter my payment information                                        | Complete my purchase with ease and not run into problems whilst trying to pay                                                                                                   |
+|Shopper/ First Time | Know my personal information is secure                                     | Not worry about my payment and personal details being shared and potentially hacked                                                                                             |
+|Shopper/ First Time | Save my personal details after filling them in                             | Make purchases quicker in the future by calling on the information already created in my account.                                                                               |
+|Shopper/ First Time | View an order confirmation                                                 | See that my payment has been submitted successfully and my booking has been accepted                                                                                            |
+|Shopper/ First Time | Receive an email to confirm my complete order                              | See further confirmation of my booking and have the details for my personal records.                                                                                            |
+|Shopper/ First Time | Contact the store if i have any concerns regarding my account or purchases | Be assured that help is available and to confirm the sale as legitimate to me.                                                                                                  |
+|Shopper/ First Time | See if there items in my cart visually                                     | Carry on shopping if i wish to do so knowing the previously chosen item is available for me to confirm later. Confirm that I have items that I have chosen in my shopping cart. |
+|Shopper/ First Time | Be able to checkout without registering an account                         | Save time on completing my order if i do not wish to create an account                                                                                                          |
+|Shopper/ First Time | Be able to create an account from the checkout page or login               | login or create an account if i do wish to save my information for personal use or to save time with my personal information next time i purchase from the site.                |
 
 
-#### Admin And Store Management
+**Admin And Store Management**
 
 As store owner/ admin:
 
-| I want to...                 | So I can...                                                                                 |
-|------------------------------|---------------------------------------------------------------------------------------------|
-| Add a property               | Expand the items for sale on my store                                                       |
-| Edit property information    | Change information such as pet friendly etc if the property details change                  |
-| Update pricing of a property | Add offers, increase or decrease price of property for the client                           |
-| Delete property              | Delete a property if a property no longer wishes to be listed                               |
-| Update order details         | Change details if a customer enters them wrong or needs to make a amendments to their order |
+|As a ...                      | I want to...                 | So I can...                                                                                 |
+|------------------------------|------------------------------|---------------------------------------------------------------------------------------------|
+| store owner/ admin.          | Add a property               | Expand the items for sale on my store                                                       |
+| store owner/ admin.          | Edit property information    | Change information such as pet friendly etc if the property details change                  |
+| store owner/ admin.          | Update pricing of a property | Add offers, increase or decrease price of property for the client                           |
+| store owner/ admin.          | Delete property              | Delete a property if a property no longer wishes to be listed                               |
+| store owner/ admin.          | Update order details         | Change details if a customer enters them wrong or needs to make a amendments to their order |
 
 
 ------------
@@ -300,73 +294,67 @@ this for accessibility for the user so nothing was becoming unclear for trying t
 <details>
 <summary>Home Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Home page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_home.png" alt="Home page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Properties Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Properties page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_properties.png" alt="Properties page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Property Details Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Property page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_property_details.png" alt="Property page Full Screen wireframe">
 </details>
 
 <details>
 <summary>FAQs Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="FAQs page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_faq.png" alt="FAQs page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Login Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Login page mobile/ tablet wireframe">
-</details>
-
-<details>
-<summary>Logout Page</summary>
-<br>
-<img src="readme_testing_media/home5.jpg" alt="Logout page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_login.png" alt="Login page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Register Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Register page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_register.png" alt="Register page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Contact Us Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Contact page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_contactus.png" alt="Contact page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Profile Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Profile page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_my_profile.png" alt="Profile page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Cart Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Cart page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_cart.png" alt="Cart page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Checkout Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Checkout page mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_checkout.png" alt="Checkout page Full Screen wireframe">
 </details>
 
 <details>
 <summary>Edit Property Page</summary>
 <br>
-<img src="readme_testing_media/home5.jpg" alt="Edit Property mobile/ tablet wireframe">
+<img src="readme_testing_media/wireframes_fullscreen_edit_property.png" alt="Edit Property Full Screen wireframe">
 </details>
 
 
@@ -374,29 +362,71 @@ this for accessibility for the user so nothing was becoming unclear for trying t
 #### **Mobile/ Tablet Wireframes**
 ---
 
-**Home Page**
+<details>
+<summary>Home Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_home.png" alt="Home page mobile/ tablet wireframe">
+</details>
 
-**Properties Page**
+<details>
+<summary>Properties Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_home.png" alt="Properties page mobile/ tablet wireframe">
+</details>
 
-**Property Details Page**
+<details>
+<summary>Property Details Page</summary>
+<br>
+<img src="readme_testing_media/property" alt="Property page mobile/ tablet wireframe">
+</details>
 
-**FAQS Page**
+<details>
+<summary>FAQs Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_faq.png" alt="FAQs page mobile/ tablet wireframe">
+</details>
 
-**Login Page**
+<details>
+<summary>Login Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_login.png" alt="Login page mobile/ tablet wireframe">
+</details>
 
-**Logout Page**
+<details>
+<summary>Register Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_register.png" alt="Register page mobile/ tablet wireframe">
+</details>
 
-**Register Page**
+<details>
+<summary>Contact Us Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_contactus.png" alt="Contact page mobile/ tablet wireframe">
+</details>
 
-**Contact Us Page**
+<details>
+<summary>Profile Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_my_profile.png" alt="Profile page mobile/ tablet wireframe">
+</details>
 
-**Profile Page**
+<details>
+<summary>Cart Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_cart.png" alt="Cart page mobile/ tablet wireframe">
+</details>
 
-**Cart Page**
+<details>
+<summary>Checkout Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_checkout.png" alt="Checkout page mobile/ tablet wireframe">
+</details>
 
-**Checkout Page**
-
-**Edit Property Page**
+<details>
+<summary>Edit Property Page</summary>
+<br>
+<img src="readme_testing_media/wireframes_mobile_edit_property.png" alt="Edit Property mobile/ tablet wireframe">
+</details>
 
 ### Database Schema
 
