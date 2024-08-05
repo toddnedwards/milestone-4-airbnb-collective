@@ -28,7 +28,7 @@
                 <div class="col-4">
                     <p class="mb-1 mt-0 small bx-1">Facilities</p>
                 </div>
-                <div class="col-3 text-right">
+                <div class="col-3 text-left">
                     <p class="mb-1 mt-0 small">Subtotal</p>
                 </div>
             </div>
@@ -58,12 +58,12 @@
                     <p>{% if item.property.pet_friendly %}<i class="fa-solid fa-check text-success"></i> Pet Friendly{% else %}<i class="fa-solid fa-xmark text-danger"></i> No Pets Allowed{% endif %}</p>
 
                 </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small">£{{ item.property_total }}</p>
+                <div class="col-3 text-left">
+                    <p class="my-0 small">Property Price: £{{ item.property_total }}</p>
                     <p class="my-0 small">Taxi Added? {% if item.taxi_price %}<i class="fa-solid fa-check text-success"></i>
                         {% else %}<i class="fa-solid fa-xmark text-danger"></i>{% endif %}</p>
                     {% if item.taxi_price %} 
-                        <p class="my-0 small"> £{{ item.taxi_price | floatformat:2 }}</p>
+                        <p class="my-0 small">Taxi Total: £{{ item.taxi_price | floatformat:2 }}</p>
                         <br>
                         <p>Subtotal:</p>
                         <p class="my-0 small"> £{{ item.sub_total }}</p>
@@ -73,7 +73,7 @@
             <hr>
             {% endfor %}
 
-            <div class="row text-right">
+            <div class="row text-left">
                 <div class="col-7 offset-2">
                     <p class="my-0">Grand Total:</p>
                 </div>

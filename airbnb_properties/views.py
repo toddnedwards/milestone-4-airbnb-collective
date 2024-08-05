@@ -69,7 +69,7 @@ def property_details(request, property_id):
 
     property = get_object_or_404(Property, pk=property_id)
     date_range = request.GET.get('date_range', '')
-    guest_count = request.GET.get('guest_count', 1)
+    guest_count = request.GET.get('guest_count', '')
 
     if request.method == 'POST':
         form = DateForm(request.POST)

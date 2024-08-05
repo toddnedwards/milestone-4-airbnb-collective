@@ -40,9 +40,12 @@
                             <p><strong>Location : </strong>{{ item.property.location }}</p>
                             <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
                             <p><strong>Date Range : </strong>{{ item.date_range }}</p>
-                            <p><strong>Amount Of Days : </strong>{{ item.total_days }}</p>
+                            <p><strong>Number Of Nights : </strong>{{ item.total_days }}</p>
                             <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night }}</p>
-                            <p><strong>Subtotal : </strong>£{{ item.sub_total }}</p>
+                            {% if taxi_price %}
+                                <p><strong>Taxi Added. Taxi Price : </strong>£{{ item.taxi_price }}</p>
+                            {% endif %}
+                            <p><strong>Subtotal : </strong>£{{ item.lineitem_total }}</p>
                         </div>                                    
                     </div> 
                 </div>
