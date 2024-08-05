@@ -31,8 +31,9 @@ View the live website [here](https://my-airbnb-collective-57b00b515cab.herokuapp
   * [Wireframes](#wireframes)
   * [Database Schema](#database-schema)
 * [Features](#features)
-  
-
+  * [General Features of the site](#general-features-of-the-site)
+      * [Header Section](#header-section)
+      * [Footer Section](#footer-section)
 
 
 
@@ -97,6 +98,7 @@ If the customer has any issues with their bookings, they also need the ability t
 |Shopper/ First Time | View the properties details individual                  | Find out more about the specific property and its amenities that I wish to potentially book               |
 |Shopper/ First Time | View a date range                                       | See what dates that I would like to book                                                                  |
 |Shopper/ First Time | See how much my booking is once I have chosen dates     | See quickly if it is too expensive for me and possibly adjust the dates                                   |
+|                    |                                                         |                                                                                                           |
 
 **Registration And User Accounts**
 
@@ -110,13 +112,17 @@ If the customer has any issues with their bookings, they also need the ability t
 |registered/ registering user | Be able to save my personal information to my profile when using checkout  | Save time having to enter my details again on future bookings                           |
 |registered/ registering user | Be able to edit my personal information in my profile view                 | Update any change to my personal details or address                                     |
 |registered/ registering user | Be able to logout from my account                                          | Keep my information safe if my device is left unattended                                |
+|                    |                                                         |                                                                                                           |
 
-#### Sorting And Searchings
+**Sorting And Searching**
 
-As a shopper:
-
-FINISH FINISH FINISH!!!!!
-
+| As a ... | I want to...                                   | So I can...                                                                                                                                                                            |
+|----------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Shopper  | Sort the list of available properties          | Find quickly what I am looking for in all properties.                                                                                                                                  |
+| Shopper  | Find a specific category of properties         | Be able to search quickly for my needs, and sort by price, location and category to know if a property is in the right location for me or in my price range.                           |
+| Shopper  | Search for a property by name or description   | Quickly find a property I already know exists or find what suits my needs quickly, such as a city break or countryside, or if its in the location I want to stay at.                   |
+| Shopper  | Sort items by ascending and descending options | See more options for my needs. If i need to find a property with the most bedrooms, I can sort it to the top of the list rather than search to the bottom of the page for the results. |
+|                    |                                                         |                                                                                                           |
 
 **Purchasing And Checkout**
 
@@ -134,7 +140,7 @@ FINISH FINISH FINISH!!!!!
 |Shopper/ First Time | See if there items in my cart visually                                     | Carry on shopping if i wish to do so knowing the previously chosen item is available for me to confirm later. Confirm that I have items that I have chosen in my shopping cart. |
 |Shopper/ First Time | Be able to checkout without registering an account                         | Save time on completing my order if i do not wish to create an account                                                                                                          |
 |Shopper/ First Time | Be able to create an account from the checkout page or login               | login or create an account if i do wish to save my information for personal use or to save time with my personal information next time i purchase from the site.                |
-
+|                    |                                                         |                                                                                                           |
 
 **Admin And Store Management**
 
@@ -147,9 +153,8 @@ As store owner/ admin:
 | store owner/ admin.          | Update pricing of a property | Add offers, increase or decrease price of property for the client                           |
 | store owner/ admin.          | Delete property              | Delete a property if a property no longer wishes to be listed                               |
 | store owner/ admin.          | Update order details         | Change details if a customer enters them wrong or needs to make a amendments to their order |
+|                    |                                                         |                                                                                                           |
 
-
-------------
 
 ## Design
 
@@ -430,14 +435,159 @@ this for accessibility for the user so nothing was becoming unclear for trying t
 
 ### Database Schema
 
+I decided to use a relational database for this project, using postgres sql, this seemed to be the best option for my needs 
+for this project. I used [Draw SQL](https://drawsql.app/) to create the diagram for the schema.
+
+<img src="readme_testing_media/sql_databse_schema.png" alt="MyAirBnB Collective Database Schema">
+
+**Registration Form**
+
+The registration form section deals with the user being able to register an account to be able to save their personal details and to view past orders they have made.
+
+* user_name - Username that the user can use to login to the site along with their chosen password.
+* email - The user's email that they will use to register the account and receive correspondence from the company.
+* password - The chosen password by the user that allows them to log in to their account alongside the username.
+
+**User Profile**
+
+User profile allows users to update their personal details/ billing address and also view past orders if they have completed registering an account. This database information is received from checkout when the user the user chooses 
+save info at the bottom of the form. This collects data the user has filled in at checkout which includes:
+
+* Email
+* Phone Number
+* Street Address 1
+* Street Address 2
+* County
+* Postcode
+* Country
+
+The user's account also includes past orders if they have been completed and successful in checkout. This receives directly from the order database from the user's ID.
+This section includes:
+
+* Order Number - Created with UUID
+* Date - date and time the user completed the purchase (received from OrderLineItem.model- date)
+* Property - Property name that is booked (received from OrderLineItem.model- name)
+* Dates Booked - Date range that is booked by the user (received from OrderLineItem.model- date_range)
+* Order Total - Total Amount for order that the user has paid (received from OrderLineItem.model- lineitem_total)
+
+**Category**
+
+Category supplies categories for more options when the user is searching for criteria for a property. These include based on location such as city, countryside, romantic, beach etc.
+These are then passed to property to give more options for the search and sorting criteria.
+
+**Property**
+
+Property is the main layout for all products. This includes the following:
+
+* category - taken from model.category
+* location - provides location of the property for search and sorting criteria
+* name - Provides the name of the property
+* description - Provides short description of property for properties page (to give a shorter description than full description used on property details to make accessibility easier for the user)
+* full_description - Provides a full description of the property which is included on the property details pages.
+* price_per_night - Provides decimal pricing for total of each property to their nightly cost.
+* distance_to_airport - integer to show miles away from the nearest airport, and included to calculate the taxi pricing addon ( taxi price = £(distance to airport x 3))
+* bedrooms - integer to show number of bedrooms at the property. Also used to calculate amount of guests allowed at a property (guest_total = bedrooms x 2)
+* has_wifi - boolean to show if the property has wifi
+* has_parking - boolean to show if the property has parking
+* non_smoking - boolean to show if the property allows smoking
+* pet_friendly - boolean to show if the property allows pets
+* total_days - integer that collects how many days the user has booked a property for using the date_range value. is calculated by end_date minus start_date.
+
+**Order**
+
+Order collects all information when the order is passed. This collects address details which is created from the personal details form the user fills in.
+
+* order_number - created by django's UUID
+* Address - all address details are supplied from the personal details form the user fills in on checkout page. These are passed to user_profile if save_info is selected on checkout page.
+* date - Date and time the order is complete. Also sent to user_profile for past orders information.
+* guest_count - supplied from the property details page which is chosen by the user. This is simply so admin is aware of the amount of persons staying at the property, and has no affect on pricing etc.
+* order_total - supplies order total which includes property total and taxi price added if the user has selected the taxi_price option.
+* grand_total - supplies order total of all options chosen if the user has chosen more than one property to proceed to checkout with. This will total all properties and all taxi fares.
+* original_cart - Pass on information that has been filled out in cart.
+* stripe_pid - Pass on information to stripe from checkout.
+
+**order_lineitem**
+
+Order line item collects information for individual item. Its information is supplied from the order database and gives further information to admin for the order such as the date range the guest is staying for and how many days that equates to.
+
 ## Features
 
+### General Features of the site
+
+All pages will have the following:
+
+* Favicon - For the favicon I used [Bing AI creator](https://www.bing.com/images/create) to create the design for the logo. I then used [favicon converter from favicon.io](https://favicon.io/favicon-converter/) to convert it to the appropriate size. 
+
+![logo](readme_testing_media/my-airbnb-collective.jpeg)
 
 
+#### Header Section
+---
+
+**NavBar**
+
+The navbar will appear on all devices and all pages. This will include:
+
+**Full Screen Navigation**
+---
+
+![Full Screen Navigation](readme_testing_media/navbar-fullscreen.png)
+
+Full screen navigation includes The name of the company on the left side of the screen. This provides a hyperlinks that redirects back to the home page. This is for accessibility for the user to be able to return to the home page quickly. 
+
+It includes the following links:
+
+* Home - Link to home page. This is already supplied by the company name link on the left hand side of the screen, but is a also a clearer visual that it will return the user to the home page.
+* Properties - Link to properties page. Allows user to view all properties available that they can book.
+* FAQs - Link to FAQs to see questions and answers to enquiries that a customer may have. This is to potentially lower contact forms being submitted for questions already answered in this section. This makes less work for the admin and staff in answering simple enquiries for the company.
+* My Account:
+  * Register - Allows user to create an account so they can save personal details and view order history.
+  * Login - Allows user to log in to their account if they have created one.
+  * Logout (if user logged in) - If user is logged in, gives them the option to log out of their account.
+  * Profile (if user logged in) - Links to user_profile, where user can update their personal details and view order history.
+  * Manage Properties (if ADMIN is logged in) - Allows admin to go to properties page with the options to edit and delete properties in the properties list.
+* Contact Us - Links to contact us form page for the user to contact the company
+* Shopping Cart - Shopping cart logo that gives the user a link to their shopping cart. This is for accessibility and allowing the user to make a purchase quickly if they've chosen an item.
+
+**Search Bar**
+
+The navbar also includes a search bar which allows the user to search for a property by name, location or category and will direct the user to the properties page with the chosen criteria from the any page they may be currently on.
+
+**Mobile Device Navigation**
+---
+
+**Mobile Navbar - Closed View**
+
+The mobile navbar has a hamburger dropdown bar which provides all links. This helps the layout be cleaner for the user on mobile devices, allowing more screen room to be available for the main information such as properties, cart, checkout etc.
+
+This still includes the search bar so users can still quickly find what they're looking for even when the menu is closed.
+
+![Mobile Closed Navigation](readme_testing_media/navbar-mobile-closed.png)
+
+**Mobile Navbar - Open View**
+
+When the hamburger icon is clicked, it opens the full menu for the user. These include all the options that are available in the full screen navigation explained above.
+
+![Mobile Open Navigation](readme_testing_media/navbar-mobile-open.png)
 
 
+#### Footer Section
+---
 
+All device sizes include the footer section. Footer section includes the following:
 
+* Page Map - This includes links to important pages such as home, properties, FAQs and My Profile. This is to make it more accessible for the user to quickly click on one of the links if they're already near the bottom of the page rather than having to scroll back to the top.
+* Social Media Links - Links for facebook, instagram and twitter.
+* Contact Us - Different options to contact the company including email, phone and contact form (link to contact us page)
+* copyright section - Copyright of MyAirBnB Collective website including javascript to automatically update to current year.
+
+**Footer On Full Screen Devices**
+
+![footer on full screen devices](readme_testing_media/footer-fullscreen.png)
+
+**Footer On Mobile Devices**
+
+![footer on mobile devices](readme_testing_media/footer-mobile.png)
 
 
 
