@@ -32,45 +32,11 @@ View the live website [here](https://my-airbnb-collective-57b00b515cab.herokuapp
   * [Database Schema](#database-schema)
 * [Features](#features)
   * [General Features of the site](#general-features-of-the-site)
-      * [Header Section](#header-section)
-      * [Footer Section](#footer-section)
-
-
-
-  * [Scope Plane](#scope-plane)
-    * [Feature Planning](#feature-planning)
-  * [Structure Plane](#structure-plane)
-    * [User Stories](#user-stories)
-    * [Database Schema](#database-schema)
-  * [Skeleton Plane](#skeleton-plane)
-    * [Wireframes](#wireframes)
-  * [Surface Plane](#surface-plane)
-    * [Colour Scheme](#colour-scheme)
-    * [Typography](#typography)
-    * [Imagery](#imagery)
-    * [Base Mockup](#base-mockup)
-* [Features](#features)
-  * [General Features of The Site](#general-features-of-of-the-site)
+    * [Header Section](#header-section)
+    * [Footer Section](#footer-section)
+    * [Pages](#pages)
   * [Future Implementations](#future-implementations)
-  * [Accessibility](#accessibility)
 * [Technologies Used](#technologies-used)
-  * [Languages Used](#languages-used)
-  * [Database Used](#database-used)
-  * [Frameworks Used](#frameworks-used)
-  * [Libraries & Packages Used](#libraries--packages-used)
-  * [Programs Used](#programs-used)
-  * [Stripe](#stripe)
-* [Deployment & Local Development](#deployment--local-development)
-  * [Deployment](#deployment)
-  * [Local Development](#local-development)
-    * [How to Fork](#how-to-fork)
-    * [How to Clone](#how-to-clone)
-* [Testing](#testing)
-* [Credits](#credits)
-  * [Code Used](#code-used)
-  * [Content](#content)
-  * [Media](#media)
-  * [Acknowledgments](#acknowledgments)
 
 
 ## User Experience
@@ -588,6 +554,169 @@ All device sizes include the footer section. Footer section includes the followi
 **Footer On Mobile Devices**
 
 ![footer on mobile devices](readme_testing_media/footer-mobile.png)
+
+### Pages
+
+**Home Page**
+
+For my home page, I wanted it to be simplistic, and let the user know exactly what the site is for as quickly as possible. It includes a carousel of 5 images so its more interactive for the user and more exciting to look at than still images. The text remains over the top of all images saying 'Your Home Away From Home' as a slogan explaining that it is somewhere for the user to stay which is like being at home. 
+
+Underneath the images theres a quick explanation of the site. I wanted to make sure the explanation was available underneath the images without the user having to scroll down, so I resized all carousel images accordingly using [bulkcropimage.com](https://bulkimagecrop.com/).
+
+![Home Page](readme_testing_media/home_page.png)
+
+**Properties Page**
+
+For properties page, I wanted the user to be able to view as many properties one page as possible without making them look squashed or losing information that is important for them to make the decision to find out more about the property (location, price etc). For full screen view I decided to have 4 cards ([bootstrap class](https://getbootstrap.com/docs/5.3/components/card/#about)) as this looked well spaced and allows the user to see all properties clearly. On mobile view I decided each item would be full width of the screen and user can scroll down. I found it looked squashed otherwise and the user is also able to search for criteria from the search bar and sort dropdown which means the user doesn't have to search through every property to find what they may want.
+
+![Properties Page](readme_testing_media/properties_page.png)
+
+**Properties Details Page**
+
+For property details, I wanted the user to be able to find out more information once they click on a property that they are interested in from the properties page. The page features 3 images. These images are labelled 'property_exterior', 'property_kitchen' and 'property_bathroom'. When the images are clicked on it opens a lightbox modal so the user can see the pictures more clearly. They can simply close the modal by clicking on the exit icon in the top right corner to return back to the page. The page shows the name and location of the property, including all other details such as price per night and number of bedrooms.
+
+Next to the images the user can choose dates from the daterangepicker to select dates that they would like to stay at the property. once they have chosen these dates they can also choose guest count for how many guests will be staying. Underneath that information, once the 'go to checkout button' is clicked, they will be redirected to cart with the property and its chosen information available to complete the order.
+
+Underneath the above information, the page also shows if the property has wifi, parking, is non smoking, is pet friendly in a ticked or crossed list making it visually clear to the user of what facilities are available at the chosen property. It also shows a larger description of the property.
+
+![Property Details Page](readme_testing_media/property_details_page.png)
+
+**Cart Page**
+
+Once the user has chosen go to checkout from property details or click on the shopping cart icon in the navigation section they will directed to the cart page. The cart page includes all products they added. It also has the option to add taxi to the booking, which when clicks it appends the taxi option and taxi price to the total. I wanted the this page to show all details of the property again without description so they could be aware before they checkout again of facilities etc. The full description seemed unneccessary at this point of the transaction as they've already added the property to their basket. They can also edit or delete their bookings from the cart. The edit button redirects the user to the property details page again with their date_range and number of guests filled in with their prior choice so they can amend. Once they are happy with all details they can proceed to checkout.
+
+![Cart Page](readme_testing_media/cart_page.png)
+
+**Checkout Page**
+
+The checkout page includes a form for the users details to be filled out. Some fields such as full name, email addres, phone number, street address 1, postcode and country have required attributes so must be chosen. If not the user is prompted again to fill them. After personal details there is a payment field for stripe payments to be passed to. Users are also given the option to save their information by creating an account of logging in to save their personal information for next time they use the store. Once they have completed all required fields, they can either adjust their cart which redirects to cart page, or they can proceed to payment. 
+
+On the right hand side of the screen (on full screen. It remains underneath in mobile view) Details from cart are displayed again to confirm to the user what property they have chosen, what dates, total of days they are staying for, facilities at the property, if they have added a taxi or not, and grand total of the property.
+
+![Checkout Page](readme_testing_media/checkout_page.png)
+
+**Checkout Success Page**
+
+Once the checkout has been successful, the user is
+
+**FAQs Page**
+
+I decided to include an Frequently Asked Questions page to help users if they have any queries about the site. I have also added the option for admin to add more FAQs if they find they have a large number of enquiries about a certain question. This can help admin spend less time answering questions if the answers are available for the user from the website.
+
+On all devices, all questions and answers are in a row down the page.
+
+![FAQs Page](readme_testing_media/faqs_page.png)
+
+**My Account**
+
+**Login Page**
+
+Login page uses the base of allauth from django, but decided to add the background colour too which matches the header and footer (bootstrap class bg-light) to keep the theme of the website on all pages.
+
+![Login Page](readme_testing_media/login_page.png)
+
+**Register Page**
+
+Register page also uses the base of allauth from django. The background colour matches the header and footer (bootstrap class bg-light) to keep the theme of the website on all pages.
+
+![Register Page](readme_testing_media/register_page.png)
+
+**Profile Page**
+
+The profile page includes default personal information which the user can fill in and save, so it is available next time they use checkout to save time. It also includes order history so the user can see all past orders they have made.
+
+![Profile Page](readme_testing_media/profile_page.png)
+
+**Manage Properties Page (ADMIN ONLY)**
+
+Manage properties page is the same layout as the properties page so the admin can find their way across the page easily. The layout is identical apart from two added buttons for admin.
+
+The two buttons are:
+
+* Edit - Takes admin to an edit page which allows them to edit all details of the property including images for property exterior, property bathroom and property kitchen.
+* Delete - Allows admin to delete a property from the properties list. If the admin clicks delete it directs to a modal which asks admin to confirm the deletion of the property incase of error in clicking the button.
+
+![Manage Properties Page](readme_testing_media/manage_properties_page.png)
+
+**Edit Property Page (ADMIN ONLY)**
+
+Edit property allows admin to edit all details of the property, from name, location, price per night to changing current images. The layout is full screen making it easier for the admin to see all details. Admin must confirm changes by clicking update property button or can cancel the changes by clicking cancel which will revert to current settings. Admin can also update category with dropdown menu for ease of use when they may have an event for romantic properties and need to move more properties into that category for sales purposes.
+
+![Edit Property Page](readme_testing_media/edit_property_page.png)
+
+**Contact Us Page**
+
+Contact page includes a simple form that requires all fields to be filled. These are email, name and message. It includes a button at the button that says 'send message' and sends the contact form details to the admin via email. To keep the theme of all other pages, the contact form container background is bootstrap colour class bg-light.
+
+![Contact Us Page](readme_testing_media/contact_us_page.png)
+
+
+**Defensive Programming**
+
+I have used defensive programming throughout the site to ensure security for all users. These include django's @login_required to show that a user must be logged in to preview such pages as profile and others that show personal details. 
+
+I have also used if statements to check if the user is a superuser. This only provides access to admin or staff member with permissions from admin section. These pages include manage properties, edit properties, edit FAQs, delete properties etc. Users that don't have permission will not be able to access these views and pages.
+
+### Future Implementations
+
+For future implimentations I would like to add a reviews section on each property where users with a profile can leave reviews which would be triggered to be sent to them to review once the end date of their stay has been completed (I wouldn't want the user to be able to add this option before they have stayed at the property). This would be on a seperate page which would then store to the the users profile if they wish to update their review incase they made an error, and also for it to be a sorting criteria for the properties page, so users can search for properties based on their rating too. Ideally I would like the reviews to also appear on each property details page at the bottom so users can find out more information about the property and other user's experiences.
+
+I think a blog page would also be beneficial for SEO purposes for the website, which gives admin a template to add these too similar to adding a property, with the ability to add tags that would be able to link to showing the criteria in the search section of the properties page.
+
+ADD MORE!!!!!!!
+
+### Technologies Used
+---
+**Languages Used**
+
+HTML, CSS, Javscript, Python
+
+**Database Used**
+
+Sqlite3 for development
+ElephantSQL for deployment
+
+**Frameworks Used**
+[Django](https://www.djangoproject.com/) - Version 3.2.5 - Django is a rapid web development framework that can be used to develop fully fleshed web applications in a short period of time.
+[Bootstrap](https://getbootstrap.com/) - Version 4.4.1 - front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites.
+
+**Libraries & Packages Used**
+
+[jQuery](https://jquery.com/) - Version 3.4.1 - Javascript framework.
+[Font Awesome](https://fontawesome.com/) - Version 6.6.0 - Used for all icons of the site. Added using script link.
+[Django Allauth](https://docs.allauth.org/en/latest/) - Version 0.63.6 - Framwork for authentification, registration and accounts management.
+[Django Countries](https://pypi.org/project/django-countries/) - Version 7.6.1 - Allowing list of countries to be chosen in form (Used on checkout personal details).
+[Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Version 1.14.0 - Provides tag and filter to allow quick rendering of forms.
+[Django Bootstrap Daterangepicker](https://pypi.org/project/django-bootstrap-daterangepicker/) - Version 1.1.0 - Form field and widget wrapper for the Bootstrap DateRangePicker, allowing users to select single dates or date ranges in forms.
+[Gunicorn](https://gunicorn.org/) - Version 20.0.4 - A python WSGI HTTP Server.
+[Pillow](https://pypi.org/project/pillow/) - Version 7.0.0 - Python Imaging Library.
+[dj_database_url](https://pypi.org/project/dj-database-url/) - Version 0.5.0 - Allows utilization of DATABASE_URL variable.
+[psycop2](https://pypi.org/project/psycopg2/) - Version 2.9.9 - PostgreSQL database adapter for the Python programming language for connection to postgres database.
+[Django Storages](https://django-storages.readthedocs.io/en/latest/) - Version 1.9.1 - Storage backend library.
+
+**Programs Used**
+
+[Pip](https://pip.pypa.io/en/stable/) - For installing python packages.
+[Git](https://git-scm.com/) - For Version Control.
+[Github](https://github.com/) - For saving a storing project files.
+[Gitpod](https://www.gitpod.io/) - For coding environment.
+[Heroku](https://www.heroku.com/) - For hosting the web app.
+[Google Dev Tools](https://developer.chrome.com/docs/devtools) - For troubleshooting web layout, responsiveness and source coding errors.
+[Favicon.io](https://favicon.io/) - For converting the favicon image to the correct size and format.
+[Bing Create](https://www.bing.com/images/create) - For creating the logo.
+[Bulk Image Crop](https://bulkimagecrop.com/) - For cropping bulk images to correct size.
+Image Tool+ App - For resizing and reformating images.
+[Draw SQL](https://drawsql.app/) - For creating database schema
+
+**Extra Coding Used**
+
+[Bootstrap Carousel](https://getbootstrap.com/docs/4.0/components/carousel/) - For carousel images on home page.
+[Lightbox Image Modal](https://www.w3schools.com/howto/howto_js_lightbox.asp) - Images on property details page.
+
+
+
+
+
 
 
 
