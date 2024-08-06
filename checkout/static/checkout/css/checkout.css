@@ -59,3 +59,7 @@
   margin: 0;
   height: 100%;
 }
+
+.no-permission {
+  height: 60vh;
+}

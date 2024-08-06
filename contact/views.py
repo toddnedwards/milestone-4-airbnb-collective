@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from .forms import ContactForm
+from .models import Contact
 
 # Create your views here.
 
