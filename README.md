@@ -741,6 +741,8 @@ I'm using developer moment to test payments and intents. This allows me to use t
 
 To deploy the project, I used heroku. To deploy the project:
 
+The following information was copied from course information.
+
 #### **Create the Live Database**
 
 We have been using the sqlite3 database in development, however this is only available for use in development so we will need to create a new external database which can be accessed by Heroku.

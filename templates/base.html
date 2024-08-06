@@ -5,9 +5,9 @@
     <head>
 
         {% block meta %}
-            <meta http-equiv="X-UA-Compatible" content="ie-edge">
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {% endblock %}
 
         {% block corecss %}
@@ -29,7 +29,7 @@
 
         {% block extra_js %}
         {% endblock %}
-        <link rel="shortcut icon" type="favicon" href="{{ MEDIA_URL }}favicon.ico" >
+        <link rel="icon" type="image/png" href="{{ MEDIA_URL }}favicon.png">
         <title>My AirBnB Collective {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
@@ -50,8 +50,8 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>  
             {% if filtered %}
             <div class="col text-center mb-4">
@@ -89,7 +89,7 @@
         {% include 'includes/footer.html' %}
         
         {% block postloadjs %}
-            <script type="text/javascript">
+            <script>
                 $('.toast').toast('show');
             </script>
         {% endblock %}
