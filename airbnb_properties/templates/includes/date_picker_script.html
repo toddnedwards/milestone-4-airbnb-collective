@@ -1,60 +1,39 @@
 <script>
     $(function() {
-        var initialDateRange = "{{ date_range }}";
-        var propertyId = "{{ property.id }}";  // Ensure property.id is being passed to the template
-  
-        function fetchBookedDates(callback) {
-            $.ajax({
-                url: "{% url 'booked_dates' property.id %}", // Ensure this URL matches the one in urls.py
-                method: 'GET',
-                success: function(data) {
-                    callback(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Failed to fetch booked dates:", error);
-                }
-            });
-        }
-  
-        function initializeDatepicker(bookedDates) {
-            $('#id_date_range').daterangepicker({
-                autoUpdateInput: false,
-                showDropdowns: true,
-                minDate: new Date(),
-                isInvalidDate: function(date) {
-                    for (var i = 0; i < bookedDates.length; i++) {
-                        var startDate = moment(bookedDates[i].start_date);
-                        var endDate = moment(bookedDates[i].end_date);
-                        if (date.isBetween(startDate, endDate, null, '[]')) {
-                            return true;
-                        }
+        var excludedDates = []; // Array of excluded dates fetched from the server
+
+        // Fetch excluded dates from the server
+        $.getJSON("{% url 'booked_dates' property.id %}", function(data) {
+            excludedDates = data.excluded_dates;
+            initializeDatePicker();
+        });
+
+        function initializeDatePicker() {
+            $.datepicker.setDefaults({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                beforeShowDay: function(date) {
+                    var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+                    if (excludedDates.indexOf(dateString) !== -1) {
+                        return [false, 'ui-state-disabled', 'Date Unavailable'];
+                    } else {
+                        return [true, '', 'Available'];
                     }
-                    return false;
-                },
-                locale: {
-                    format: 'DD MMM YYYY',
-                    cancelLabel: 'Clear'
                 }
             });
-  
-            // Set initial value if date range is provided
-            if (initialDateRange) {
-                var dates = initialDateRange.split(' - ');
-                $('#id_date_range').data('daterangepicker').setStartDate(dates[0]);
-                $('#id_date_range').data('daterangepicker').setEndDate(dates[1]);
-                $('#id_date_range').val(initialDateRange);
-            }
-  
-            $('#id_date_range').on('apply.daterangepicker', function(ev, picker) {
-                $(this).val(picker.startDate.format('DD MMM YYYY') + ' - ' + picker.endDate.format('DD MMM YYYY'));
+
+            $('#checkIn').datepicker({
+                onSelect: function(selectedDate) {
+                    $('#checkIn').datepicker('option', 'minDate', selectedDate || 0);
+                    $('#checkOut').datepicker('option', 'minDate', selectedDate || 0);
+                }
             });
-  
-            $('#id_date_range').on('cancel.daterangepicker', function(ev, picker) {
-                $(this).val('');
+
+            $('#checkOut').datepicker({
+                onSelect: function(selectedDate) {
+                    $('#checkOut').datepicker('option', 'maxDate', selectedDate);
+                }
             });
         }
-  
-        fetchBookedDates(initializeDatepicker);
     });
-  </script>
-  
+</script>

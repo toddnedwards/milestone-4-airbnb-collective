@@ -139,9 +139,25 @@ def checkout(request):
 
 
 def booked_dates(request, property_id):
-    booked_dates = OrderLineItem.objects.filter(
-        property_id=property_id).values('start_date', 'end_date')
-    return JsonResponse(list(booked_dates), safe=False)
+    booked_dates = OrderLineItem.objects.filter(property_id=property_id).values_list('date_range', flat=True)
+    
+    excluded_dates = []
+    for date_range in booked_dates:
+        if date_range:  # Ensure date_range is not None
+            try:
+                start_date_str, end_date_str = date_range.split(' - ')
+                start_date = datetime.strptime(start_date_str, '%d %b %Y')
+                end_date = datetime.strptime(end_date_str, '%d %b %Y')
+                
+                while start_date <= end_date:
+                    excluded_dates.append(start_date.strftime('%Y-%m-%d'))
+                    start_date += timedelta(days=1)
+            except ValueError as e:
+                # Log or handle the error if date_range format is invalid
+                print(f"Date range format error: {e}")
+    
+    return JsonResponse({'excluded_dates': excluded_dates})
+
 
 
 def checkout_success(request, order_number):
