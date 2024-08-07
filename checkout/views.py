@@ -64,6 +64,7 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     property = Property.objects.get(id=item_id)
+                    taxi_price = property.distance_to_airport * 3
                     if isinstance(item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
                             start_date_str, end_date_str = date_range.split(' - ')
@@ -74,7 +75,8 @@ def checkout(request):
                                 order=order,
                                 property=property,
                                 date_range=date_range,
-                                total_days=int(days), # roo
+                                total_days=int(days),
+                                taxi_price=taxi_price,
                             )
                             order_line_item.save()
                 except Property.DoesNotExist:   
@@ -124,18 +126,13 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
+        }
 
-    template = 'checkout/checkout.html'
-    context = {
-        'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
-    }
-
-    return render(request, template, context)
+        return render(request, 'checkout/checkout.html', context)
 
 
 def booked_dates(request, property_id):

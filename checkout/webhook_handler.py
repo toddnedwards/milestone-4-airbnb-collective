@@ -158,6 +158,7 @@ class StripeWH_Handler:
                                 property=property,
                                 date_range=date_range,
                                 total_days=int(days),
+                                taxi_price=taxi_price,
                             )
                             order_line_item.save() # roo
             except Exception as e:

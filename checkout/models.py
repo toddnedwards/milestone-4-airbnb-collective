@@ -61,6 +61,7 @@ class OrderLineItem(models.Model):
     date_range = models.CharField(max_length=255, null=True)
     total_days = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, editable=False)
+    taxi_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0)
 
     # def save(self, *args, **kwargs):
     #     """
