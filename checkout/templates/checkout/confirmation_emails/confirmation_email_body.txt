@@ -5,14 +5,16 @@ Thank you for placing your order with us!
 Here are your booking details:
 
 Order Number: {{ order.order_number }}
+
 {% for item in order.lineitems.all %}
-    Property Booked: {{ item.property.name }}
-    Location: {{ item.property.location }}
-    Chosen Dates: {{ item.date_range }}
-    Taxi added from airport: {% if item.add_taxi %} Yes. Taxi cost is £{{ item.taxi_price }}{% else %} No
-    {% endif %}
-    Subtotal: £{{ order.order_total }}
+Property Booked: {{ item.property.name }}
+Location: {{ item.property.location }}
+Chosen Dates: {{ item.date_range }}
+Taxi added from airport: {% if item.taxi_price %} Yes. Taxi cost is £{{ item.taxi_price }}{% else %} No
+{% endif %}
+Subtotal: £{{ order.order_total }}
 {% endfor %}
+
 Grand Total: £{{ order.grand_total }}
 
 Your phone number on file is: {{ order.phone_number }}
