@@ -47,8 +47,8 @@ def airbnb_properties(request):
             if not filtered_properties.exists():
                 no_results = True
             else:
-                messages.error(request, "No results for your search. \
-                Please try again")
+                messages.error(
+                    request, "No results for your search. Please try again")
                 properties = filtered_properties
                 filtered = True
 
@@ -122,8 +122,8 @@ def datepicker_view(request):
 def edit_property(request, property_id):
     """ Edit property details """
     if not request.user.is_superuser:
-        messages.error.request(request, 'You do not have \
-        permission to see this page.')
+        messages.error.request(
+            request, 'You do not have permission to see this page.')
         return redirect(reverse('home'))
 
     property = get_object_or_404(Property, pk=property_id)
