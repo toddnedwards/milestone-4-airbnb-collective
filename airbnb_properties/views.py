@@ -131,12 +131,12 @@ def edit_property(request, property_id):
         form = PropertyForm(request.POST, request.FILES, instance=property)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Property details have \
-            been successfully edited')
+            messages.success(
+                request, 'Property details have been successfully edited')
             return redirect(reverse('property_details', args=[property.id]))
         else:
-            messages.error(request, 'Failed to update property. \
-            Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update property. Please ensure the form is valid.')
     else:
         form = PropertyForm(instance=property)
         messages.info(request, f'You are editing {property.name}')

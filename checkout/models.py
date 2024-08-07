@@ -90,12 +90,13 @@ class OrderLineItem(models.Model):
             if not isinstance(price_per_night, Decimal):
                 price_per_night = Decimal(price_per_night)
 
-            # make sure that total_days is converted  to Decimal
+            # Make sure that total_days is converted to Decimal
             total_days = Decimal(self.total_days)
 
             # Ensure taxi_price is a Decimal
             taxi_price = Decimal(self.taxi_price)
 
+            # Calculate lineitem_total including taxi_price
             self.lineitem_total = (price_per_night * total_days) + taxi_price
         except InvalidOperation as e:
             # Log or handle the error as appropriate
