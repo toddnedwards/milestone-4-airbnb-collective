@@ -1,6 +1,6 @@
 .img-card {
-  height: 280px;
-  width: 100%;
+  height: auto;
+  width: auto;
   object-fit: cover;
 }
 
@@ -44,6 +44,7 @@ img.property-details-img:hover {
 
 #guest_count {
   width: 8rem;
+  position: relative;
 }
 
 /* Lightbox Modal */

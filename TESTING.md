@@ -191,14 +191,24 @@ This appeared to be from django's property.id passing through for editing the pr
 
 | File | Result | Evidence |
 | :--- | :--- | :---: |
-| static/base.css | Pass | [base.css](static/testing/userstories/basecss.png)|
-| airbnb_properties/static/airbnb_properties/css/properties.css | Pass | [properties.css](static/testing/userstories/stripecss.png)|
-| cart/static/cart/css/cart.css | Pass | [cart.css](static/testing/userstories/basecss.png)|
+| static/base.css | Pass | [base.css](readme_testing_media/css_validation/base_css.png)|
+| airbnb_properties/static/airbnb_properties/css/properties.css | Pass | [properties.css](readme_testing_media/css_validation/properties_css.png)|
+| cart/static/cart/css/cart.css | Pass | [cart.css](readme_testing_media/css_validation/cart_css.png)|
 | checkout/static/checkout/css/checkout.css | Pass | [checkout.css](readme_testing_media/css_validation/checkout_css.png)|
-| user_profile/static/profile/css/profile.css | Pass | [profile.css](static/testing/userstories/profilecss.png)|
-
 
 #### **Javascript**
+
+[Code Beautify](https://codebeautify.org/jsvalidate) was used to validate Javascript.
+
+| File | Result | Evidence |
+| :--- | :--- | :---: |
+| checkout/static/checkout/js/stripe_elements.js | One warning, but copied from [boutique Ado's code](https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/de7ad2067ac1b5de37a4cd8b9f4ddf572a4bf6c7/checkout/static/checkout/js/stripe_elements.js) | [stripe.js](readme_testing_media/js_validation/stripe_js.png)|
+| home/templates/home/index.html | Fail (missing semicolon) | [carousel_js_error.js](readme_testing_media/js_validation/home_js_error.png)|
+| home/templates/home/index.html | Pass (semicolon added to line 55) | [carousel_js_fixed.js](readme_testing_media/js_validation/home_js_fixed.png)|
+| airbnb_properties/templates/includes/date_picker_script.html | Pass | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
+| airbnb_properties/templates/includes/date_picker_script.html | Pass | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
+| airbnb_properties/templates/includes/lightbox_script.html | Fail (unnecessary semicolons) | [light_box_js_error.js](readme_testing_media/js_validation/light_box_script_js_error.png)|
+| airbnb_properties/templates/includes/lightbox_script.html | Pass (extra semicolons removed)| [light_box_js_fixed.js](readme_testing_media/js_validation/light_box_script_js_fixed.png)|
 
 #### **Python**
 

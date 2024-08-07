@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="row mt-4 offset-1">
+        <div class="row mt-4">
             <div class="col-12 col-lg-6">
                 <h3>Order Details</h3>
                 <br>
@@ -30,8 +30,8 @@
                 <h4><strong>Your Booking</strong></h4>
                 {% for item in order.lineitems.all %}
                     <div class="container-fluid checkout-success-item m-4 bg-light">
-                        <div class="row cart-container m-4">
-                            <div class="col-4 cart-item m-4">
+                        <div class="row cart-container">
+                            <div class="col-12 col-lg-4 cart-item m-lg-4 mt-sm-4">
                                 <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
                             </div>
                             <div class="col-12 col-lg-6">
@@ -77,8 +77,8 @@
                 </div>
             </div>
         </div>
-        <div class="row offset-1">
-            <div class="col-12 col-lg-6">
+        <div class="row">
+            <div class="col-12 col-lg-6 m-4">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-primary">
                         <span class="icon mr-2">

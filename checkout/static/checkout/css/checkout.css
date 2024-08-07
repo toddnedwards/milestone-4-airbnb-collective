@@ -1,3 +1,5 @@
+/* Stripe */
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -36,6 +38,8 @@
     border: 1px solid #000;
 }
 
+/* Main */
+
 .checkout-success-item {
   border: 1px solid #000;
 }
@@ -43,6 +47,8 @@
 .no-permission {
   height: 60vh;
 }
+
+/* Loading Spinner */
 
 #loading-overlay {
   display: none;
@@ -61,4 +67,13 @@
   justify-content: center;
   margin: 0;
   height: 100%;
+}
+
+@media (max-width: 480px) {
+  .checkout-success-item {
+        margin: 0 !important;
+  }
+  .cart-item {
+    margin-top: 20px;
+  }
 }
