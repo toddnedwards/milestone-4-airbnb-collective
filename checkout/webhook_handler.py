@@ -66,19 +66,16 @@ class StripeWH_Handler:
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
-            try:
-                profile = UserProfile.objects.get(user__username=username)
-                if save_info:
-                    profile.default_phone_number = billing_details.phone
-                    profile.default_country = billing_details.address.country
-                    profile.default_postcode = billing_details.address.postal_code
-                    profile.default_town_or_city = billing_details.address.city
-                    profile.default_street_address1 = billing_details.address.line1
-                    profile.default_street_address2 = billing_details.address.line2
-                    profile.default_county = billing_details.address.state
-                    profile.save()
-            except UserProfile.DoesNotExist:
-                pass
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = billing_details.phone
+                profile.default_country = billing_details.address.country
+                profile.default_postcode = billing_details.address.postal_code
+                profile.default_town_or_city = billing_details.address.city
+                profile.default_street_address1 = billing_details.address.line1
+                profile.default_street_address2 = billing_details.address.line2
+                profile.default_county = billing_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -155,7 +152,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
                      'Created order in webhook'),
-                    status=200)
+            status=200)
 
 
     def handle_payment_intent_payment_failed(self, event):
