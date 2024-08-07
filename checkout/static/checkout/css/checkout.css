@@ -40,6 +40,9 @@
   border: 1px solid #000;
 }
 
+.no-permission {
+  height: 60vh;
+}
 
 #loading-overlay {
   display: none;
@@ -58,8 +61,4 @@
   justify-content: center;
   margin: 0;
   height: 100%;
-}
-
-.no-permission {
-  height: 60vh;
 }

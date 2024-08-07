@@ -40,7 +40,7 @@
                     <p><strong>Amount Of Guests : </strong>{{ item.guest_count }}</p>
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
-                    <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night|floatformat:2 }}</p>
+                    <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
                     <p><strong>Property Total : </strong>£{{ item.property_total }}</p>
                     {% if item.taxi_price %}
                         <p class="taxi"><strong>Taxi Price : </strong>£{{ item.taxi_price | floatformat:2 }}</p> 

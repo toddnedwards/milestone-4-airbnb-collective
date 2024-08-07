@@ -7,16 +7,18 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid no-permission">
     <div class="row text-center">
-        <div class="col">
+        <div class="col-12">
             <h1>404 - Page Not Found</h1>
             <br>
-            <h3>Oops! It Appears this page doesn't exist!</h3>
-            <p>Click<a href="{% url 'home' %}">here</a>to return to the home page</p>
-            <a href=""></a>
         </div>
-    </div>
+        <div class="col text-center h-100">
+            <h3>Oops! It Appears this page doesn't exist!</h3>
+            <br>
+            <p>Click <a href="{% url 'home' %}">here</a> to return to the home page</p>
+        </div>
+    </div> 
 </div>
 
 {% block postloadjs %}

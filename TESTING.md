@@ -181,7 +181,11 @@ From line 133, column 3; to line 133, column 65
 
 iv>↩↩  ↩  <input type="hidden" name="next" value="/properties/edit/2/" />↩  ↩  `
 
-Once this was removed, all tests we're passed:
+This appeared to be from django's property.id passing through for editing the property, and this appeared to be correct still so was left alone.
+
+---
+
+
 
 
 
