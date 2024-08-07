@@ -11,7 +11,7 @@ Property Booked: {{ item.property.name }}
 Location: {{ item.property.location }}
 Chosen Dates: {{ item.date_range }}
 {% if item.taxi_price %}
-<p><strong>Taxi was added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
+Taxi was added to your order. Taxi Price : £{{ item.taxi_price }}
 {% endif %}
 Subtotal: £{{ order.order_total }}
 {% endfor %}
