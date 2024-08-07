@@ -185,11 +185,11 @@ This appeared to be from django's property.id passing through for editing the pr
 
 ---
 
-
-
-
-
 #### **CSS**
+
+[W3C](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
+
+
 
 #### **Javascript**
 
