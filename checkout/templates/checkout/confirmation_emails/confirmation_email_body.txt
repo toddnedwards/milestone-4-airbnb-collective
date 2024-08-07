@@ -19,7 +19,7 @@ Grand Total: £{{ order.grand_total }}
 
 Your phone number on file is: {{ order.phone_number }}
 
-If this is incorrect, please update your details at {{ url 'profile' }} as we may need
+If this is incorrect, please update your details at https://my-airbnb-collective-57b00b515cab.herokuapp.com/profiles/ as we may need
 to contact you for booking details.
 
 Thanks again for your order!
