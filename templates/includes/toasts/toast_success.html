@@ -29,10 +29,11 @@
                         <div class="col-9">
                             <p class="my-0 small"><strong>Name: {{ item.property.name }}</strong></p>
                             <p class="my-0 small"><strong>Date Range: {{ item.date_range }}</strong></p>
+                            <p class="my-0 small"><strong>Property Total: £{{ item.property_total | floatformat:2 }}</strong></p>
                             {% if item.taxi_price %}
                                 <p class="my-0 small"><strong>Taxi Price : £{{ item.taxi_price | floatformat:2 }}</strong></p> 
                             {% endif %}
-                            <p class="my-0 small"><strong>Sub Total: £{{ item.sub_total }}</strong></p>                        
+                            <p class="my-0 small"><strong>Sub Total: £{{ item.sub_total | floatformat:2 }}</strong></p>                        
                         </div>
                     </div>
                 {% endfor %}

@@ -41,13 +41,13 @@
                                 <p><strong>Amount of Bedrooms : </strong>{{ item.property.bedrooms }}</p>
                                 <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                                 <p><strong>Number Of Nights : </strong>{{ item.total_days }}</p>
-                                <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night|floatformat:2 }}</p>
+                                <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
                                 {% if item.taxi_price %}
                                     <p><strong>Taxi added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
                                 {% endif %}
-                                <p><strong>Subtotal : </strong>£{{ item.lineitem_total }}</p>
-                            </div>                                    
-                        </div> 
+                                <p><strong>Subtotal : </strong>£{{ item.lineitem_total | floatformat:2 }}</p>
+                            </div>                                
+                        </div>
                     </div>
                 {% endfor %}
                 <p><i class="fa-regular fa-credit-card text-primary ml-4"></i><strong> The total charged to your card is: </strong>£{{ order.grand_total }}</p>

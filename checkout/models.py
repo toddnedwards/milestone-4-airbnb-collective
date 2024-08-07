@@ -45,7 +45,8 @@ class Order(models.Model):
         Update grand total each time a line item is added
         """
         self.order_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+            Sum('lineitem_total')
+        )['lineitem_total__sum'] or 0
         self.grand_total = self.order_total
         self.save()
 
@@ -92,7 +93,10 @@ class OrderLineItem(models.Model):
             # make sure that total_days is converted  to Decimal
             total_days = Decimal(self.total_days)
 
-            self.lineitem_total = price_per_night * total_days
+            # Ensure taxi_price is a Decimal
+            taxi_price = Decimal(self.taxi_price)
+
+            self.lineitem_total = (price_per_night * total_days) + taxi_price
         except InvalidOperation as e:
             # Log or handle the error as appropriate
             raise ValueError(f"Invalid operation for Decimal conversion: {e}")

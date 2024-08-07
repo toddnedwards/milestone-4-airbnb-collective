@@ -58,7 +58,9 @@ def checkout(request):
             order = order_form.save(commit=False)
             current_cart = cart_contents(request)
             total_days = current_cart['total_days']
+            order.grand_total = current_cart['grand_total']
             order.total_days = total_days
+            order.grand_total = current_cart['grand_total']
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
@@ -77,12 +79,14 @@ def checkout(request):
                             end_date = datetime.strptime(
                                 end_date_str, '%d %b %Y')
                             days = (end_date - start_date).days
+                            sub_total = int(days * property.price_per_night) + int(taxi_price)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
                                 date_range=date_range,
                                 total_days=int(days),
                                 taxi_price=taxi_price,
+                                lineitem_total=sub_total,
                             )
                             order_line_item.save()
                 except Property.DoesNotExist:
