@@ -41,11 +41,11 @@
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
                     <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
-                    <p><strong>Property Total : </strong>£{{ item.property_total }}</p>
+                    <p><strong>Property Total : </strong>£{{ item.property_total | floatformat:2 }}</p>
                     {% if item.taxi_price %}
                         <p class="taxi"><strong>Taxi Price : </strong>£{{ item.taxi_price | floatformat:2 }}</p> 
                     {% endif %}
-                    <p><strong>Sub Total : </strong>£{{ item.sub_total }}</p>
+                    <p><strong>Sub Total : </strong>£{{ item.sub_total | floatformat:2 }}</p>
                 </div>
                 <div class="m-4 pr-4 col-lg-3">
                         <a href="{% url 'cart_update' item.property.id %}" class="btn btn-primary">
@@ -99,7 +99,7 @@
 <div class="container-fluid">
     <div class="row mr-4">
         <div class="col-12 text-right">
-            <h3><strong>Grand Total: </strong>£{{ grand_total }}</h3>
+            <h3><strong>Grand Total: </strong>£{{ grand_total | floatformat:2 }}</h3>
             <p>Taxes and local tariffs included in grand total</p>
         </div>
     </div>
