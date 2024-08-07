@@ -49,8 +49,8 @@ def remove_from_cart(request, item_id):
         cart = request.session.get('cart', {})
         if item_id in cart:
             cart.pop(item_id)
-            messages.success(request, 'Property removed \
-            from cart successfully')
+            messages.success(
+                request, 'Property removed from cart successfully')
         else:
             messages.warning(request, 'Property not found in cart')
 
@@ -73,8 +73,8 @@ def cart_update(request, property_id):
         request.session['cart'] = cart
         request.session.modified = True
 
-    return redirect(f"{reverse('property_details', \
-                    args=[property_id])}?date_range={date_range}")
+    return redirect(
+        f"{reverse('property_details', args=[property_id])}?date_range={date_range}")
 
 
 def add_taxi(request, item_id):

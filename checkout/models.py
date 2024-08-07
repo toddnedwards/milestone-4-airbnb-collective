@@ -106,5 +106,5 @@ class OrderLineItem(models.Model):
         self.order.update_total()
 
     def __str__(self):
-        return f'Property Name {self.property.name} \
-                 on order {self.order.order_number}'
+        return f'Property Name {self.property.name}'
+        'on order {self.order.order_number}'
