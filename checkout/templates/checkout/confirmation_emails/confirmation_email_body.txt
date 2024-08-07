@@ -10,7 +10,8 @@ Order Number: {{ order.order_number }}
 Property Booked: {{ item.property.name }}
 Location: {{ item.property.location }}
 Chosen Dates: {{ item.date_range }}
-Taxi added from airport: {% if item.taxi_price %} Yes. Taxi cost is £{{ item.taxi_price }}{% else %} No
+{% if item.taxi_price %}
+<p><strong>Taxi was added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
 {% endif %}
 Subtotal: £{{ order.order_total }}
 {% endfor %}
