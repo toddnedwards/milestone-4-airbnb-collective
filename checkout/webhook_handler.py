@@ -126,25 +126,6 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                # for item_id, item_data in json.loads(cart).items():
-                #     property = Property.objects.get(id=item_id)
-                #     if isinstance(item_data, int):
-                #         order_line_item = OrderLineItem(
-                #             order=order,
-                #             property=property,
-                #             date_range=item_data['date_range'][0],
-                #             total_days=total_days,                    
-                #         )
-                #         order_line_item.save()
-                #     else:
-                #         for date_range, total_days in item_data.items():
-                #             order_line_item = OrderLineItem(
-                #                 order=order,
-                #                 property=property,
-                #                 date_range=date_range,
-                #                 total_days=total_days,
-                #             )
-                #             order_line_item.save()
                 for item_id, item_data in json.loads(cart).items(): # roo
                     property = Property.objects.get(id=item_id)
                     if isinstance(item_data, dict) and 'date_ranges' in item_data:
