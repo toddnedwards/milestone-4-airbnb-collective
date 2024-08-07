@@ -1,15 +1,11 @@
-import uuid
-from decimal import Decimal, InvalidOperation
-
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from django_countries.fields import CountryField
-
 from airbnb_properties.models import Property
 from user_profile.models import UserProfile
-
+import uuid
+from decimal import Decimal, InvalidOperation
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -69,7 +65,8 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     property = models.ForeignKey(Property, null=False, blank=False,
                                  on_delete=models.CASCADE)
-    date_range = models.CharField(max_length=255, null=True)
+    start_date = models.DateField(null=False, blank=False)
+    end_date = models.DateField(null=False, blank=False)
     total_days = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2,
                                          null=False, blank=False,
@@ -85,8 +82,6 @@ class OrderLineItem(models.Model):
         try:
             # Ensure price_per_night is a Decimal
             price_per_night = self.property.price_per_night
-            print("this is price per night (type):", price_per_night,
-                  type(price_per_night))
             if not isinstance(price_per_night, Decimal):
                 price_per_night = Decimal(price_per_night)
 
@@ -106,5 +101,4 @@ class OrderLineItem(models.Model):
         self.order.update_total()
 
     def __str__(self):
-        return f'Property Name {self.property.name}'
-        'on order {self.order.order_number}'
+        return f'Property Name {self.property.name} on order {self.order.order_number}'

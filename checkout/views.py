@@ -2,6 +2,7 @@ from django.shortcuts import (render, redirect, reverse,
                               get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.http import JsonResponse
 from django.conf import settings
 
 from .forms import OrderForm
@@ -42,7 +43,6 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -61,55 +61,43 @@ def checkout(request):
             total_days = current_cart['total_days']
             order.grand_total = current_cart['grand_total']
             order.total_days = total_days
-            order.grand_total = current_cart['grand_total']
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
+            order.stripe_pid = request.POST.get('client_secret').split('_secret')[0]
             order.original_cart = json.dumps(cart)
             order.save()
             for item_id, item_data in cart.items():
                 try:
                     property = Property.objects.get(id=item_id)
                     taxi_price = property.distance_to_airport * 3
-                    if isinstance(
-                     item_data, dict) and 'date_ranges' in item_data:
+                    if isinstance(item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
-                            start_date_str, end_date_str = date_range.split(
-                                ' - ')
-                            start_date = datetime.strptime(
-                                start_date_str, '%d %b %Y')
-                            end_date = datetime.strptime(
-                                end_date_str, '%d %b %Y')
+                            start_date_str, end_date_str = date_range.split(' - ')
+                            start_date = datetime.strptime(start_date_str, '%d %b %Y').date()
+                            end_date = datetime.strptime(end_date_str, '%d %b %Y').date()
                             days = (end_date - start_date).days
                             sub_total = int(days * property.price_per_night) + int(taxi_price)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
-                                date_range=date_range,
+                                start_date=start_date,
+                                end_date=end_date,
                                 total_days=int(days),
                                 taxi_price=taxi_price,
                                 lineitem_total=sub_total,
                             )
                             order_line_item.save()
                 except Property.DoesNotExist:
-                    messages.error(
-                        request, ("One of the properties in your cart wasn't found in our database. "
-                                  "Please call us for assistance!")
-                                   )
+                    messages.error(request, ("One of the properties in your cart wasn't found in our database. Please call us for assistance!"))
                     order.delete()
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse(
-                'checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(
-                request, 'There was an error with your form.'
-                         'Please double check your information.')
+            messages.error(request, 'There was an error with your form. Please double check your information.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(
-                request, "There's nothing in your cart at the moment")
+            messages.error(request, "There's nothing in your cart at the moment")
             return redirect(reverse('properties'))
 
         current_cart = cart_contents(request)
@@ -149,10 +137,11 @@ def checkout(request):
         return render(request, 'checkout/checkout.html', context)
 
 
+
 def booked_dates(request, property_id):
     booked_dates = OrderLineItem.objects.filter(
-        property_id=property_id).values('date_range')
-    return render(request, 'booked_dates.html', {'booked_dates': booked_dates})
+        property_id=property_id).values('start_date', 'end_date')
+    return JsonResponse(list(booked_dates), safe=False)
 
 
 def checkout_success(request, order_number):
