@@ -22,7 +22,7 @@ class Property(models.Model):
     name = models.CharField(max_length=254, null=True)
     description = models.TextField()
     full_description = models.TextField(null=True, blank=True)
-    price_per_night = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    price_per_night = models.IntegerField(max_length=10, null=True, blank=True)
     availability = models.CharField(max_length=50, null=True, blank=True)
     distance_to_airport = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)

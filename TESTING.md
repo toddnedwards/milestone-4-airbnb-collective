@@ -169,6 +169,21 @@ Because I could only check an empty checkout with the URL, I decided to check ag
 
 ![Cart.html HTML text input issues](readme_testing_media/html_validation/cart_text_input_errors.png)
 
+---
+
+**Edit_property.html - URL Validation**
+
+Checked URL validation showed one error which was a space at the end of an element:
+
+`Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 133, column 3; to line 133, column 65
+
+iv>↩↩  ↩  <input type="hidden" name="next" value="/properties/edit/2/" />↩  ↩  `
+
+Once this was removed, all tests we're passed:
+
+
 
 #### **CSS**
 
