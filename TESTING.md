@@ -189,6 +189,13 @@ This appeared to be from django's property.id passing through for editing the pr
 
 [W3C](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
 
+| File | Result | Evidence |
+| :--- | :--- | :---: |
+| static/base.css | Pass | [base.css](static/testing/userstories/basecss.png)|
+| airbnb_properties/static/airbnb_properties/css/properties.css | Pass | [properties.css](static/testing/userstories/stripecss.png)|
+| cart/static/cart/css/cart.css | Pass | [cart.css](static/testing/userstories/basecss.png)|
+| checkout/static/checkout/css/checkout.css | Pass | [checkout.css](static/testing/userstories/profilecss.png)|
+| user_profile/static/profile/css/profile.css | Pass | [profile.css](static/testing/userstories/profilecss.png)|
 
 
 #### **Javascript**

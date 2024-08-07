@@ -74,7 +74,7 @@ def checkout(request):
                                 order=order,
                                 property=property,
                                 date_range=date_range,
-                                total_days=int(days),
+                                total_days=int(days), # roo
                             )
                             order_line_item.save()
                 except Property.DoesNotExist:   

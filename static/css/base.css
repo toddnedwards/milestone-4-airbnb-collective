@@ -42,6 +42,11 @@ footer {
   padding-bottom: 200px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Navigation */
 
 .nav-link {
@@ -121,49 +126,6 @@ footer {
 
 .container {
   word-wrap: break-word;
-}
-
-/* Properties html */
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.img-card {
-  height: 280px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.property-img {
-  transition: transform 0.2s ease-in-out;
-}
-
-.property-img:hover {
-  transform: scale(1.05);
-}
-
-.box-shadow-footer {
-  box-shadow: rgb(0 0 0 / 50%) 0px -6px 6px -6px;
-  margin-top:10px;
-  background-color:white;
-}
-
-.box-shadow-header {
-  box-shadow: rgb(0 0 0 / 50%) 0px 6px 6px -6px;
-  margin-bottom: 10px;
-  background-color: white;
-}
-
-input#id_date_range {
-  width: 250px !important;
-}
-
-/* Property Details */
-
-img.property-details-img:hover {
-  cursor: zoom-in;
 }
 
 /* Media Queries */
