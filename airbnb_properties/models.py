@@ -22,7 +22,7 @@ class Property(models.Model):
     name = models.CharField(max_length=254, null=True)
     description = models.TextField()
     full_description = models.TextField(null=True, blank=True)
-    price_per_night = models.DecimalField(max_digits=6, decimal_places=2)
+    price_per_night = models.IntegerField(null=True, blank=True)
     availability = models.CharField(max_length=50, null=True, blank=True)
     distance_to_airport = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)
@@ -33,7 +33,7 @@ class Property(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_kitchen = models.ImageField(null=True, blank=True)
     image_bathroom = models.ImageField(null=True, blank=True)
-    total_days = models.IntegerField(null=True, blank=True)
+    total_days = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.name

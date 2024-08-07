@@ -8,6 +8,8 @@ from .models import Order, OrderLineItem
 from airbnb_properties.models import Property
 from user_profile.models import UserProfile
 
+from datetime import datetime
+
 import json
 import time
 import stripe
@@ -60,7 +62,7 @@ class StripeWH_Handler:
         )
 
         billing_details = stripe_charge.billing_details # updated
-        grand_total = float(stripe_charge.amount) / 100 # updated
+        grand_total = round(stripe_charge.amount / 100, 2) # updated
 
         # update profile information if save_info is checked
         profile = None
@@ -124,25 +126,40 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.loads(cart).items():
+                # for item_id, item_data in json.loads(cart).items():
+                #     property = Property.objects.get(id=item_id)
+                #     if isinstance(item_data, int):
+                #         order_line_item = OrderLineItem(
+                #             order=order,
+                #             property=property,
+                #             date_range=item_data['date_range'][0],
+                #             total_days=total_days,                    
+                #         )
+                #         order_line_item.save()
+                #     else:
+                #         for date_range, total_days in item_data.items():
+                #             order_line_item = OrderLineItem(
+                #                 order=order,
+                #                 property=property,
+                #                 date_range=date_range,
+                #                 total_days=total_days,
+                #             )
+                #             order_line_item.save()
+                for item_id, item_data in json.loads(cart).items(): # roo
                     property = Property.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            property=property,
-                            date_range=item_data['date_range'][0],
-                            total_days=item_data['total_days'],                    
-                        )
-                        order_line_item.save()
-                    else:
-                        for date_range, total_days in item_data.items():
+                    if isinstance(item_data, dict) and 'date_ranges' in item_data:
+                        for date_range in item_data['date_ranges']:
+                            start_date_str, end_date_str = date_range.split(' - ')
+                            start_date = datetime.strptime(start_date_str, '%d %b %Y')
+                            end_date = datetime.strptime(end_date_str, '%d %b %Y')
+                            days = (end_date - start_date).days
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
                                 date_range=date_range,
-                                total_days=total_days,
+                                total_days=int(days),
                             )
-                            order_line_item.save()
+                            order_line_item.save() # roo
             except Exception as e:
                 if order:
                     order.delete()

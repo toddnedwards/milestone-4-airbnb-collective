@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal,InvalidOperation
 
 from django.db import models
 from django.db.models import Sum
@@ -60,13 +61,37 @@ class OrderLineItem(models.Model):
     total_days = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, editable=False)
 
+    # def save(self, *args, **kwargs):
+    #     """
+    #     Override the original save method to set the lineitem total
+    #     and update the order total.
+    #     """
+    #     self.lineitem_total = self.property.price_per_night * Decimal( self.total_days)
+    #     super().save(*args, **kwargs)
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.property.price_per_night * Decimal( self.total_days)
+        try:
+            # Ensure price_per_night is a Decimal
+            price_per_night = self.property.price_per_night
+            print("this is price per night (type):", price_per_night, type(price_per_night))
+            if not isinstance(price_per_night, Decimal):
+                price_per_night = Decimal(price_per_night)
+
+            # make sure that total_days is converted  to Decimal 
+            total_days = Decimal(self.total_days)
+            print("this is total days after conversion (type):", total_days, type(total_days))
+
+            self.lineitem_total = price_per_night * total_days
+            print("calculated lineitem_total:", self.lineitem_total)
+        except InvalidOperation as e:
+            # Log or handle the error as appropriate
+            raise ValueError(f"Invalid operation for Decimal conversion: {e}")
+
         super().save(*args, **kwargs)
+        self.order.update_total()  
 
     def __str__(self):
         return f'Property Name {self.property.name} on order {self.order.order_number}'
