@@ -91,9 +91,9 @@ def checkout(request):
                             )
                             order_line_item.save()
                 except Property.DoesNotExist:
-                    messages.error(request, ("One of the properties \
-                        in your cart wasn't found in our database. "
-                                             "Please call us for assistance!")
+                    messages.error(
+                        request, ("One of the properties in your cart wasn't found in our database. "
+                                  "Please call us for assistance!")
                                    )
                     order.delete()
                     return redirect(reverse('cart'))
@@ -102,8 +102,9 @@ def checkout(request):
             return redirect(reverse(
                 'checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(
+                request, 'There was an error with your form.'
+                         'Please double check your information.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
@@ -180,9 +181,9 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    messages.success(
+        request, f'Order successfully processed! Your order number is {order_number}.' 
+        'A confirmation email will be sent to {order.email}.')
 
     if 'cart' in request.session:
         del request.session['cart']
