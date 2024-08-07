@@ -147,6 +147,7 @@ class StripeWH_Handler:
                 #             order_line_item.save()
                 for item_id, item_data in json.loads(cart).items(): # roo
                     property = Property.objects.get(id=item_id)
+                    taxi_price = property.distance_to_airport * 3
                     if isinstance(item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
                             start_date_str, end_date_str = date_range.split(' - ')
