@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+
+
 if os.path.isfile('env.py'):
     import env
 
@@ -26,9 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# 
-# 'DEVELOPMENT' in os.environ
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost', '8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
 
@@ -69,10 +69,9 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware', 
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 
@@ -115,6 +114,10 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+SITE_ID = 1
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -123,7 +126,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/properties/properties/'
 
 WSGI_APPLICATION = 'myairbnb_collective.wsgi.application' 
 
@@ -142,14 +145,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-SITE_ID = 1
-
-LOGIN_REDIRECT_URL = '/properties/properties/'
 
 
 # Password validation
