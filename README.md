@@ -461,7 +461,7 @@ Property is the main layout for all products. This includes the following:
 * name - Provides the name of the property
 * description - Provides short description of property for properties page (to give a shorter description than full description used on property details to make accessibility easier for the user)
 * full_description - Provides a full description of the property which is included on the property details pages.
-* price_per_night - Provides decimal pricing for total of each property to their nightly cost.
+* price_per_night - Provides integer pricing for total of each property to their nightly cost. (this was originally a decimal field but caused problems with stripe causing decimal multiplication. Because of this I changed it to integer and added float formats instead.)
 * distance_to_airport - integer to show miles away from the nearest airport, and included to calculate the taxi pricing addon ( taxi price = £(distance to airport x 3))
 * bedrooms - integer to show number of bedrooms at the property. Also used to calculate amount of guests allowed at a property (guest_total = bedrooms x 2)
 * has_wifi - boolean to show if the property has wifi

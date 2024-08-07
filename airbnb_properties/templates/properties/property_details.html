@@ -55,7 +55,7 @@
             <br>
             <p class="">{{ property.description }}</p>
         <p class=""><strong>Location: </strong>{{ property.location }}</p>
-        <p class=""><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
+        <p class=""><strong>Price per night: </strong>£{{ property.price_per_night|floatformat:2 }}</p>
         <p class=""><strong>Bedrooms: </strong>{{ property.bedrooms }}</p>
         <hr>
         <!-- Date Picker for Booking -->
