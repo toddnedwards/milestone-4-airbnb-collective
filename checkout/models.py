@@ -25,7 +25,6 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     guest_count = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    taxi_price = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_cart = models.TextField(null=False, blank=False, default='')
@@ -61,7 +60,7 @@ class OrderLineItem(models.Model):
     date_range = models.CharField(max_length=255, null=True)
     total_days = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, editable=False)
-    taxi_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0)
+    taxi_price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, default=0.00)
 
     # def save(self, *args, **kwargs):
     #     """
