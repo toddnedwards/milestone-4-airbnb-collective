@@ -9,4 +9,3 @@ urlpatterns = [
     path('add_taxi/<str:item_id>/', views.add_taxi, name='add_taxi'),
     path('remove_taxi/<str:item_id>/', views.remove_taxi, name='remove_taxi'),
 ]
- 

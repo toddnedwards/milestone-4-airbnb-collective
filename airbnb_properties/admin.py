@@ -3,6 +3,7 @@ from .models import Property, Category
 
 # Register your models here.
 
+
 class PropertyAdmin(admin.ModelAdmin):
     list_display = (
         'id',
@@ -18,6 +19,7 @@ class PropertyAdmin(admin.ModelAdmin):
         'distance_to_airport',
         'bedrooms'
     )
+
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Category)

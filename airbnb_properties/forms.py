@@ -4,9 +4,11 @@ from .models import Date
 
 from .models import Property
 
+
 class PropertyForm(forms.ModelForm):
 
-    guest_count = forms.ChoiceField(label='Guest Count', choices=[(i, i) for i in range(1, 20)])
+    guest_count = forms.ChoiceField(
+        label='Guest Count', choices=[(i, i) for i in range(1, 20)])
 
     class Meta:
         model = Property

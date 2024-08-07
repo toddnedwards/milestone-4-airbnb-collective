@@ -10,6 +10,7 @@ from .forms import PropertyForm, DateForm
 
 # Create your views here.
 
+
 def airbnb_properties(request):
     """ A view to show all properties that exist in properties DB """
 
@@ -46,11 +47,12 @@ def airbnb_properties(request):
             if not filtered_properties.exists():
                 no_results = True
             else:
-                messages.error(request, "No results for your search. Please try again")
+                messages.error(request, "No results for your search. \
+                Please try again")
                 properties = filtered_properties
                 filtered = True
 
-    current_sorting = f'{sort}_{direction}'    
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'properties': properties,
@@ -110,6 +112,7 @@ def property_details(request, property_id):
 
     return render(request, 'properties/property_details.html', context)
 
+
 def datepicker_view(request):
     if request.method == 'POST':
         date_range = request.POST.get('date_range')
@@ -119,7 +122,8 @@ def datepicker_view(request):
 def edit_property(request, property_id):
     """ Edit property details """
     if not request.user.is_superuser:
-        messages.error.request(request, 'You do not have permission to see this page.')
+        messages.error.request(request, 'You do not have \
+        permission to see this page.')
         return redirect(reverse('home'))
 
     property = get_object_or_404(Property, pk=property_id)
@@ -127,10 +131,12 @@ def edit_property(request, property_id):
         form = PropertyForm(request.POST, request.FILES, instance=property)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Property details have been successfully edited')
+            messages.success(request, 'Property details have \
+            been successfully edited')
             return redirect(reverse('property_details', args=[property.id]))
         else:
-            messages.error(request, 'Failed to update property. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update property. \
+            Please ensure the form is valid.')
     else:
         form = PropertyForm(instance=property)
         messages.info(request, f'You are editing {property.name}')
@@ -138,10 +144,11 @@ def edit_property(request, property_id):
     template = 'properties/edit_property.html'
     context = {
         'form': form,
-        'property': property, 
+        'property': property,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_property(request, property_id):

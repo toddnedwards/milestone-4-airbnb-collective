@@ -27,10 +27,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# 
+#
 # 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com', 'localhost', '8000-toddnedward-milestone4a-24mf4cn2l2p.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['my-airbnb-collective-57b00b515cab.herokuapp.com',
+                 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ['my-airbnb-collective-57b00b515cab.herokuapp.com/']
 
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'checkout',
     'user_profile',
 
-    #other
+    # other
     'crispy_forms',
     'crispy_bootstrap4',
     'bootstrap_daterangepicker',
@@ -75,7 +76,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
-
 
 
 ROOT_URLCONF = 'myairbnb_collective.urls'
@@ -127,7 +127,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
-WSGI_APPLICATION = 'myairbnb_collective.wsgi.application' 
+WSGI_APPLICATION = 'myairbnb_collective.wsgi.application'
 
 
 # Database
@@ -159,16 +159,20 @@ LOGIN_REDIRECT_URL = '/properties/properties/'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'NumericPasswordValidator',
     },
 ]
 
@@ -198,7 +202,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AWS_DEFAULT_ACL = None
 if 'USE_AWS' in os.environ:
-    # Cache control    
+    # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',

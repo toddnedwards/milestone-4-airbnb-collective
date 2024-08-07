@@ -4,6 +4,7 @@ from .models import Faq
 
 # Create your views here.
 
+
 def faqs(request):
 
     faqs = Faq.objects.all()

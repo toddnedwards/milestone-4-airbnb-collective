@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -15,6 +16,7 @@ from cart.contexts import cart_contents
 import stripe
 import json
 from datetime import datetime
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -39,7 +41,7 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-    
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -65,11 +67,15 @@ def checkout(request):
                 try:
                     property = Property.objects.get(id=item_id)
                     taxi_price = property.distance_to_airport * 3
-                    if isinstance(item_data, dict) and 'date_ranges' in item_data:
+                    if isinstance(
+                     item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
-                            start_date_str, end_date_str = date_range.split(' - ')
-                            start_date = datetime.strptime(start_date_str, '%d %b %Y')
-                            end_date = datetime.strptime(end_date_str, '%d %b %Y')
+                            start_date_str, end_date_str = date_range.split(
+                                ' - ')
+                            start_date = datetime.strptime(
+                                start_date_str, '%d %b %Y')
+                            end_date = datetime.strptime(
+                                end_date_str, '%d %b %Y')
                             days = (end_date - start_date).days
                             order_line_item = OrderLineItem(
                                 order=order,
@@ -79,23 +85,25 @@ def checkout(request):
                                 taxi_price=taxi_price,
                             )
                             order_line_item.save()
-                except Property.DoesNotExist:   
-                    messages.error(request, (
-                        "One of the properties in your cart wasn't found in our database. "
-                        "Please call us for assistance!")
-                    )
+                except Property.DoesNotExist:
+                    messages.error(request, ("One of the properties \
+                        in your cart wasn't found in our database. "
+                                             "Please call us for assistance!")
+                                   )
                     order.delete()
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your cart at the moment")
+            messages.error(
+                request, "There's nothing in your cart at the moment")
             return redirect(reverse('properties'))
 
         current_cart = cart_contents(request)
@@ -136,7 +144,8 @@ def checkout(request):
 
 
 def booked_dates(request, property_id):
-    booked_dates = OrderLineItem.objects.filter(property_id=property_id).values('date_range')
+    booked_dates = OrderLineItem.objects.filter(
+        property_id=property_id).values('date_range')
     return render(request, 'booked_dates.html', {'booked_dates': booked_dates})
 
 
@@ -166,7 +175,6 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')

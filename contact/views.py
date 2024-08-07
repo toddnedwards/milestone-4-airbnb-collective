@@ -7,6 +7,7 @@ from .models import Contact
 
 # Create your views here.
 
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -15,7 +16,6 @@ def contact(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            
             send_mail(
                 subject=f'Contact Form Submission from {name}',
                 message=f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}',
@@ -25,11 +25,11 @@ def contact(request):
             )
 
             return redirect('success')
-            
     else:
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
+
 
 def success(request):
     return render(request, 'success.html')

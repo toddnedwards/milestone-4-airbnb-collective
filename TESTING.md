@@ -203,14 +203,71 @@ This appeared to be from django's property.id passing through for editing the pr
 | File | Result | Evidence |
 | :--- | :--- | :---: |
 | checkout/static/checkout/js/stripe_elements.js | One warning, but copied from [boutique Ado's code](https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/de7ad2067ac1b5de37a4cd8b9f4ddf572a4bf6c7/checkout/static/checkout/js/stripe_elements.js) | [stripe.js](readme_testing_media/js_validation/stripe_js.png)|
-| home/templates/home/index.html | Fail (missing semicolon) | [carousel_js_error.js](readme_testing_media/js_validation/home_js_error.png)|
-| home/templates/home/index.html | Pass (semicolon added to line 55) | [carousel_js_fixed.js](readme_testing_media/js_validation/home_js_fixed.png)|
-| airbnb_properties/templates/includes/date_picker_script.html | Pass | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
-| airbnb_properties/templates/includes/date_picker_script.html | Pass | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
-| airbnb_properties/templates/includes/lightbox_script.html | Fail (unnecessary semicolons) | [light_box_js_error.js](readme_testing_media/js_validation/light_box_script_js_error.png)|
-| airbnb_properties/templates/includes/lightbox_script.html | Pass (extra semicolons removed)| [light_box_js_fixed.js](readme_testing_media/js_validation/light_box_script_js_fixed.png)|
+| home/templates/home/index.html | Failed (missing semicolon) | [carousel_js_error.js](readme_testing_media/js_validation/home_js_error.png)|
+| home/templates/home/index.html | Passed (semicolon added to line 55) | [carousel_js_fixed.js](readme_testing_media/js_validation/home_js_fixed.png)|
+| airbnb_properties/templates/includes/date_picker_script.html | Passed | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
+| airbnb_properties/templates/includes/date_picker_script.html | Passed | [date_picker_script.js](readme_testing_media/js_validation/date_picker_js.png)|
+| airbnb_properties/templates/includes/lightbox_script.html | Failed (unnecessary semicolons) | [light_box_js_error.js](readme_testing_media/js_validation/light_box_script_js_error.png)|
+| airbnb_properties/templates/includes/lightbox_script.html | Passed (extra semicolons removed)| [light_box_js_fixed.js](readme_testing_media/js_validation/light_box_script_js_fixed.png)|
 
 #### **Python**
+
+[Code Institute Python Linter](https://pep8ci.herokuapp.com/) was used to validate Python.
+
+| File | Result | Evidence |
+| :--- | :--- | :---: |
+| **airbnb_properties** |       |               |
+| airbnb_properties/admin.py | Passed | [properties_admin.py](readme_testing_media/python_validation/properties_admin_python.png)|
+| airbnb_properties/apps.py | Passed | [properties_apps.py](readme_testing_media/python_validation/properties_apps_python.png)|
+| airbnb_properties/forms.py | Passed | [properties_forms.py](readme_testing_media/python_validation/properties_forms_python.png)|
+| airbnb_properties/models.py | Passed | [properties_models.py](readme_testing_media/python_validation/properties_models_python.png)|
+| airbnb_properties/urls.py | Passed | [properties_urls.py](readme_testing_media/python_validation/properties_urls_python.png)|
+| airbnb_properties/views.py | Passed | [properties_views.py](readme_testing_media/python_validation/properties_views_python.png)|
+| **cart** |       |               |
+| cart/apps.py | Passed | [cart_apps.py](readme_testing_media/python_validation/cart_apps_python.png)|
+| cart/contexts.py | Passed | [cart_contexts.py](readme_testing_media/python_validation/cart_contexts_python.png)|
+| cart/urls.py | Passed | [cart_urls.py](readme_testing_media/python_validation/cart_urls_python.png)|
+| cart/views.py | Passed | [cart_views.py](readme_testing_media/python_validation/cart_views_python.png)|
+| **checkout** |       |               |
+| airbnb_properties/admin.py | Passed | [checkout_admin.py](readme_testing_media/python_validation/checkout_admin_python.png)|
+| airbnb_properties/apps.py | Passed | [checkout_apps.py](readme_testing_media/python_validation/checkout_apps_python.png)|
+| airbnb_properties/forms.py | Passed | [checkout_forms.py](readme_testing_media/python_validation/checkout_forms_python.png)|
+| airbnb_properties/models.py | Passed | [checkout_models.py](readme_testing_media/python_validation/checkout_models_python.png)|
+| airbnb_properties/signals.py | Passed | [checkout_signals.py](readme_testing_media/python_validation/checkout_signals_python.png)|
+| airbnb_properties/urls.py | Passed | [checkout_urls.py](readme_testing_media/python_validation/checkout_urls_python.png)|
+| airbnb_properties/webhook_handler.py | Passed | [checkout_webhook_handler.py](readme_testing_media/python_validation/checkout_webhook_handler_python.png)|
+| airbnb_properties/webhooks.py | Passed | [checkout_webhooks.py](readme_testing_media/python_validation/checkout_webhooks_python.png)|
+| **contact** |       |               |
+| contact/apps.py | Passed | [contact_apps.py](readme_testing_media/python_validation/contact_apps_python.png)|
+| contact/forms.py | Passed | [contact_forms.py](readme_testing_media/python_validation/contact_forms_python.png)|
+| contact/models.py | Passed | [contact_models.py](readme_testing_media/python_validation/contact_models_python.png)|
+| contact/urls.py | Passed | [contact_urls.py](readme_testing_media/python_validation/contact_urls_python.png)|
+| contact/views.py | Passed | [contact_views.py](readme_testing_media/python_validation/contact_views_python.png)|
+| **contact** |       |               |
+| faqs/admin.py | Passed | [faqs_admin.py](readme_testing_media/python_validation/faqs_admin_python.png)|
+| faqs/apps.py | Passed | [faqs_apps.py](readme_testing_media/python_validation/faqs_apps_python.png)|
+| faqs/models.py | Passed | [faqs_models.py](readme_testing_media/python_validation/faqs_models_python.png)|
+| faqs/urls.py | Passed | [faqs_urls.py](readme_testing_media/python_validation/faqs_urls_python.png)|
+| faqs/views.py | Passed | [faqs_views.py](readme_testing_media/python_validation/faqs_views_python.png)|
+| **contact** |       |               |
+| home/apps.py | Passed | [home_apps.py](readme_testing_media/python_validation/home_apps_python.png)|
+| home/urls.py | Passed | [home_urls.py](readme_testing_media/python_validation/home_urls_python.png)|
+| home/views.py | Passed | [home_views.py](readme_testing_media/python_validation/home_views_python.png)|
+| **myairbnb_collectiv** |       |               |
+| myairbnb_collective/asgi.py | Passed | [myairbnb_collective_settings.py](readme_testing_media/python_validation/myairbnb_collective_asgi_python.png)|
+| myairbnb_collective/settings.py | Passed | [myairbnb_collective_settings.py](readme_testing_media/python_validation/myairbnb_collective_settings_python.png)|
+| myairbnb_collective/urls.py | Passed | [myairbnb_collective_urls.py](readme_testing_media/python_validation/myairbnb_collective_urls_python.png)|
+| myairbnb_collective/wsgi.py | Passed | [myairbnb_collective_wsgi.py](readme_testing_media/python_validation/myairbnb_collective_wsgi_python.png)|
+| **user_profile** |       |               |
+| user_profile/apps.py | Passed | [user_profile_apps.py](readme_testing_media/python_validation/user_profile_apps_python.png)|
+| user_profile/forms.py | Passed | [user_profile_forms.py](readme_testing_media/python_validation/user_profile_forms_python.png)|
+| user_profile/models.py | Passed | [user_profile_models.py](readme_testing_media/python_validation/user_profile_models_python.png)|
+| user_profile/urls.py | Passed | [user_profile_urls.py](readme_testing_media/python_validation/user_profile_urls_python.png)|
+| user_profile/views.py | Passed | [user_profile_views.py](readme_testing_media/python_validation/user_profile_views_python.png)|
+| **custom_storages** |       |               |
+| custom_storages/apps.py | Passed | [custom_storages.py](readme_testing_media/python_validation/custom_storages_python.png)|
+| **manage** |       |               |
+| manage/apps.py | Passed | [manage.py](readme_testing_media/python_validation/manage_python.png)|
 
 #### **Lighthouse**
 

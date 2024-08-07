@@ -13,7 +13,7 @@ def cart_contents(request):
     grand_total = 0
     property_total = 0
     taxi_quote = 0
-    
+
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
         taxi_price = item_data.get('add_taxi', 0)

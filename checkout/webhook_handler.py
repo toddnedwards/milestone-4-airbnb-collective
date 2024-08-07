@@ -14,6 +14,7 @@ import json
 import time
 import stripe
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -29,11 +30,11 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {
-                'order': order, 
+                'order': order,
                 'contact_email': settings.DEFAULT_FROM_EMAIL,
                 'lineitems': order.lineitems.all()
             })
-        
+
         send_mail(
             subject,
             body,
@@ -65,8 +66,8 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        billing_details = stripe_charge.billing_details
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # update profile information if save_info is checked
         profile = None
@@ -130,33 +131,19 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                # for item_id, item_data in json.loads(cart).items():
-                #     property = Property.objects.get(id=item_id)
-                #     if isinstance(item_data, int):
-                #         order_line_item = OrderLineItem(
-                #             order=order,
-                #             property=property,
-                #             date_range=item_data['date_range'][0],
-                #             total_days=total_days,                    
-                #         )
-                #         order_line_item.save()
-                #     else:
-                #         for date_range, total_days in item_data.items():
-                #             order_line_item = OrderLineItem(
-                #                 order=order,
-                #                 property=property,
-                #                 date_range=date_range,
-                #                 total_days=total_days,
-                #             )
-                #             order_line_item.save()
-                for item_id, item_data in json.loads(cart).items(): # roo
+
+                for item_id, item_data in json.loads(cart).items():
                     property = Property.objects.get(id=item_id)
                     taxi_price = property.distance_to_airport * 3
-                    if isinstance(item_data, dict) and 'date_ranges' in item_data:
+                    if isinstance(
+                     item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
-                            start_date_str, end_date_str = date_range.split(' - ')
-                            start_date = datetime.strptime(start_date_str, '%d %b %Y')
-                            end_date = datetime.strptime(end_date_str, '%d %b %Y')
+                            start_date_str, end_date_str = date_range.split(
+                                ' - ')
+                            start_date = datetime.strptime(
+                                start_date_str, '%d %b %Y')
+                            end_date = datetime.strptime(
+                                end_date_str, '%d %b %Y')
                             days = (end_date - start_date).days
                             order_line_item = OrderLineItem(
                                 order=order,
@@ -165,7 +152,7 @@ class StripeWH_Handler:
                                 total_days=int(days),
                                 taxi_price=taxi_price,
                             )
-                            order_line_item.save() # roo
+                            order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
@@ -177,7 +164,6 @@ class StripeWH_Handler:
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
                      'Created order in webhook'),
             status=200)
-
 
     def handle_payment_intent_payment_failed(self, event):
         """

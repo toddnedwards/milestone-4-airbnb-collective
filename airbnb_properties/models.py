@@ -17,7 +17,8 @@ class Category(models.Model):
 
 class Property(models.Model):
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)  
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
     location = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=True)
     description = models.TextField()
@@ -40,7 +41,7 @@ class Property(models.Model):
 
     class Meta:
         verbose_name_plural = "properties"
-        
+
 
 class Date(models.Model):
 
