@@ -5,6 +5,8 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
+
 from airbnb_properties.models import Property
 from user_profile.models import UserProfile
 from user_profile.forms import UserProfileForm
@@ -168,12 +170,12 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
     
-        messages.success(request, f'Order successfully processed! \
-            Your order number is {order_number}. A confirmation \
-            email will be sent to {order.email}.')
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
 
-        if 'cart' in request.session:
-            del request.session['cart']
+    if 'cart' in request.session:
+        del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {
