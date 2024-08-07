@@ -60,7 +60,7 @@ class StripeWH_Handler:
         )
 
         billing_details = stripe_charge.billing_details # updated
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        grand_total = float(stripe_charge.amount) / 100 # updated
 
         # update profile information if save_info is checked
         profile = None
@@ -97,6 +97,7 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
