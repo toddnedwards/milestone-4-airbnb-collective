@@ -415,7 +415,7 @@ this for accessibility for the user so nothing was becoming unclear for trying t
 I decided to use a relational database for this project, using postgres sql, this seemed to be the best option for my needs 
 for this project. I used [Draw SQL](https://drawsql.app/) to create the diagram for the schema.
 
-<img src="readme_testing_media/sql_databse_schema.png" alt="MyAirBnB Collective Database Schema">
+<img src="readme_testing_media/drawsql_database_schema.png" alt="MyAirBnB Collective Database Schema">
 
 **Registration Form**
 
