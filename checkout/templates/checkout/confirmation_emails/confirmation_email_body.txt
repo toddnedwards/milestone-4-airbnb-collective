@@ -13,6 +13,7 @@ Chosen Dates: {{ item.date_range }}
 {% if item.taxi_price %}
 Taxi was added to your order. Taxi Price : £{{ item.taxi_price }}
 {% endif %}
+Subtotal: £{{ item.sub_total }}
 {% endfor %}
 
 Grand Total: £{{ order.grand_total }}
