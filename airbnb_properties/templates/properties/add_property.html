@@ -58,8 +58,6 @@
                     {% for field in form %}
                         {% if field.name != 'image' and field.name != 'image_kitchen' and field.name != 'image_bathroom' and field.name != 'total_days' %}
                             {{ field|as_crispy_field }}
-                        {% elif field.name == 'image' %}
-                            {{ field }}
                         {% endif %}
                     {% endfor %}
                     <div class="form-group">
