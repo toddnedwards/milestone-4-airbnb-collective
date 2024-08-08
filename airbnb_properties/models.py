@@ -25,7 +25,7 @@ class Property(models.Model):
     full_description = models.TextField(null=False, blank=False)
     price_per_night = models.IntegerField(null=False, blank=True)
     distance_to_airport = models.IntegerField(null=True, blank=True)
-    bedrooms = models.IntegerField(null=True, blank=True)
+    bedrooms = models.IntegerField(null=True, blank=True, default=1)
     has_wifi = models.BooleanField(default=False)
     has_parking = models.BooleanField(default=False)
     non_smoking = models.BooleanField(default=False)
