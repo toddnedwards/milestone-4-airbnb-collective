@@ -1,39 +1,50 @@
 <script>
     $(function() {
+        var initialDateRange = "{{ date_range }}";
         var excludedDates = []; // Array of excluded dates fetched from the server
-
+    
         // Fetch excluded dates from the server
         $.getJSON("{% url 'booked_dates' property.id %}", function(data) {
             excludedDates = data.excluded_dates;
-            initializeDatePicker();
+            initializeDateRangePicker();
         });
-
-        function initializeDatePicker() {
-            $.datepicker.setDefaults({
-                dateFormat: 'yy-mm-dd',
-                minDate: 0,
-                beforeShowDay: function(date) {
-                    var dateString = $.datepicker.formatDate('yy-mm-dd', date);
-                    if (excludedDates.indexOf(dateString) !== -1) {
-                        return [false, 'ui-state-disabled', 'Date Unavailable'];
-                    } else {
-                        return [true, '', 'Available'];
-                    }
+    
+        function initializeDateRangePicker() {
+            $('#id_date_range').daterangepicker({
+                autoUpdateInput: false,
+                showDropdowns: true,
+                minDate: moment().startOf('day'),
+                locale: {
+                    format: 'DD MMM YYYY',
+                    cancelLabel: 'Clear'
+                },
+                isInvalidDate: function(date) {
+                    var dateString = date.format('YYYY-MM-DD');
+                    return excludedDates.includes(dateString);
+                },
+                // Custom styling to highlight booked dates
+                isInvalidDate: function(date) {
+                    var dateString = date.format('YYYY-MM-DD');
+                    return excludedDates.includes(dateString);
                 }
             });
-
-            $('#checkIn').datepicker({
-                onSelect: function(selectedDate) {
-                    $('#checkIn').datepicker('option', 'minDate', selectedDate || 0);
-                    $('#checkOut').datepicker('option', 'minDate', selectedDate || 0);
-                }
+    
+            // Set initial value if date range is provided
+            if (initialDateRange) {
+                var dates = initialDateRange.split(' - ');
+                $('#id_date_range').data('daterangepicker').setStartDate(moment(dates[0], 'DD MMM YYYY'));
+                $('#id_date_range').data('daterangepicker').setEndDate(moment(dates[1], 'DD MMM YYYY'));
+                $('#id_date_range').val(initialDateRange);
+            }
+    
+            $('#id_date_range').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD MMM YYYY') + ' - ' + picker.endDate.format('DD MMM YYYY'));
             });
-
-            $('#checkOut').datepicker({
-                onSelect: function(selectedDate) {
-                    $('#checkOut').datepicker('option', 'maxDate', selectedDate);
-                }
+    
+            $('#id_date_range').on('cancel.daterangepicker', function(ev, picker) {
+                $(this).val('');
             });
         }
     });
 </script>
+    

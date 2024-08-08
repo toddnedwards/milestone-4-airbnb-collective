@@ -1069,6 +1069,10 @@ help with date picker:
 
 https://stackoverflow.com/questions/59450570/how-to-create-start-date-and-end-date-picker-in-one-textbox-using-jquery-and-the
 
+help with the date picker design:
+
+https://jqueryui.com/datepicker/#date-range
+
 
 strip time datetime function:
 

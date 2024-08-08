@@ -16,7 +16,7 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 @require_POST
@@ -78,6 +78,7 @@ def checkout(request):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
+                                date_range=date_range,
                                 start_date=start_date,
                                 end_date=end_date,
                                 total_days=int(days),
@@ -85,6 +86,9 @@ def checkout(request):
                                 lineitem_total=sub_total,
                             )
                             order_line_item.save()
+                except ValueError as e:
+                    # Log or handle the error if date_range format is invalid
+                    print(f"Date range format error: {e}")
                 except Property.DoesNotExist:
                     messages.error(request, ("One of the properties in your cart wasn't found in our database. Please call us for assistance!"))
                     order.delete()
@@ -137,26 +141,22 @@ def checkout(request):
         return render(request, 'checkout/checkout.html', context)
 
 
-
 def booked_dates(request, property_id):
     booked_dates = OrderLineItem.objects.filter(property_id=property_id).values_list('date_range', flat=True)
     
     excluded_dates = []
     for date_range in booked_dates:
-        if date_range:  # Ensure date_range is not None
-            try:
-                start_date_str, end_date_str = date_range.split(' - ')
-                start_date = datetime.strptime(start_date_str, '%d %b %Y')
-                end_date = datetime.strptime(end_date_str, '%d %b %Y')
-                
-                while start_date <= end_date:
-                    excluded_dates.append(start_date.strftime('%Y-%m-%d'))
-                    start_date += timedelta(days=1)
-            except ValueError as e:
-                # Log or handle the error if date_range format is invalid
-                print(f"Date range format error: {e}")
+        if date_range:  # Check if date_range is not None
+            start_date_str, end_date_str = date_range.split(' - ')
+            start_date = datetime.strptime(start_date_str, '%d %b %Y')
+            end_date = datetime.strptime(end_date_str, '%d %b %Y')
+            
+            while start_date <= end_date:
+                excluded_dates.append(start_date.strftime('%Y-%m-%d'))  # Format should be yyyy-mm-dd
+                start_date += timedelta(days=1)
     
     return JsonResponse({'excluded_dates': excluded_dates})
+
 
 
 
@@ -196,6 +196,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'order_line_items': order.lineitems.all(),
     }
 
     return render(request, template, context)

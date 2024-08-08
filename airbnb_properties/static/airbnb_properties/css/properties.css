@@ -163,3 +163,13 @@ img.hover-shadow {
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.daterangepicker .drp-calendar td.disabled {
+  background-color: red !important;
+  color: white !important;
+  text-decoration: none;
+}
+.daterangepicker .drp-calendar td.disabled:hover {
+  background-color: darkred !important;
+  color: white !important;
+}
