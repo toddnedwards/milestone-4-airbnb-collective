@@ -214,7 +214,7 @@ Here is result with the issue left:
 [W3C](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
 
 | File | Result | Evidence |
-| :--- | :--- | :---: |
+| :--- | :--- | :--- |
 | static/base.css | Pass | [base.css](readme_testing_media/css_validation/base_css.png)|
 | airbnb_properties/static/airbnb_properties/css/properties.css | Pass | [properties.css](readme_testing_media/css_validation/properties_css.png)|
 | cart/static/cart/css/cart.css | Pass | [cart.css](readme_testing_media/css_validation/cart_css.png)|
@@ -225,7 +225,7 @@ Here is result with the issue left:
 [Code Beautify](https://codebeautify.org/jsvalidate) was used to validate Javascript.
 
 | File | Result | Evidence |
-| :--- | :--- | :---: |
+| :--- | :--- | :--- |
 | checkout/static/checkout/js/stripe_elements.js | One warning, but copied from [boutique Ado's code](https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/de7ad2067ac1b5de37a4cd8b9f4ddf572a4bf6c7/checkout/static/checkout/js/stripe_elements.js) | [stripe.js](readme_testing_media/js_validation/stripe_js.png)|
 | home/templates/home/index.html | Failed (missing semicolon) | [carousel_js_error.js](readme_testing_media/js_validation/home_js_error.png)|
 | home/templates/home/index.html | Passed (semicolon added to line 55) | [carousel_js_fixed.js](readme_testing_media/js_validation/home_js_fixed.png)|
@@ -239,7 +239,7 @@ Here is result with the issue left:
 [Code Institute Python Linter](https://pep8ci.herokuapp.com/) was used to validate Python.
 
 | File | Result | Evidence |
-| :--- | :--- | :---: |
+| :--- | :--- | :--- |
 | **airbnb_properties** |       |               |
 | airbnb_properties/admin.py | Passed | [properties_admin.py](readme_testing_media/python_validation/properties_admin_python.png)|
 | airbnb_properties/apps.py | Passed | [properties_apps.py](readme_testing_media/python_validation/properties_apps_python.png)|
@@ -277,7 +277,7 @@ Here is result with the issue left:
 | home/apps.py | Passed | [home_apps.py](readme_testing_media/python_validation/home_apps_python.png)|
 | home/urls.py | Passed | [home_urls.py](readme_testing_media/python_validation/home_urls_python.png)|
 | home/views.py | Passed | [home_views.py](readme_testing_media/python_validation/home_views_python.png)|
-| **myairbnb_collectiv** |       |               |
+| **myairbnb_collective** |       |               |
 | myairbnb_collective/asgi.py | Passed | [myairbnb_collective_settings.py](readme_testing_media/python_validation/myairbnb_collective_asgi_python.png)|
 | myairbnb_collective/settings.py | Passed | [myairbnb_collective_settings.py](readme_testing_media/python_validation/myairbnb_collective_settings_python.png)|
 | myairbnb_collective/urls.py | Passed | [myairbnb_collective_urls.py](readme_testing_media/python_validation/myairbnb_collective_urls_python.png)|
@@ -300,7 +300,7 @@ Here is result with the issue left:
 **Results**
 
 | Page | Result | Notes |
-| :--- | :--- | :---: |
+| :--- | :--- | :--- |
 | Home Page | ![Home Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_home.png) | Lighthouse showed no labels added to search icon and shopping cart icon. Aria labels added to both.   |
 | Properties Page | ![Properties Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_properties.png) | Performance lower due to large number of images   |
 | Property Details Page | ![Property Details Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_property_details.png) | SEO low due to majority of text being provided by tags.   |
@@ -320,9 +320,111 @@ I found some results could be better, but was mainly down to bootstrap classes t
 
 #### **Testing User Stories**
 
-
+| As a... | I want to... | So I can... | How this is achieved | Evidence |
+| :--- | :--- | :--- | :--- | :--- |
+| **Viewing and Navigation** |
+| Shopper | Easily navigate the site | Find properties and information quickly | A navbar is at the top of the page, providing links to all pages for the user to find quickly. | [Main Nav](/readme_testing_media/user_stories/main_nav.png)  [Mobile Nav](/readme_testing_media/user_stories/nav_mobile.png) |
+| Shopper | View more information about the property from properties page | See if the property I like is suitable for my needs, if its available to book and other criteria like do they allow pets etc. | Click on the image of the chosen property or the 'find out more' button. Both options direct the user to the property details page. | [Property Details link ](/readme_testing_media/user_stories/property_links.png)  [Mobile Property Details link](/readme_testing_media/user_stories/mobile_property_links.png) |
+| Shopper | Choose dates I want to visit the property, and how many guests | See availability of the property, if it has the dates I would like to visit, confirm the dates so I can add the property to cart. | Datepicker is provided on the property details page. If clicked, it shows a calendar. Unavailable dates are shown in red to the user so it can't be double booked. Guest count dropdown is also shown on property details page. |[Property Details Choices ](/readme_testing_media/user_stories/property_details_choices.png)  [Property Details calendar](/readme_testing_media/user_stories/property_details_calendar.png) [Property Details choices mobile](/readme_testing_media/user_stories/property_details_choices_mobile.png)|
+| Shopper | View my cart in full detail | Make sure the items I have chosen have the correct details, and be able to edit or delete the properties from my cart | Cart page allows user to see all cart items in seperate containers for accessibility. They include all details for the booking including property details, the date range, total number of days the user is staying and a breakdown of costs. Grand total takes all totals into account from all properties and for taxi fares also. | [Cart Full View ](/readme_testing_media/user_stories/cart_full_view.png)  [Mobile Shopping Cart](/readme_testing_media/user_stories/cart_full_view_mobile.png) |
+| Shopper | Edit/ delete properties in cart | make amendments to my bookings if I need to change the date range or how many days and how many guests are staying etc. Delete from cart if I accidentally added item or changed my mind. | Edit property button is provided on full cart view which redirects to property details page with prior information (date range and guest count) autofilled for them to adjust or check. Delete button also on cart full view that when clicked brings up a modal for the user to confirm they would like to delete the potential or cancel. If confirmed, property is removed from the cart. | [Cart Full View Edit/ Delete Property ](/readme_testing_media/user_stories/cart_full_view.png)  [Mobile Shopping Cart Edit/ Delete Property](/readme_testing_media/user_stories/cart_full_view_mobile.png) |
+| Shopper | See Frequently Asked Questions | Find answers to enquiries that I may have about how the site works without having to contact the company and waiting for an answer. | In the navbar is the 'FAQs' link. When the user clicks, it takes them to the frequently asked questions page. | [FAQs Page](/readme_testing_media/faqs_page.png) |
+| Shopper | Contact the company | Get an answer to enquiry I may have or a problem with a current order. | In the navbar is the 'Contact Us' link. When the user clicks, it takes them to the contact us page with a contact form. Alternatively, in the footer section, an email address, phone number, and extra link to contact form is available as well as links to social media pages. | [Contact Us Page](/readme_testing_media/contact_us_page.png) [Footer Links](/readme_testing_media/footer-fullscreen.png) [Footer Links Mobile](/readme_testing_media/footer-mobile.png)|
+| **Registration & User Accounts** |
+| Shopper | Register an account | Save my details for future bookings and view order history | In nav bar, register link is provided for user to click on. Once clicked, user will be directed to registration form, which will create an account. | [Register link ](/readme_testing_media/user_stories/register.png)  [Mobile Register link](/readme_testing_media/user_stories/register_mobile.png) [Register Form](/readme_testing_media/user_stories/register_form.png)|
+| Shopper | Receive an email to verify registration | Confirm my email address is correct and verify my account to use. | Verification email is sent once user has registered an account. | [Receive Verification Email](/readme_testing_media/user_stories/email_confirmation.png) |
+| Shopper | Log in and out of account | Log in to retreive my information and make another purchase quicker. Logging out to keep my details secure. | In the 'my account' dropdown section, log in is shown. When the user is logged in this changes to logout so the user can securely log out of their account also. This takes the user to another page to confirm they would like to logout of their account. | [Login / Logout ](/readme_testing_media/user_stories/login_logout_section.png) |
+| Shopper | View my profile | See my personal details and order history | In the 'my account' dropdown, once the user is logged in, they can view their profile. This is only showed when user is logged in for security. When they click on the link, they are taken to the profile page, where they can view their details. | [User Profile ](/readme_testing_media/profile_page.png)  [User Profile Mobile](/readme_testing_media/user_stories/profile_mobile.png) |
+| Shopper | Reset my password | Create a new password incase I have forgotten my current one or wish to update it. | During login, a forgotten password is shown. | [Password Reset](/readme_testing_media/user_stories/password_reset.png) |
+| **Sorting & Searching** |
+| Shopper | Search properties on the site | Find properties and categories quickly, so I don't have to look through all properties to find the criteria I'm looking for | Search bar is at the top of each page that redirects to the properties page with the relevant search criteria searched. | [Search Bar ](/readme_testing_media/user_stories/main_nav.png)  [Mobile Search Bar](/readme_testing_media/user_stories/nav_mobile.png) |
+| Shopper | Filter properties on the site | Find properties and categories quickly, so I don't have to look through all properties to find the criteria I'm looking for | Sorting filter is available on the properties page to search through price, category, number of bedrooms etc. | [Filter section ](/readme_testing_media/user_stories/filter.png)  [Mobile Filter Section](/readme_testing_media/user_stories/filter_mobile.png) |
+| Shopper | View properties I have added to cart and see totals | Make sure I'm not over my budget or to make sure I've chosen the correct properties whilst I carry on shopping. | Shopping cart is shown in the top right corner of large view and in navbar in mobile view. If something is in the cart, the colour changes from blue to green showing the user there has been a change to the cart. If they click on the shopping cart view it takes them to the cart page, showing all details and breakdowns of the booking details they have chosen. | [Shopping Cart ](/readme_testing_media/user_stories/shopping_cart.png)  [Mobile Shopping Cart](/readme_testing_media/user_stories/shopping_cart_mobile.png) |
+| **Making Purchases** |
+| Shopper | Add taxi from airport in cart for my potential booking | Save time having to book a taxi seperately and have the convenience of doing it on the site so all my booking is in one place | Add taxi section visible on cart page. This explains the taxi fare and asks if the user would like to add this option. If they do, they can click on the add taxi button. This button appends taxi_price to their cart, which then shows the text taxi added and the fare too. If they change their mind, once clicked the button changes to remove taxi and will revert back to no taxi booking once they click it. | [Cart Full View Add/ Remove Taxi ](/readme_testing_media/user_stories/cart_add_taxi.png)  [Mobile Shopping Cart Add/ Remove Taxi](/readme_testing_media/user_stories/mobile_cart_add_taxi.png) |
+| Shopper | Proceed to checkout | Purchase the items added to my cart | 'Secure Checkout' button at the bottom of cart page. Once clicked, user is recirected to checkout page | [Checkout button ](/readme_testing_media/user_stories/cart_add_taxi.png) |
+| Shopper | Know my personal details are secure in checkout | Not worry about my personal details being shared | Stripe is used for checkout information. Checkout success page also requires the user to be authenticated to view the information. Another user is told they don't have permission to view that page if they use the specific URL to search for the user's details. | [Stripe Checkout](/readme_testing_media/checkout_page.png)|
+| **Admin & Store Management** |
+| Admin/ Owner | Login to website | Make adjustments to properties or add properties for future expansion of site. | Admin uses 'my account' section same as regular user with admin login details which will give them access, along with extras that only admin can see such as manage property and add property. | [Stripe Checkout](/readme_testing_media/user_stories/login_logout_section.png)|
+| Admin/ Owner | Edit property details | Adjust details of a property to be able to update pricing, more specific location, change facilities availability if a property begins to allow pets at the property etc. | Admin uses 'my account' section and chooses property management from the dropdown section. This will take them to the properties page, which now include the buttons for edit and delete properties. Once they click on the property they want to edit, they will be taken to the page where they can make amendments, then either update information or cancel if they decide they've made errors or it no longer needs updating. | [Properties Admin View Page](/readme_testing_media/user_stories/properties_admin_view.png) [Properties Admin View Mobile Page](/readme_testing_media/user_stories/properties_admin_mobile.png) [Edit Property Page](/readme_testing_media/edit_property_page.png) [Edit Property Mobile Page](/readme_testing_media/user_stories/edit_property_admin.png)|
+| Admin/ Owner | Add property | Add a new property to the site | In 'my account' dropdown in navbar, admin can choose 'add property' which directs them to the add property page. From here they can create a new listing using the same layout from edit property for consistency when they add a new product. | [Add Property Page](/readme_testing_media/user_stories/admin_add_property.png) [Add Property Page Mobile](/readme_testing_media/user_stories/admin_add_property_mobile.png)|
+| Admin/ Owner | Delete property | Remove a property from the site incase a property owner no longer wishes to be on the site or it becomes unavailable. | On properties and edit property pages, admin can see 'delete' buttons that when clicked will open a modal to ask the admin to confirm their decision to delete the property. Once they've confirmed, it will be removed from the website. | [Delete Property Page](/readme_testing_media/user_stories/properties_admin_view.png) [Delete Property Page Mobile](/readme_testing_media/user_stories/delete_property_button_mobile.png) [Delete Property Modal](/readme_testing_media/user_stories/delete_property_modal_mobile.png) [Delete Property Modal Mobile](/readme_testing_media/user_stories/delete_property_modal.png)|
+| Admin/ Owner | Login to admin section | Control all aspects of the website in one place, including property details, categories, orders, users, groups, add frequently asked questions. | Admin goes to 'https://my-airbnb-collective-57b00b515cab.herokuapp.com/admin/' and can login and manage from the web page. | [Admin Page](/readme_testing_media/user_stories/admin_page.png) [Admin Properties Page](/readme_testing_media/user_stories/admin_properties.png)|
 
 #### **Full Testing**
+
+Full testing was performed on the following devices:
+
+* Mobile
+    * Samsung Galaxy S21 FE
+    * Samsung Galaxy S23
+* Tablet
+    * Ipad Air 2
+* Laptop
+    * Macbook Pro M1 14 inch
+* Desktop
+    * Mac Pro with 27 inch screen
+
+[Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) was also used to test on several screen sizes as well as using responsive mode.
+
+Testing was performed on the following browsers:
+
+* Google Chrome (Version 127.0.6533.89)
+* Microsoft Edge (Version 126.0.2592.102)
+* Apple Safari (Version 17.5)
+
+| Feature | Expected Outcome | Testing Performed | Result | Evidence | Outcome |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Navbar** |
+| Sticky Navbar section | Navbar should follow user as they scroll down the page so its always easily accessible. | Scrolled down page on both mobile and full screen device to check if navbar followed down the page | Navbar stays at the top of the page whilst user scrolls down | [Sticky header/ navbar](/readme_testing_media/full_testing/sticky_navbar.png) | Pass |
+| Links | All links in navbar should take the user to the appropriate page | Clicked on each link in navbar on mobile and full view to check if all links go to the corresponding pages. | All links go to correct pages | [Navbar Links](/readme_testing_media/full_testing/navbar_links.png) | Pass |
+| 'My Account' Dropdown | My account dropdown section should show login/register when user not logged in | Logged out of account and checked dropdown menu  | Only Login/Register shown | [Login/Register dropdown](/readme_testing_media/user_stories/register.png) | Pass |
+|          | When user logged in, 'my account' dropdown should show 'my profile' and 'logout' | Created a user account and logged in. Checked 'my account' dropdown menu. | Correct links shown | [User logged in dropdown](/readme_testing_media/full_testing/logged_in_myaccount.png) | Pass |
+| Search Bar | Should show up in navbar on full screen and mobile in navbar | Went to home page | Search bar shown |[search bar view](/readme_testing_media/navbar-fullscreen.png) [search bar view mobile](/readme_testing_media/navbar-mobile-open.png) | Pass |
+|            | Search terms such as property name, location or category should filter through properties to show user only properties matching criteria | Typed in different search criteria, including name of property (manor), location (birmingham) and category (city) | All results we're filtered to correct results. | [search property name](/readme_testing_media/full_testing/search_name.png) [search property location](/readme_testing_media/full_testing/search_location.png) [search property category](/readme_testing_media/full_testing/search_category.png) | Pass |
+|            | Should become full width of screen in mobile view and underneath the hamburger icon | Tested with [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) responsive and on mobile phone. | Search bar expands to full screen width | [search bar view mobile](/readme_testing_media/navbar-mobile-open.png) | Pass |
+| Cart Icon | Should direct to cart page when clicked | Added an item to cart and clicked on cart icon | Directed to cart page | [cart icon green](/readme_testing_media/cart_page.png) | Pass |
+|           | Should change colour from blue to green when an item is added to the cart | Added an item to cart | Cart icon changed from blue to green | [cart icon green](/readme_testing_media/cart_page.png) | Pass |
+| Navbar Responsiveness | Should turn into hamburger style menu when downsized to mobile sized devices | Tested on mobile phone and used [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) to check responsiveness | Navbar changed to mobile view including hamburger menu style. | [Nav full screen view](/readme_testing_media/navbar-fullscreen.png) [Nav mobile screen view](/readme_testing_media/navbar-mobile-open.png) | Pass |
+| **Footer** |
+| Main website links | Should show main links to site for easy access to the user if they're at the bottom of the page instead of by the footer | Added an item to cart | Cart icon changed from blue to green | [footer explore section](/readme_testing_media/full_testing/footer_explore.png) | Pass |
+| Social Media links | Show social media links successfully take the user to the corresponding social media platform | Clicked on each link | All links successfully take the user to the correct social media platform url. | [footer social media section](/readme_testing_media/full_testing/footer_social.png) | Pass |
+|                    | Should open a new page rather than redirecting away from the current website so user's still have the websites url open. | Clicked on each link | All links successfully open a new page rather than redirecting the current page. | [footer social _blank success](/readme_testing_media/full_testing/footer_blank.png) | Pass |
+| Contact Us links | Contact form link should take the user to the contact us page. | Clicked on contact form link | Directed to contact us page. | [footer contact form](/readme_testing_media/full_testing/contact_code.png) | Pass |
+|                  | Email link opens user's email and autofills the 'to' field in send email with the correct email address | Clicked on email link | Opens apple mail and autofills 'to' section. | [footer email](/readme_testing_media/full_testing/footer_email.png) | Pass |
+|                  | Phone link opens on user's device to make a call to the number or facetime if on apple/mac | Clicked on phone link on macbook pro and on mobile device. | Opens facetime on macbook pro, opened call function on mobile device | [footer email](/readme_testing_media/full_testing/footer_email.png) [footer email mobile device](/readme_testing_media/full_testing/footer_phone_mobile.jpeg) | Pass |
+| Footer Responsiveness | All three sections (explore, social media, and contact) should be in a row on larger devices. On mobile devices it should become full screen width for each section. | Tested on mobile phone and used [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) to check responsiveness | Footer changed from being 3 columns in a row to being full width for each section when on mobile device view. | [Footer full screen view](/readme_testing_media/footer-fullscreen.png) [Nav mobile screen view](/readme_testing_media/footer-mobile.png) | Pass |
+| **Home Page** |
+| Carousel functionality | Images shown on home page should move on a carousel between 5 images. | Watched the home page to see changes (on different browsers to check for issues) | All images successfully shown in carousel. | [Carousel image 1](readme_testing_media/home_page.png) [Carousel image 2](readme_testing_media/full_testing/home_page_carousel_two.png)| Pass |
+| Carousel responsiveness | Carousel images should be responsive dependent on screensize of device | Tested on mobile phone and used [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) to check responsiveness | all images responsive | [Carousel image 1](readme_testing_media/full_testing/home_page_mobile.png) | Pass |
+| 'View Our Properties' Link | Link should direct user to properties page | Clicked on the link | Link works successfully |  | Pass |
+| **Properties Page** |
+| Filter Dropdown | Filter dropdown should show different options for filtering when clicked. | Clicked on dropdown | Dropdown works | [Filter dropdown](readme_testing_media/user_stories/filter.png) [Filter dropdown mobile view](readme_testing_media/user_stories/filter_mobile.png) | Pass |
+|                     | Filter should show corresponding options when clicked | Clicked on each option | All options work correctly and sort the properties accordingly. | [Filter A-Z](readme_testing_media/full_testing/filter_az.png) [Filter Z-A](readme_testing_media/full_testing/filter_za.png) [Filter Price Low-High](readme_testing_media/full_testing/filter_pricelow.png) [Filter Price High-Low](readme_testing_media/full_testing/filter_pricehigh.png) [Filter Category A-Z](readme_testing_media/full_testing/filter_category_az.png) [Filter Category Z-A](readme_testing_media/full_testing/filter_category_za.png) [Filter Bedrooms Low-High](readme_testing_media/full_testing/filter_bedroomslow.png) [Filter Bedrooms High-Low](readme_testing_media/full_testing/filter_bedroomshigh.png) | Pass |
+| Property details | All properties should be displayed with an image, name, location, price per night and number of bedrooms | Viewed on different devices | All details shown for all properties | [Property details](readme_testing_media/properties_page.png) [Property details mobile view](readme_testing_media/full_testing/property_details_mobile.png) | Pass |
+| Links to property details working | All images when clicked on should open property details page specific to the property id. 'Find out more' button should also direct to the same page. | Clicked on images and find out more button on several properties | All 'find out more' buttons and image links working successfully. | [Image/ button links](readme_testing_media/full_testing/property_links.png) | Pass |
+| **Property Details Page** |
+| Lightbox modal for images | When any of the three images at the top are clicked, the images should open in a lightbox so the user can see the pictures in a larger view and look through all three of the pictures on a carousel. | Viewed on different devices | Modal worked for all images | [Property details lightbox](readme_testing_media/full_testing/property_details_modal.png) | Pass |
+| Lightbox modal responsiveness | Lightbox modal should be responsive on all devices | Viewed on different devices | Modal worked and resized for all devices | [Property details lightbox mobile view](readme_testing_media/full_testing/property_details_modal_mobile.png) | Pass |
+| Facilities | If facilities exist in the model, they should appear as available in the facilities section. If available, the icon will appear blue, if not available they will appear red. | Compared the facilities shown on property details page with the fixtures to check details matched. | All facilities showed correct and corresponded with the fixtures. | [Property details - City Apartment facilities ](readme_testing_media/full_testing/facilities.png) [Property details - City Apartment fixtures](readme_testing_media/full_testing/fixtures.png)| Pass |
+| Details    | All details should be shown on the property details page, including name, location, price per night, bedrooms, facilities, description and full description | Viewed several properties to view details | All details shown | [Property details - City Apartment facilities ](readme_testing_media/property_details_page.png) | Pass |
+
+
+| **Cart Page** |
+
+| **Checkout Page** |
+
+| **Checkout Success Page** |
+
+| **Profile Page** |
+
+| **Contact Us Page** |
+
+| **Admin/ Superuser** |
+
+
+
+
 
 
 
