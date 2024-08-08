@@ -15,7 +15,7 @@ Chosen Dates: {{ item.date_range }}
 Taxi added to your order. Taxi Price: £{{ item.taxi_price | floatformat:2 }}
 {% endif %}
 {% endfor %}
-Subtotal: ££{{ item.lineitem_total | floatformat:2 }}
+Subtotal: £{{ item.lineitem_total | floatformat:2 }}
 {% endfor %}
 
 Grand Total: £{{ order.grand_total }}
