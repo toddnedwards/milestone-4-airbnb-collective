@@ -54,8 +54,8 @@
         <h5 class="card-title">{{ property.name }}</h5>
         <p class="card-text">{{ property.description }}</p>
         <p class="card-text"><strong>Location: </strong>{{ property.location }}</p>
-        <p class="card-text"><strong>Category: </strong>{{ property.category |title}}</p>
-        <p class="card-text"><strong>Price per night: </strong>£{{ property.price_per_night }}</p>
+        <p class="card-text"><strong>Category: </strong>{{ property.category | title}}</p>
+        <p class="card-text"><strong>Price per night: </strong>£{{ property.price_per_night | floatformat:2 }}</p>
         <p class="card-text"><strong>Bedrooms: </strong>{{ property.bedrooms }}</p>
         <a href="{% url 'property_details' property.id %}" class="btn btn-primary">Find Out More</a>
         {% if request.user.is_superuser %}
