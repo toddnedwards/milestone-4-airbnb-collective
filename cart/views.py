@@ -72,8 +72,9 @@ def cart_update(request, property_id):
         request.session.modified = True
 
     return redirect(
-        f"{reverse('property_details', 
-                    args=[property_id])}?date_range={date_range}")
+        f"{reverse('property_details', args=[property_id])}"
+        f"?date_range={date_range}"
+    )
 
 
 def add_taxi(request, item_id):
