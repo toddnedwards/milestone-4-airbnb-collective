@@ -6,15 +6,18 @@ Here are your booking details:
 
 Order Number: {{ order.order_number }}
 
-{% for item in order.lineitems.all %}
+
 Property Booked: {{ item.property.name }}
 Location: {{ item.property.location }}
 Chosen Dates: {{ item.date_range }}
-{% for item in cart_items %}
-{% if item.taxi_price %}
-Taxi added to your order. Taxi Price: £{{ item.taxi_price | floatformat:2 }}
-{% endif %}
+
+{% for cart_item in cart_items %}
+    {% if cart_item.taxi_price %}
+    Taxi added to your order. Taxi Price: £{{ cart_item.taxi_price | floatformat:2 }}
+    {% endif %}
 {% endfor %}
+
+{% for item in order.lineitems.all %}
 Subtotal: £{{ item.lineitem_total | floatformat:2 }}
 {% endfor %}
 

@@ -79,6 +79,7 @@ def checkout(request):
                                        end_date_str, '%d %b %Y').date()
                             days = (end_date - start_date).days
                             sub_total = days * property.price_per_night
+                            lineitem_total = sub_total + taxi_price
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
@@ -88,6 +89,7 @@ def checkout(request):
                                 total_days=int(days),
                                 taxi_price=taxi_price,
                                 sub_total=sub_total,
+                                lineitem_total=lineitem_total,
                             )
                             order_line_item.save()
                 except ValueError as e:
