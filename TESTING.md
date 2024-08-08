@@ -436,6 +436,9 @@ Testing was performed on the following browsers:
 | Payment Information | If user enters incorrect information, they are prompted with a message that displays the corresponding message with the error from stripe. | Entered incorrect information in payment bar | Error message shown successfully |[Incorrect payment information message](readme_testing_media/full_testing/incorrect_payment_info.png) | Pass |
 | 'Adjust Cart' Button | Adjust button should redirect user to cart page | Clicked button | Successfully redirected to cart page. |[Adjust Cart Button](readme_testing_media/full_testing/adjust_complete_buttons.png) | Pass |
 | 'Complete Order' Button | Complete order button should complete transaction and redirect user to checkout success page if transaction successful. Whilst loading an overlay should be displayed with an animated house icon. | filled in personal information and clicked complete order button |  Transaction successful .Successfully redirected to checkout success page. House icon and overlay shown. |[Complete Order Button](readme_testing_media/full_testing/checkout_overlay.png) | Pass |
+| Webhook intent successful on payment | If user is successful with transaction, webhook handler will check payment intent with stripe. | Completed transaction to see stripe dashboard result. | All successful |[Stripe intent successful](readme_testing_media/full_testing/checkout_success_details.png) | Pass |
+
+
 | **Checkout Success Page** |
 | View Order Details | If user is successful with transaction, their order information will be displayed on the checkout success page. | Completed transaction to view checkout success. | All details shown successfully |[Checkout Success details](readme_testing_media/full_testing/checkout_success_details.png) | Pass |
 
