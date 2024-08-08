@@ -19,14 +19,13 @@ class Property(models.Model):
 
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    location = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=True)
+    location = models.CharField(max_length=254, null=False, blank=False)
     description = models.TextField()
-    full_description = models.TextField(null=True, blank=True)
-    price_per_night = models.IntegerField(null=True, blank=True)
-    availability = models.CharField(max_length=50, null=True, blank=True)
+    full_description = models.TextField(null=False, blank=False)
+    price_per_night = models.IntegerField(null=False, blank=False)
     distance_to_airport = models.IntegerField(null=True, blank=True)
-    bedrooms = models.IntegerField(null=True, blank=True)
+    bedrooms = models.IntegerField(null=False, blank=False)
     has_wifi = models.BooleanField(default=False)
     has_parking = models.BooleanField(default=False)
     non_smoking = models.BooleanField(default=False)
