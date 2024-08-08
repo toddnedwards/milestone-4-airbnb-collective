@@ -14,7 +14,6 @@ def cart(request):
 
 def cart_add(request, item_id):
 
-    print(request.POST)
     property = get_object_or_404(Property, pk=item_id)
     date_range = request.POST.get('date_range')
     guest_count = request.POST.get('guest_count')
@@ -22,7 +21,6 @@ def cart_add(request, item_id):
     start_date = datetime.strptime(start_date_str, '%d %b %Y')
     end_date = datetime.strptime(end_date_str, '%d %b %Y')
     total_days = (end_date - start_date).days
-    redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if item_id not in cart:
@@ -74,7 +72,8 @@ def cart_update(request, property_id):
         request.session.modified = True
 
     return redirect(
-        f"{reverse('property_details', args=[property_id])}?date_range={date_range}")
+        f"{reverse('property_details', 
+                    args=[property_id])}?date_range={date_range}")
 
 
 def add_taxi(request, item_id):

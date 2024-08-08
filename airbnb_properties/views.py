@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 
-from .models import Property, Date, Category
+from .models import Property
 from .forms import PropertyForm, DateForm
 
 # Create your views here.
@@ -112,11 +112,6 @@ def property_details(request, property_id):
     }
 
     return render(request, 'properties/property_details.html', context)
-
-
-def datepicker_view(request):
-    if request.method == 'POST':
-        date_range = request.POST.get('date_range')
 
 
 @login_required
