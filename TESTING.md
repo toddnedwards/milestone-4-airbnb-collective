@@ -13,7 +13,6 @@
     * [Javascript](#javascript)
     * [Python](#python)
     * [Lighthouse](#lighthouse)
-    * [Wave](#wave)
 * [Manual Testing](#manual-testing)
     * [Testing User Stories](#testing-user-stories)
     * [Full Testing](#full-testing)
@@ -271,7 +270,25 @@ This appeared to be from django's property.id passing through for editing the pr
 
 #### **Lighthouse**
 
-#### **Wave**
+[Google's Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) was used to test performance, accessibility, best and practices and SEO for the site.
+
+**Results**
+
+| Page | Result | Notes |
+| :--- | :--- | :---: |
+| Home Page | ![Home Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_home.png) | Lighthouse showed no labels added to search icon and shopping cart icon. Aria labels added to both.   |
+| Properties Page | ![Properties Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_properties.png) | Performance lower due to large number of images   |
+| Property Details Page | ![Property Details Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_property_details.png) | SEO low due to majority of text being provided by tags.   |
+| Cart Page | ![Cart Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_cart.png) | Bootstrap buttons showed accessibility issue. Decided to keep the same as it is a default in bootstrap used regularly on websites.   |
+| Checkout Page | ![Checkout Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_checkout.png) | Bootstrap buttons showed accessibility issue. Decided to keep the same as it is a default in bootstrap used regularly on websites.   |
+| Checkout Success Page | ![Checkout Success Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_checkout_success.png) | Bootstrap buttons showed accessibility issue. Decided to keep the same as it is a default in bootstrap used regularly on websites. Tags caused lower SEO score again.  |
+| FAQs Page | ![FAQs Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_faqs.png) | Passed |
+| Contact Us Page | ![Contact Us Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_contactus.png) | Passed |
+| Profile Page | ![Profile Lighthouse Testing](/readme_testing_media/lighthouse/lighthouse_profile.png) | Passed |
+
+I found some results could be better, but was mainly down to bootstrap classes that already exist as a default, so I didn't find the need to change these as they're the recommended settings by bootstrap and are used on numerous sites. Doing the lighthouse test made me add aria labels to the anchor image in checkout and also to the shopping cart and search icons in the header section. It gave me a warning about repeating header elements which I did in footer, but I've also seen this on several sites, including the boutique ado tutorial by code institute so I didn't see the need to change it.
+
+---
 
 ### Manual Testing
 ---
