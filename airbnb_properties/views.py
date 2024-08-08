@@ -151,6 +151,35 @@ def edit_property(request, property_id):
 
 
 @login_required
+def add_property(request):
+    """ Add Property """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'You do not have permission to see this page.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = PropertyForm(request.POST, request.FILES)
+        if form.is_valid():
+            property = form.save()
+            messages.success(
+                request, 'Property has been successfully added')
+            return redirect(reverse('property_details', args=[property.id]))
+        else:
+            messages.error(
+                request, 'Failed to add property. Please ensure the form is valid.')
+    else:
+        form = PropertyForm()
+
+    template = 'properties/add_property.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def delete_property(request, property_id):
     """ Delete property from the properties list """
     if not request.user.is_superuser:
