@@ -33,7 +33,8 @@
                             {% if item.taxi_price %}
                                 <p class="my-0 small"><strong>Taxi Price : £{{ item.taxi_price | floatformat:2 }}</strong></p> 
                             {% endif %}
-                            <p class="my-0 small"><strong>Sub Total: £{{ item.sub_total | floatformat:2 }}</strong></p>                        
+                            <p class="my-0 small"><strong>Sub Total: £{{ item.sub_total | floatformat:2 }}</strong></p>     
+                            <hr>                   
                         </div>
                     </div>
                 {% endfor %}
