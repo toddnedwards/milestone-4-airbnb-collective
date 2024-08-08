@@ -78,6 +78,8 @@ class OrderLineItem(models.Model):
                                          editable=False)
     taxi_price = models.DecimalField(max_digits=10, decimal_places=2,
                                      null=False, blank=False, default=0.00)
+    sub_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                    null=False, blank=False, default=0.00)
 
     def save(self, *args, **kwargs):
         try:
