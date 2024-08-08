@@ -24,7 +24,6 @@ class Property(models.Model):
     description = models.TextField()
     full_description = models.TextField(null=False, blank=False)
     price_per_night = models.IntegerField(null=False, blank=True)
-    availability = models.CharField(max_length=50, null=True, blank=True)
     distance_to_airport = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)
     has_wifi = models.BooleanField(default=False)
