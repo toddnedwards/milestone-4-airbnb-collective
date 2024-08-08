@@ -136,7 +136,8 @@ def edit_property(request, property_id):
             return redirect(reverse('property_details', args=[property.id]))
         else:
             messages.error(
-                request, 'Failed to update property. Please ensure the form is valid.')
+                request, 'Failed to update property.'
+                'Please ensure the form is valid.')
     else:
         form = PropertyForm(instance=property)
         messages.info(request, f'You are editing {property.name}')
@@ -167,7 +168,8 @@ def add_property(request):
             return redirect(reverse('property_details', args=[property.id]))
         else:
             messages.error(
-                request, 'Failed to add property. Please ensure the form is valid.')
+                request, 'Failed to add property. '
+                'Please ensure the form is valid.')
     else:
         form = PropertyForm()
 

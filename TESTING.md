@@ -180,7 +180,32 @@ From line 133, column 3; to line 133, column 65
 
 iv>↩↩  ↩  <input type="hidden" name="next" value="/properties/edit/2/" />↩  ↩  `
 
-This appeared to be from django's property.id passing through for editing the property, and this appeared to be correct still so was left alone.
+This appeared to be from django's property.id passing through for editing the property, and this appeared to be correct still so was left alone. I checked this by looking through the directory of my code and searching for the code itself. As can be seen it does not exist in the code that i created so must be backend from django. This may also be caused as superuser/ admin needs to be logged in to view these pages.
+
+![edit_property.html HTML issue search](readme_testing_media/html_validation/edit_property_html_search.png)
+
+Here is result with the issue left:
+
+![edit_property.html HTML pass](readme_testing_media/html_validation/html_edit_property_pass.png)
+
+---
+
+**Add_property.html - URL Validation**
+
+Checked URL validation showed one error which was a space at the end of an element:
+
+`Trailing slash on void elements has no effect and interacts badly with unquoted attribute values. This may also be caused as superuser/ admin needs to be logged in to view these pages.
+
+From line 133, column 3; to line 133, column 62
+
+iv>↩↩  ↩  <input type="hidden" name="next" value="/properties/add/" />↩  ↩  `
+
+This gives the same error as 
+![edit_property.html HTML issue search](readme_testing_media/html_validation/edit_property_html_search.png)
+
+Here is result with the issue left:
+
+![add_property.html HTML pass](readme_testing_media/html_validation/html_add_property_pass.png)
 
 ---
 
