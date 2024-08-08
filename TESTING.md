@@ -437,6 +437,10 @@ Testing was performed on the following browsers:
 | 'Adjust Cart' Button | Adjust button should redirect user to cart page | Clicked button | Successfully redirected to cart page. |[Adjust Cart Button](readme_testing_media/full_testing/adjust_complete_buttons.png) | Pass |
 | 'Complete Order' Button | Complete order button should complete transaction and redirect user to checkout success page if transaction successful. Whilst loading an overlay should be displayed with an animated house icon. | filled in personal information and clicked complete order button |  Transaction successful .Successfully redirected to checkout success page. House icon and overlay shown. |[Complete Order Button](readme_testing_media/full_testing/checkout_overlay.png) | Pass |
 | **Checkout Success Page** |
+| View Order Details | If user is successful with transaction, their order information will be displayed on the checkout success page. | Completed transaction to view checkout success. | All details shown successfully |[Checkout Success details](readme_testing_media/full_testing/checkout_success_details.png) | Pass |
+
+
+| 'Adjust Cart' Button | Adjust button should redirect user to cart page | Clicked button | Successfully redirected to cart page. |[Adjust Cart Button](readme_testing_media/full_testing/adjust_complete_buttons.png) | Pass |
 
 | **Profile Page** |
 

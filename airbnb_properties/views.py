@@ -118,8 +118,7 @@ def property_details(request, property_id):
 def edit_property(request, property_id):
     """ Edit property details """
     if not request.user.is_superuser:
-        messages.error.request(
-            request, 'You do not have permission to see this page.')
+        messages.error(request, 'You do not have permission to see this page.')
         return redirect(reverse('home'))
 
     property = get_object_or_404(Property, pk=property_id)
