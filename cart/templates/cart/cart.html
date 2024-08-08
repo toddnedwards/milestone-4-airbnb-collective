@@ -12,7 +12,7 @@
 {% block content %}
 
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="">
     <div class="row">
         <div class="col-lg-12 text-center">
             <h1>Cart Summary</h1>
@@ -26,7 +26,6 @@
         </div>
         {% if cart_items %}
             {% for item in cart_items %}
-        <div class="container-fluid">
             <div class="row cart-container m-lg-4 bg-light">
                 <div class="col-10 col-lg-3 cart-item mx-auto mt-4">
                     <img class="cart-image img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
@@ -76,10 +75,7 @@
                         <a href="{% url 'add_taxi' item.property.id %}" class="btn btn-primary">Add Taxi</a>
                     {% endif %}
                 </div>
-            </div>
-            
-        </div>
-                
+            </div>              
             {% endfor %}
         {% else %}
         <div class="m-4">
@@ -96,14 +92,12 @@
     </div>
 </div>
 {% if cart_items %}
-<div class="container-fluid">
     <div class="row mr-4">
         <div class="col-12 text-right">
             <h3><strong>Grand Total: </strong>£{{ grand_total | floatformat:2 }}</h3>
             <p>Taxes and local tariffs included in grand total</p>
         </div>
     </div>
-</div>
 <div class="text-right m-4 pr-4">
     <a href="{% url 'checkout' %}" class="btn btn-primary">
         <span class="text-uppercase">Secure Checkout</span>

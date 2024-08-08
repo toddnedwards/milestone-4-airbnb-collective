@@ -20,17 +20,20 @@
     </div>
 </div>
 
-
-<div class="col-lg-6 col-10 pl-0 mx-auto">
-    <div class="card mt-4 mb-4">
-        <div class="card-body bg-light">
-            <form action="/contact/" method="post">
-                {% csrf_token %}
-                {% for field in form %}
-                    {{ field|as_crispy_field }}
-                {% endfor %}
-                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-            </form>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-12">
+            <div class="card mt-4 mb-4">
+                <div class="card-body bg-light">
+                    <form action="/contact/" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field|as_crispy_field }}
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

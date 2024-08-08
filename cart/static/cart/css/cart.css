@@ -27,6 +27,9 @@
     button {
         margin-top: 10px;
     }
+    .row {
+        margin: 0;
+    }
 
     .taxi-section {
         border-left: 0px solid !important;
