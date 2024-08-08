@@ -55,12 +55,24 @@
                 <form method="POST" action="{% url 'edit_property' property.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {% if field.name != 'image' and field.name != 'total_days' %}
+                        {% if field.name != 'image' and field.name != 'image_kitchen' and field.name != 'image_bathroom' and field.name != 'total_days' %}
                             {{ field|as_crispy_field }}
                         {% elif field.name == 'image' %}
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+                    <div class="form-group">
+                        <p><strong>Please rename in format: name-exterior eg. treehouse-exterior</strong></p>
+                        {{ form.image|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <p><strong>Please rename in format: name-kitchen eg. treehouse-kitchen</strong></p>
+                        {{ form.image_kitchen|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <p><strong>Please rename in format: name-bathroom eg. treehouse-bathroom</strong></p>
+                        {{ form.image_bathroom|as_crispy_field }}
+                    </div>
                     <div class="text-right">
                         <button class="btn btn-primary" type="submit">Update Property</button>
                         <a class="btn btn-secondary" href="{% url 'properties' %}">Cancel</a>
