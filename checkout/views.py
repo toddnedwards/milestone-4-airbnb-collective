@@ -84,6 +84,7 @@ def checkout(request):
                                 total_days=int(days),
                                 taxi_price=taxi_price,
                                 lineitem_total=sub_total,
+                                sub_total=sub_total,
                             )
                             order_line_item.save()
                 except ValueError as e:
