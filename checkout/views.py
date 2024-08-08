@@ -78,9 +78,7 @@ def checkout(request):
                             end_date = datetime.strptime(
                                        end_date_str, '%d %b %Y').date()
                             days = (end_date - start_date).days
-                            sub_total = int(
-                                        days * property.price_per_night) + int(
-                                taxi_price)
+                            sub_total = days * property.price_per_night
                             order_line_item = OrderLineItem(
                                 order=order,
                                 property=property,
@@ -89,7 +87,6 @@ def checkout(request):
                                 end_date=end_date,
                                 total_days=int(days),
                                 taxi_price=taxi_price,
-                                lineitem_total=sub_total,
                                 sub_total=sub_total,
                             )
                             order_line_item.save()

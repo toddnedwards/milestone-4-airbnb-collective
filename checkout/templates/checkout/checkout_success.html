@@ -12,7 +12,7 @@
 {% block content %}
 
 <div class="overlay"></div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row pt-4">
             <div class="col-lg-12 text-center">
                 <h1>Thankyou For Your Order</h1>
@@ -22,14 +22,14 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-8 order-lg-last mb-5">
                 <h3>Order Details</h3>
                 <br>
                 <p><strong>Your order number is: </strong>{{ order.order_number }}</p>
                 <br>
                 <h4><strong>Your Booking</strong></h4>
                 {% for item in order.lineitems.all %}
-                    <div class="container-fluid checkout-success-item m-4 bg-light">
+                    <div class="container-fluid checkout-success-item bg-light">
                         <div class="row cart-container">
                             <div class="col-12 col-lg-4 cart-item m-lg-4 mt-sm-4">
                                 <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">
@@ -42,20 +42,20 @@
                                 <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                                 <p><strong>Number Of Nights : </strong>{{ item.total_days }}</p>
                                 <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
-                                {% if item.taxi_price %}
-                                    <p><strong>Taxi added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
-                                {% endif %}
+                                    {% if item.taxi_price %}
+                                        <p><strong>Taxi added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
+                                    {% endif %}
                                 <p><strong>Subtotal : </strong>£{{ item.lineitem_total | floatformat:2 }}</p>
                             </div>                                
                         </div>
                     </div>
                 {% endfor %}
-                <p><i class="fa-regular fa-credit-card text-primary ml-4"></i><strong> The total charged to your card is: </strong>£{{ order.grand_total }}</p>
+                <p><i class="fa-regular fa-credit-card text-primary mt-2"></i><strong> The total charged to your card is: </strong>£{{ order.grand_total }}</p>
                 <br>
                 <h4>Your Details</h4>
                 <br>
-                <div class="container-fluid checkout-success-item m-4 bg-light">
-                    <div class="row m-4 p-4 bg-light">
+                <div class="container-fluid checkout-success-item bg-light">
+                    <div class="row m-2 bg-light">
                         <div class="col-12 col-lg-6 small">
                             <h5>Personal Details</h5>
                             <br>

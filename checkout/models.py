@@ -94,6 +94,8 @@ class OrderLineItem(models.Model):
             # Ensure taxi_price is a Decimal
             taxi_price = Decimal(self.taxi_price)
 
+            self.sub_total = price_per_night * total_days
+
             # Calculate lineitem_total including taxi_price
             self.lineitem_total = (price_per_night * total_days) + taxi_price
         except InvalidOperation as e:
