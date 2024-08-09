@@ -472,5 +472,6 @@ Testing was performed on the following browsers:
 | Couldn't get stripe.intent to be successful. | Changed webhooks to remove guest_count as it was unecessary for stripe to know. With help from Roo and John at code institute, we discovered after that that models we're causing the issue making a double decimal, so we changed property.price_per_night to integer rather than decimal to interact correctly. | [Stripe intent fixed ](readme_testing_media/full_testing/stripe_intent.png) |
 | Taxi_price wasn't being added to email body | Did print statements on orderlineitems.all to check taxi price, which was still correct, but looking in stripe intent section on stripe dashboard, i saw 'add_taxi' was the value. I added in checkout views `taxi_price = item_data.get('add_taxi', 0)` to point to the correct value. | [Taxi Price Print Statement Check](readme_testing_media/bugs/taxi_price_print.png)  |
 
-
 #### **Unsolved Bugs**
+
+The only bug I couldn't solve was irregularly the bootstrap navbar in full screen mode will not let me choose a nav link from the 'my account' dropdown. This is usually after I have used django auth somehow, such as logging in, registering or logging out, but these may be a coincidence of being based also inside the 'my account' dropdown menu too. Refreshing the page or clicking on another link usually refreshes the page to allow user to user all links again without problems.

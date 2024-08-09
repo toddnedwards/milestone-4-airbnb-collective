@@ -29,7 +29,7 @@
                 <br>
                 <h4><strong>Your Booking</strong></h4>
                 {% for item in order.lineitems.all %}
-                    <div class="container-fluid checkout-success-item bg-light">
+                    <div class="container-fluid checkout-success-item bg-light mb-2">
                         <div class="row cart-container">
                             <div class="col-12 col-lg-4 cart-item m-lg-4 mt-sm-4">
                                 <img class="img-fluid" src="{{item.property.image.url}}" alt="{{item.property.name}}, {{ item.property.location }}">

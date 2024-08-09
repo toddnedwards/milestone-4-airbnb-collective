@@ -52,6 +52,8 @@ View the live website [here](https://my-airbnb-collective-57b00b515cab.herokuapp
 
 ## User Experience
 
+![Flow Chart User Layout](readme_testing_media/flowchart.png)
+
 ### Project Goals
 
 The goal of the myairbnb-collective is to allow users to search through properties depending on location and number of bedrooms, as well as other factors such as pet friendly, wifi facilities etc to suit their needs. 
@@ -672,15 +674,19 @@ I have used defensive programming throughout the site to ensure security for all
 
 I have also used if statements to check if the user is a superuser. This only provides access to admin or staff member with permissions from admin section. These pages include manage properties, edit properties, edit FAQs, delete properties etc. Users that don't have permission will not be able to access these views and pages.
 
+is_authenticated has been added to checkout success, as it doesn't require the user to be logged in to their account but I don't want users that aren't the current user to be able to view the details available as this would be a security breach of the user's information.
+
 ### Future Implementations
 
 For future implimentations I would like to add a reviews section on each property where users with a profile can leave reviews which would be triggered to be sent to them to review once the end date of their stay has been completed (I wouldn't want the user to be able to add this option before they have stayed at the property). This would be on a seperate page which would then store to the the users profile if they wish to update their review incase they made an error, and also for it to be a sorting criteria for the properties page, so users can search for properties based on their rating too. Ideally I would like the reviews to also appear on each property details page at the bottom so users can find out more information about the property and other user's experiences.
 
 I think a blog page would also be beneficial for SEO purposes for the website, which gives admin a template to add these too similar to adding a property, with the ability to add tags that would be able to link to showing the criteria in the search section of the properties page.
 
-is_authenticated has been added to checkout success, as it doesn't require the user to be logged in to their account but I don't want users that aren't the current user to be able to view the details available as this would be a security breach of the user's information.
+I would like to expand the filtering and searching section so users can search for several criteria to filter out all options and only be given the options that follow all criteria they have entered. Ideally these would be with boolean buttons for most so the user can quickly click them again to change criteria and a reset link too so user doesn't have to refresh page to reset search and filtering.
 
-ADD MORE!!!!!!!
+Here is an idea that I would like for future implementation of the search/ filter section.
+
+![Search And Filter Improvement](readme_testing_media/user_stories/search_filter_improve.png)
 
 ### Technologies Used
 ---
