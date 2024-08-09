@@ -1,16 +1,18 @@
+{% load static %}
+
 <div id="Lightbox" class="modal">
   <span class="close pointer" onclick="closeLightbox()">&times;</span>
   <div class="modal-content">
     <div class="slide">
-        <img src="{{ property.image.url }}" class="image-slide" alt="{{ property.name }}">
+        <img src="{% if property.image %}{{ property.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="image-slide" alt="{{ property.name }}">
         <p class="text-overlay">{{ property.name }} exterior, {{ property.location }}</p>
     </div>
     <div class="slide">
-        <img src="{{ property.image_bathroom.url }}" class="image-slide" alt="{{ property.name }} Bathroom">
+        <img src="{% if property.image_bathroom %}{{ property.image_bathroom.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="image-slide" alt="{{ property.name }} Bathroom">
         <p class="text-overlay">{{ property.name }} bathroom, {{ property.location }}</p>
     </div>    
     <div class="slide">
-        <img src="{{ property.image_kitchen.url }}" class="image-slide" alt="{{ property.name }} Kitchen">
+        <img src="{% if property.image_kitchen %}{{ property.image_kitchen.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="image-slide" alt="{{ property.name }} Kitchen">
         <p class="text-overlay">{{ property.name }} kitchen, {{ property.location }}</p>
     </div>
   
@@ -19,13 +21,13 @@
   
     <div class="dots">
       <div class="col">
-        <img src="{{ property.image.url }}" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="{{ property.name }}">
+        <img src="{% if property.image %}{{ property.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="{{ property.name }}">
       </div>
       <div class="col">
-        <img src="{{ property.image_bathroom.url }}" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="{{ property.name }} Bathroom">
+        <img src="{% if property.image_bathroom %}{{ property.image_bathroom.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="{{ property.name }} Bathroom">
       </div>
       <div class="col">
-        <img src="{{ property.image_kitchen.url }}" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="{{ property.name }} Kitchen">
+        <img src="{% if property.image_kitchen %}{{ property.image_kitchen.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="{{ property.name }} Kitchen">
       </div>
     </div>
   </div>

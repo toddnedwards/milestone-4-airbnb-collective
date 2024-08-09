@@ -452,13 +452,5 @@ Testing was performed on the following browsers:
 | Properties/ Manage Properties view | If admin clicks on manage properties or properties links in navbar, they should be redirected properties page, where they can view properties like others users, but with edit and delete buttons added underneath each property | Logged in as admin and clicked property management and properties to check both worked. | Edit and delete buttons present |[Admin manage properties views](readme_testing_media/user_stories/properties_admin_view.png) | Pass |
 | Edit Property | When admin clicks on edit button on properties page or on property details page, they're redirected to edit property page where they can make amendments to a current property. | Logged in and clicked edit property | Edit button successfully takes admin to edit property page | [Edit Property Full Screen view](readme_testing_media/user_stories/admin_edit_property_full.png) [Edit Property mobile view](readme_testing_media/user_stories/edit_property_admin.png) | Pass |
 | Delete Property | When admin clicks on delete button on properties page or on property details page, they're redirected to a modal that checks if they would like to delete the property from the list. When they confirm, property is removed from the site. | Logged in and clicked delete property | Delete button successfully works. Delete modal shown upon clicking button. |[Delete Property Modal](readme_testing_media/user_stories/delete_property_modal.png) | Pass |
-| Add Property | When admin clicks on add property link in navbar, they're redirected to add property page, which follows the same layout as edit property page for ease of use and familiariaty. | Logged in and clicked add property link. Added property. | Poperty created successfully. |[Delete Property Modal](readme_testing_media/user_stories/delete_property_modal.png) | Pass |
-
-
-
-
-
-
-
-
-
+| Add Property | When admin clicks on add property link in navbar, they're redirected to add property page, which follows the same layout as edit property page for ease of use and familiariaty. | Logged in and clicked add property link. Added property. | Poperty created successfully. |[Add property details](readme_testing_media/full_testing/add_property_details.png) | Pass |
+| Add Property saved to properties | When a property is added, it is saved and added to the properties database. | Added a property and searched for it in properties. | Poperty added successfully. |[Property added successfully](readme_testing_media/user_stories/delete_property_modal.png) | Pass |

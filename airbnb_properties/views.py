@@ -159,7 +159,7 @@ def add_property(request):
         if form.is_valid():
             property = form.save()
             messages.success(
-                request, 'Property has been successfully added')
+                request, 'Property has been successfully added')          
             return redirect(reverse('property_details', args=[property.id]))
         else:
             messages.error(

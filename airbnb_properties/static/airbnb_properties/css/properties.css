@@ -30,6 +30,11 @@ input#id_date_range {
 
 /* Property Details */
 
+img.property-details-img {
+  max-width: 1100px;
+  max-height: 735px;
+}
+
 img.property-details-img:hover {
   cursor: zoom-in;
 }
@@ -53,7 +58,7 @@ img.property-details-img:hover {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1050;
   padding: 10px 62px 0px 62px;
   left: 0;
   top: 100px;
