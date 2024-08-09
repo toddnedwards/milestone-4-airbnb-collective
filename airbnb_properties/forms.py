@@ -10,11 +10,11 @@ class PropertyForm(forms.ModelForm):
     guest_count = forms.ChoiceField(
         label='Guest Count', choices=[(i, i) for i in range(1, 20)])
 
+    image = forms.ImageField(label='Image', required=False)
+
     class Meta:
         model = Property
         fields = '__all__'
-
-    image = forms.ImageField(label='Image', required=False)
 
 
 class DateRangeInput(forms.DateInput):
