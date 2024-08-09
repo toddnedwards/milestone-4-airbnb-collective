@@ -68,7 +68,7 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     property = Property.objects.get(id=item_id)
-                    taxi_price = property.distance_to_airport * 3
+                    taxi_price = item_data.get('add_taxi', 0)
                     if isinstance(item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
                             start_date_str, end_date_str = date_range.split(

@@ -16,6 +16,9 @@
 * [Manual Testing](#manual-testing)
     * [Testing User Stories](#testing-user-stories)
     * [Full Testing](#full-testing)
+* [Bugs](#bugs)
+    * [Solved Bugs](#solved-bugs)
+    * [Unsolves Bugs](#unsolved-bugs)
 
 ### Validation Testing
 ---
@@ -454,6 +457,18 @@ Testing was performed on the following browsers:
 |                 | When admin clicks on add property link in navbar, they're redirected to add property page, which follows the same layout as edit property page for ease of use and familiariaty. | Logged in and clicked add property link. Added property. | Poperty created successfully. |[Add property details](readme_testing_media/full_testing/add_property_details.png) | Pass |
 | Add Property saved to properties | When a property is added, it is saved and added to the properties database. | Added a property and searched for it in properties. | Poperty added successfully. |[Property added successfully](readme_testing_media/full_testing/add_property_success.png) | Pass |
 | Edit Property | When admin clicks on edit button on properties page or on property details page, they're redirected to edit property page where they can make amendments to a current property. | Logged in and clicked edit property | Edit button successfully takes admin to edit property page | [Edit Property Full Screen view](readme_testing_media/user_stories/admin_edit_property_full.png) [Edit Property mobile view](readme_testing_media/user_stories/edit_property_admin.png) | Pass |
-| Edit Property Details Update | When admin on edit property details page, they should be able to edit details in all fields. | Edited details for 'The Villa' Property and changed every option to check each field responded correctly. | All details updated correctly | [Edit Property Details Update before](readme_testing_media/full_testing/edit_property_before.png) [Edit Property Details Update New Details](readme_testing_media/full_testing/edit_property_before.png) | Pass |
-| Delete Property | When admin clicks on delete button on properties page or on property details page, they're redirected to a modal that checks if they would like to delete the property from the list. When they confirm, property is removed from the site. | Logged in and clicked delete property | Delete button successfully works. Delete modal shown upon clicking button. |[Delete Property Modal](readme_testing_media/user_stories/delete_property_modal.png) | Pass |
+| Edit Property Details Update | When admin on edit property details page, they should be able to edit details in all fields. | Edited details for 'The Villa' Property and changed every option to check each field responded correctly. | All details updated correctly | [Edit Property Details Update before](readme_testing_media/full_testing/edit_property_before.png) [Edit Property Details Update New Details](readme_testing_media/full_testing/edit_property_edit.png) [Edit Property Details Update After](readme_testing_media/full_testing/edit_property_after.png) | Pass |
+| Delete Property | When admin clicks on delete button on properties page or on property details page, they're redirected to a modal that checks if they would like to delete the property from the list. When they confirm, property is removed from the site. | Logged in and clicked delete property | Delete button successfully works. Delete modal shown upon clicking button. |[Delete Property Modal](readme_testing_media/user_stories/delete_property_modal.png) [Delete Property success](readme_testing_media/full_testing/property_deleted.png) | Pass |
 
+### Bugs
+
+#### **Solved Bugs**
+
+| Bug | How I solved the issue | Evidence |
+| :--- | :--- | :--- |
+| 500 error when logging into app. When going to /admin in url I could still log in. | Updated django and middleware which fixed the issue. |  |
+| Confirmation email not sending after finishing order. | Did not have 'DEVELOPMENT' in os.environ on for DEBUG. Code Institute mentor Roo told me to update runtime.txt file from python-3.9.18 to python-3.9.19 |                |
+| Couldn't remove guest count from edit property and add property form. | Fixed form to set required = false for guest_count and excluded it from the crispy form with != 'guest_count' | [](readme_testing_media/bugs/guest_count_form.png) |
+
+
+#### **Unsolved Bugs**

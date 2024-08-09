@@ -42,11 +42,9 @@
                                 <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                                 <p><strong>Number Of Nights : </strong>{{ item.total_days }}</p>
                                 <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
-                                {% for item in cart_items %}
                                     {% if item.taxi_price %}
                                         <p><strong>Taxi added to your order. Taxi Price : </strong>£{{ item.taxi_price }}</p>
                                     {% endif %}
-                                {% endfor %}
                                 <p><strong>Subtotal : </strong>£{{ item.lineitem_total | floatformat:2 }}</p>
                             </div>                                
                         </div>

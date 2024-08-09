@@ -32,7 +32,7 @@ class StripeWH_Handler:
             {
                 'order': order,
                 'contact_email': settings.DEFAULT_FROM_EMAIL,
-                'lineitems': order.lineitems.all()
+                'lineitems': order.lineitems.all(),
             })
 
         send_mail(
@@ -150,7 +150,7 @@ class StripeWH_Handler:
                                 property=property,
                                 date_range=date_range,
                                 total_days=int(days),
-                                taxi_price=taxi_price,
+                                taxi_price=property.distance_to_airport * 3 if add_taxi else 0,
                             )
                             order_line_item.save()
             except Exception as e:
