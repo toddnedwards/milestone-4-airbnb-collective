@@ -157,14 +157,13 @@ def add_property(request):
     if request.method == 'POST':
         form = PropertyForm(request.POST, request.FILES)
         if form.is_valid():
-            property = form.save()
-            messages.success(
-                request, 'Property has been successfully added')          
-            return redirect(reverse('property_details', args=[property.id]))
-        else:
-            messages.error(
-                request, 'Failed to add property. '
-                'Please ensure the form is valid.')
+            if form.is_valid():
+                property = form.save()
+                messages.success(request, 'Property has been successfully added')
+                return redirect(reverse('property_details', args=[property.id]))
+            else:
+                print(form.errors)  # This will print any validation errors to the console/logs
+                messages.error(request, 'Failed to add property. Please ensure the form is valid.')
     else:
         form = PropertyForm()
 
