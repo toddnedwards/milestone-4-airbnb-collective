@@ -13,24 +13,6 @@ class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
         fields = '__all__'
-        placeholders = {
-            'category': 'Category',
-            'name': 'Name',
-            'location': 'Location',
-            'description': 'Short Description',
-            'full_description': 'Full Description',
-            'price_per_night': 'Price Per Night (£)',
-            'distance_to_airport': 'Distance To Airport (Miles)',
-            'bedrooms': 'Number Of Bedrooms',
-            'has_wifi': 'Has Wifi?',
-            'has_parking': 'Has Parking?',
-            'non_smoking': 'Non Smoking?',
-            'pet_friendly': 'Pet Friendly?',
-            'image': 'Main Image',
-            'image_kitchen': 'Image Kitchen',
-            'image_bathroom': 'Image Bathroom',
-            'total_day': 'Total Days',
-        }
 
     image = forms.ImageField(label='Image', required=False)
 
