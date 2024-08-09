@@ -69,17 +69,17 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     property = models.ForeignKey(Property, null=False, blank=False,
                                  on_delete=models.CASCADE)
-    date_range = models.CharField(max_length=255, null=True, blank=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
+    date_range = models.CharField(max_length=255, null=True, blank=True)
     total_days = models.IntegerField(null=False, blank=False, default=0)
+    sub_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                    null=False, blank=False, default=0.00)
+    taxi_price = models.DecimalField(max_digits=10, decimal_places=2,
+                                     null=False, blank=False, default=0.00)
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
-    taxi_price = models.DecimalField(max_digits=10, decimal_places=2,
-                                     null=False, blank=False, default=0.00)
-    sub_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                    null=False, blank=False, default=0.00)
 
     def save(self, *args, **kwargs):
         try:
