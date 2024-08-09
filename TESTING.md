@@ -467,8 +467,10 @@ Testing was performed on the following browsers:
 | Bug | How I solved the issue | Evidence |
 | :--- | :--- | :--- |
 | 500 error when logging into app. When going to /admin in url I could still log in. | Updated django and middleware which fixed the issue. |  |
-| Confirmation email not sending after finishing order. | Did not have 'DEVELOPMENT' in os.environ on for DEBUG. Code Institute mentor Roo told me to update runtime.txt file from python-3.9.18 to python-3.9.19 |                |
-| Couldn't remove guest count from edit property and add property form. | Fixed form to set required = false for guest_count and excluded it from the crispy form with != 'guest_count' | [](readme_testing_media/bugs/guest_count_form.png) |
+| Confirmation email not sending after finishing order. | Did not have 'DEVELOPMENT' in os.environ on for DEBUG. Code Institute mentor Roo told me to update runtime.txt file from python-3.9.18 to python-3.9.19 | [Runtime.txt update](readme_testing_media/bugs/runtime_txt.png) |
+| Couldn't remove guest count from edit property and add property form. | Fixed form to set required = false for guest_count and excluded it from the crispy form with != 'guest_count' | [guest_count set to required = false ](readme_testing_media/bugs/guest_count_form.png) |
+| Couldn't get stripe.intent to be successful. | Changed webhooks to remove guest_count as it was unecessary for stripe to know. With help from Roo and John at code institute, we discovered after that that models we're causing the issue making a double decimal, so we changed property.price_per_night to integer rather than decimal to interact correctly. | [Stripe intent fixed ](readme_testing_media/full_testing/stripe_intent.png) |
+| Taxi_price wasn't being added to email body | Did print statements on orderlineitems.all to check taxi price, which was still correct, but looking in stripe intent section on stripe dashboard, i saw 'add_taxi' was the value. I added in checkout views `taxi_price = item_data.get('add_taxi', 0)` to point to the correct value. | [Taxi Price Print Statement Check](readme_testing_media/bugs/taxi_price_print.png)  |
 
 
 #### **Unsolved Bugs**

@@ -10,8 +10,10 @@ Order Number: {{ order.order_number }}
 Property Booked: {{ item.property.name }}
 Location: {{ item.property.location }}
 Chosen Dates: {{ item.date_range }}
+Total Days: {{ item.total_days }}
+Property Price £{{ item.sub_total }}
 {% if item.taxi_price %}
-    Taxi added to your order. Taxi Price: £{{ item.taxi_price | floatformat:2 }}
+Taxi added to your order. Taxi Price: £{{ item.taxi_price | floatformat:2 }}
 {% endif %}
 Subtotal: £{{ item.lineitem_total | floatformat:2 }}
 {% endfor %}
