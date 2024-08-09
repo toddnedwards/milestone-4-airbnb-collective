@@ -5,8 +5,12 @@ from .models import Date
 from .models import Property
 
 
-class PropertyForm(forms.ModelForm):
+from django import forms
+from django.forms import ModelForm
+from .models import Property
 
+
+class PropertyForm(forms.ModelForm):
     guest_count = forms.ChoiceField(
         label='Guest Count', choices=[(i, i) for i in range(1, 20)],
         required=False
@@ -40,11 +44,7 @@ class PropertyForm(forms.ModelForm):
 
         for field_name, placeholder in placeholders.items():
             if field_name in self.fields:
-                self.fields[field_name].widget.attrs.update({
-                    'placeholder': placeholder
-                })
-
-    image = forms.ImageField(label='Image', required=False)
+                self.fields[field_name].widget.attrs.update({'placeholder': placeholder})
 
 
 class DateRangeInput(forms.DateInput):
