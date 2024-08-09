@@ -18,6 +18,7 @@
             <h1>Cart Summary</h1>
         </div>
     </div>
+    {% if cart_items %}
     <div class="ml-lg-4 text-center text-lg-left">
         <a href="{% url 'properties' %}">
             <span>
@@ -26,6 +27,7 @@
             <span>Back to properties</span>
         </a>
     </div>
+    {% endif %}
     <div class="row">
         <div class="col-12 mt-4 ml-lg-4"> 
             <h3>Information</h3>
