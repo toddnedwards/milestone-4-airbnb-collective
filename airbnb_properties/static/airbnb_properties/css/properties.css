@@ -4,6 +4,13 @@
   object-fit: cover;
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
 .property-img {
   transition: transform 0.2s ease-in-out;
 }
