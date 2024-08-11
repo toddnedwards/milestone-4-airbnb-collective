@@ -71,7 +71,7 @@ img.property-details-img:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -183,10 +183,4 @@ img.hover-shadow {
 .daterangepicker .drp-calendar td.disabled:hover {
   background-color: darkred !important;
   color: white !important;
-}
-
-@media (max-width: 480px) {
-  .modal {
-    top: 200px;
-  }
 }
