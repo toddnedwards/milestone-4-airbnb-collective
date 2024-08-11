@@ -134,7 +134,8 @@ class StripeWH_Handler:
 
                 for item_id, item_data in json.loads(cart).items():
                     property = Property.objects.get(id=item_id)
-                    taxi_price = property.distance_to_airport * 3
+                    add_taxi = item_data.get('add_taxi', False)
+                    taxi_price = property.distance_to_airport * 3 if add_taxi else 0
                     if isinstance(
                      item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
@@ -150,7 +151,7 @@ class StripeWH_Handler:
                                 property=property,
                                 date_range=date_range,
                                 total_days=int(days),
-                                taxi_price=property.distance_to_airport * 3 if add_taxi else 0,
+                                taxi_price=taxi_price
                             )
                             order_line_item.save()
             except Exception as e:

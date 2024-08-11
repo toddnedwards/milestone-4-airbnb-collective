@@ -11,14 +11,14 @@ def cart_contents(request):
     cart_items = []
     total_days = 0
     property_count = 0
-    grand_total = 0
-    property_total = 0
-    taxi_quote = 0
-    discount_amount = 0
+    property_total = Decimal('0.00')
+    taxi_quote = Decimal('0.00')
+    grand_total = Decimal('0.00')
+    discount_amount = Decimal('0.00')
 
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
-        taxi_price = item_data.get('add_taxi', 0)
+        taxi_price = item_data.get('add_taxi', Decimal('0.00'))
         guest_count = item_data.get('guest_count')
         if 'date_ranges' in item_data:
             for date_range in item_data['date_ranges']:
@@ -29,12 +29,11 @@ def cart_contents(request):
                     days = (end_date - start_date).days
                     total_days += days
                     property_count += 1
-
                     original_property_total = days * property.price_per_night
 
                     if total_days > settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
                         discount_amount = original_property_total * Decimal('0.1')
-                        property_total = original_property_total * Decimal('0.9')
+                        property_total = original_property_total - discount_amount
                     else:
                         property_total = days * property.price_per_night
                                 
@@ -59,6 +58,11 @@ def cart_contents(request):
                 except ValueError:
                     pass
 
+    if total_days < settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
+        discount_delta = settings.TOTAL_DAYS_DISCOUNT_THRESHOLD - total_days
+    else:
+        discount_delta = 0
+    
     context = {
         'cart_items': cart_items,
         'total_days': total_days,
@@ -69,6 +73,7 @@ def cart_contents(request):
         'taxi_quote': taxi_quote,
         'discount_threshold': settings.TOTAL_DAYS_DISCOUNT_THRESHOLD,
         'discount_amount': discount_amount,
+        'discount_delta': discount_delta,
     }
 
     return context
