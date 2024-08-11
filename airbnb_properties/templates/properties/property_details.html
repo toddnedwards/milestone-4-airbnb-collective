@@ -73,7 +73,7 @@
             <form class="form" action="{% url 'cart_add' property.id %}" method="POST">
                 {% csrf_token %}
                 <label for="id_date_range"><i class="fa-regular fa-calendar text-primary"></i> Date Range:</label>
-                <input type="text" name="date_range" id="id_date_range" autocomplete="off" value="{{ date_range }}" required>
+                <input type="text" name="date_range" id="id_date_range" autocomplete="off" value="{{ date_range }}" required readonly>
                 <input type="hidden" name="property_id" value="{{ property.id }}">
                 <input type="hidden" name="total_days" value="{{ total_days }}">
                 <input type="hidden" name="guest_count" value="{{ guest_count }}">
