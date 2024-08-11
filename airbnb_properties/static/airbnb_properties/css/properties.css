@@ -185,3 +185,9 @@ img.hover-shadow {
   background-color: darkred !important;
   color: white !important;
 }
+
+@media (max-width: 480px) {
+  .modal {
+    top: 200px;
+  }
+}

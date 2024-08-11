@@ -35,6 +35,10 @@
         border-left: 0px solid !important;
     }
 
+    .edit-button {
+        margin-top: 10px;
+    }
+
     .property-details {
         margin-bottom: 0px !important;
     }
