@@ -37,7 +37,7 @@
                             <p class="my-0 small"><strong>Property Total (Discount applied): £{{ item.property_total | floatformat:2 }}</strong></p>
                             {% else %}
                                 <p class="my-0 small"><strong>Property Total: £{{ item.property_total | floatformat:2 }}</strong></p>
-                                <p><strong>Book just {{ discount_delta }} more days to receive a 10% discount on your property order!</strong></p>
+                                <p><strong>Book just {{ discount_delta }} more {% if discount_delta < 2 %}day {% else %}days {% endif %}to receive a 10% discount on your property order!</strong></p>
                             {% endif %}
                             <br>
                             {% if item.taxi_price %}
