@@ -12,14 +12,20 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
+            Contact.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                message=form.cleaned_data['message'],
+            )
 
             send_mail(
-                subject=f'Contact Form Submission from {name}',
-                message=f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}',
-                from_email=email,
+                subject=f'Contact Form Submission from {form.cleaned_data["name"]}',
+                message=(
+                    f'Name: {form.cleaned_data["name"]}\n'
+                    f'Email: {form.cleaned_data["email"]}\n\n'
+                    f'Message:\n{form.cleaned_data["message"]}'
+                ),
+                from_email=form.cleaned_data['email'],
                 recipient_list=[settings.DEFAULT_FROM_EMAIL],
                 fail_silently=False,
             )
