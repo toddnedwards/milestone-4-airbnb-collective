@@ -23,18 +23,20 @@
 <!-- Sorting section -->
 <div class="row">
   <div class="col text-center">
-    <a class="btn dropdown-toggle" href="#" role="button" id="all-properties-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Sort by...
-    </a>
-    <div class="dropdown-menu" aria-labelledby="all-properties-link">
-      <a href="{% url 'properties' %}?sort=location&direction=asc" class="dropdown-item">Location (A-Z)</a>
-      <a href="{% url 'properties' %}?sort=location&direction=desc" class="dropdown-item">Location (Z-A)</a>
-      <a href="{% url 'properties' %}?sort=price_per_night&direction=asc" class="dropdown-item">By Price (Lowest First)</a>
-      <a href="{% url 'properties' %}?sort=price_per_night&direction=desc" class="dropdown-item">By Price (Highest First)</a>
-      <a href="{% url 'properties' %}?sort=bedrooms&direction=asc" class="dropdown-item">Number Of Bedrooms (Lowest First)</a>
-      <a href="{% url 'properties' %}?sort=bedrooms&direction=desc" class="dropdown-item">Number Of Bedrooms (Highest First)</a>
-      <a href="{% url 'properties' %}?sort=category&direction=asc" class="dropdown-item">Categories (A-Z)</a>
-      <a href="{% url 'properties' %}?sort=category&direction=desc" class="dropdown-item">Categories (Z-A)</a>
+    <div class="dropdown">
+      <a class="btn dropdown-toggle" href="#" role="button" id="all-properties-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by...
+      </a>
+      <div class="dropdown-menu" aria-labelledby="all-properties-link">
+        <a href="{% url 'properties' %}?sort=location&direction=asc" class="dropdown-item">Location (A-Z)</a>
+        <a href="{% url 'properties' %}?sort=location&direction=desc" class="dropdown-item">Location (Z-A)</a>
+        <a href="{% url 'properties' %}?sort=price_per_night&direction=asc" class="dropdown-item">By Price (Lowest First)</a>
+        <a href="{% url 'properties' %}?sort=price_per_night&direction=desc" class="dropdown-item">By Price (Highest First)</a>
+        <a href="{% url 'properties' %}?sort=bedrooms&direction=asc" class="dropdown-item">Number Of Bedrooms (Lowest First)</a>
+        <a href="{% url 'properties' %}?sort=bedrooms&direction=desc" class="dropdown-item">Number Of Bedrooms (Highest First)</a>
+        <a href="{% url 'properties' %}?sort=category&direction=asc" class="dropdown-item">Categories (A-Z)</a>
+        <a href="{% url 'properties' %}?sort=category&direction=desc" class="dropdown-item">Categories (Z-A)</a>
+      </div>
     </div>
   </div>
 </div>

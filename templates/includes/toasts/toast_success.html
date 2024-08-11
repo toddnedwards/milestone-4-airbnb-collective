@@ -49,6 +49,9 @@
                     </div>
                 {% endfor %}
                 <p class="my-0 small text-right"><strong>Grand Total: £{{ grand_total | floatformat:2 }}</strong></p>
+                <a href="{% url 'properties' %}">Continue Shopping</a>
+                <br>
+                <a href="{% url 'properties' %}">View Cart</a>
             </div>
         {% endif %}
     </div>
