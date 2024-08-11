@@ -83,9 +83,9 @@ def add_taxi(request, item_id):
     cart = request.session.get('cart', {})
 
     if item_id in cart:
-        cart[item_id]['add_taxi'] = True
+        cart[item_id]['add_taxi'] = taxi_price
     else:
-        cart[item_id] = {'add_taxi': True}
+        cart[item_id] = {'add_taxi': taxi_price}
 
     messages.success(request, 'Taxi Successfully Added To Booking')
     request.session['cart'] = cart
