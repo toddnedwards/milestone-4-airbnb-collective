@@ -200,10 +200,10 @@ def checkout_success(request, order_number):
 
     messages.success(
         request,
-        f'Order successfully processed! '
-         'Your order number is {order.order_number}. '
+        f'Order successfully processed!'
+        'Your order number is {order.order_number}. '
         f'A confirmation email will be sent to {order.email}.'
-)
+        )
 
     if 'cart' in request.session:
         del request.session['cart']
