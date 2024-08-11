@@ -35,8 +35,7 @@ def cart_contents(request):
                         discount_amount = original_property_total * Decimal('0.1')
                         property_total = original_property_total - discount_amount
                     else:
-                        property_total = days * property.price_per_night
-                             
+                        property_total = days * property.price_per_night                   
                     taxi_quote = property.distance_to_airport * Decimal('3')
                     sub_total = property_total + taxi_price
 

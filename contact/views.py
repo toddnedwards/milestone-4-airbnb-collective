@@ -19,7 +19,10 @@ def contact(request):
             )
 
             send_mail(
-                subject=f'Contact Form Submission from {form.cleaned_data["name"]}',
+                subject = (
+                    f'Contact Form Submission from '
+                    f'{form.cleaned_data["name"]}'
+                ),
                 message=(
                     f'Name: {form.cleaned_data["name"]}\n'
                     f'Email: {form.cleaned_data["email"]}\n\n'

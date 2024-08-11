@@ -71,10 +71,10 @@ def checkout(request):
                     taxi_price = item_data.get('add_taxi', 0)
                     if isinstance(item_data, dict) and 'date_ranges' in item_data:
                         for date_range in item_data['date_ranges']:
-                            start_date_str, end_date_str = date_range.split(
-                                                            ' - ')
-                            start_date = datetime.strptime(start_date_str,
-                                                            '%d %b %Y').date()
+                            start_date_str, end_date_str = date_range.split(' - ')
+                            start_date = datetime.strptime(
+                                start_date_str, '%d %b %Y'
+                            ).date()
                             end_date = datetime.strptime(
                                         end_date_str, '%d %b %Y').date()
                             days = (end_date - start_date).days
@@ -200,7 +200,8 @@ def checkout_success(request, order_number):
 
     messages.success(
         request,
-        f'Order successfully processed! Your order number is {order.order_number}. '
+        f'Order successfully processed! '
+         'Your order number is {order.order_number}. '
         f'A confirmation email will be sent to {order.email}.'
 )
 

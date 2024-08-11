@@ -44,7 +44,10 @@ class PropertyForm(forms.ModelForm):
 
         for field_name, placeholder in placeholders.items():
             if field_name in self.fields:
-                self.fields[field_name].widget.attrs.update({'placeholder': placeholder})
+                self.fields[field_name].widget.attrs.update(
+                    {'placeholder': placeholder}
+                )
+
 
 class DateRangeInput(forms.DateInput):
     input_type = "text"

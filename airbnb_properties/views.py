@@ -38,14 +38,16 @@ def airbnb_properties(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('properties'))
 
             queries = Q(name__icontains=query) | Q(location__icontains=query)
             filtered_properties = properties.filter(queries)
             if not filtered_properties.exists():
                 no_results = True
-                messages.error(request, "No results for your search. Please try again")
+                messages.error(
+                    request, "No results for your search. Please try again")
             else:
                 properties = filtered_properties
                 filtered = True
@@ -158,7 +160,9 @@ def add_property(request):
             messages.success(request, 'Property has been successfully added')
             return redirect(reverse('property_details', args=[property.id]))
         else:
-            messages.error(request, 'Failed to add property. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add property.'
+                         'Please ensure the form is valid.')
     else:
         form = PropertyForm()
 
