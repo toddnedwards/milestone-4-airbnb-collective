@@ -36,7 +36,7 @@ def cart_contents(request):
                         property_total = original_property_total - discount_amount
                     else:
                         property_total = days * property.price_per_night
-                                
+                             
                     taxi_quote = property.distance_to_airport * Decimal('3')
                     sub_total = property_total + taxi_price
 
@@ -62,13 +62,13 @@ def cart_contents(request):
         discount_delta = settings.TOTAL_DAYS_DISCOUNT_THRESHOLD - total_days
     else:
         discount_delta = 0
-    
+
     context = {
         'cart_items': cart_items,
         'total_days': total_days,
         'property_count': property_count,
         'property_total': property_total,
-        'total_days': total_days,        
+        'total_days': total_days,
         'grand_total': grand_total,
         'taxi_quote': taxi_quote,
         'discount_threshold': settings.TOTAL_DAYS_DISCOUNT_THRESHOLD,

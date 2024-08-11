@@ -1,9 +1,8 @@
-from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Q
+from django.db.models.functions import Lower
 
 from .models import Property
 from .forms import PropertyForm, DateForm
@@ -39,17 +38,15 @@ def airbnb_properties(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request,
-                               ("You didn't enter any search criteria!"))
+                messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('properties'))
 
             queries = Q(name__icontains=query) | Q(location__icontains=query)
             filtered_properties = properties.filter(queries)
             if not filtered_properties.exists():
                 no_results = True
+                messages.error(request, "No results for your search. Please try again")
             else:
-                messages.error(
-                    request, "No results for your search. Please try again")
                 properties = filtered_properties
                 filtered = True
 

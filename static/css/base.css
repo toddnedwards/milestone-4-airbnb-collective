@@ -156,7 +156,7 @@ img {
         padding: 0;
         padding-top: 120px;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 80px;
     }
     .modal-content {
         width: 100%;
@@ -204,7 +204,16 @@ img {
 @media screen and (max-width: 600px) {
   body {max-width: 100vw}
 
-  .banner {
+  .row {
+    margin-right: 0 !Important;
+    margin-left: 0 !Important;
+  }
+
+  .nav-link {
+    margin: 0 !important;
+  }
+
+  .nav-link {
     padding: 0;
   }
 }
