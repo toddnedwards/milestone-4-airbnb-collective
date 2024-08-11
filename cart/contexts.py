@@ -13,6 +13,7 @@ def cart_contents(request):
     grand_total = 0
     property_total = 0
     taxi_quote = 0
+    discount_amount = 0
 
     for item_id, item_data in cart.items():
         property = get_object_or_404(Property, pk=item_id)
@@ -27,9 +28,17 @@ def cart_contents(request):
                     days = (end_date - start_date).days
                     total_days += days
                     property_count += 1
-                    property_total = (days * property.price_per_night)
+
+                    original_property_total = days * property.price_per_night
+
+                    if total_days > settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
+                        discount_amount = original_property_total * 0.1
+                        property_total = original_property_total * 0.9
+                    else:
+                        property_total = days * property.price_per_night
+                                
                     taxi_quote = property.distance_to_airport * 3
-                    sub_total = (days * property.price_per_night) + taxi_price
+                    sub_total = property_total + taxi_price
 
                     grand_total += sub_total
 
@@ -39,9 +48,11 @@ def cart_contents(request):
                         'days': days,
                         'property': property,
                         'property_total': property_total,
+                        'total_days': total_days,
                         'sub_total': sub_total,
                         'taxi_price': taxi_price,
                         'guest_count': guest_count,
+                        'discount_amount': discount_amount,
                     })
 
                 except ValueError:
@@ -52,8 +63,11 @@ def cart_contents(request):
         'total_days': total_days,
         'property_count': property_count,
         'property_total': property_total,
+        'total_days': total_days,        
         'grand_total': grand_total,
         'taxi_quote': taxi_quote,
+        'discount_threshold': settings.TOTAL_DAYS_DISCOUNT_THRESHOLD,
+        'discount_amount': discount_amount,
     }
 
     return context

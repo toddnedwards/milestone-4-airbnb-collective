@@ -50,7 +50,12 @@
                     <p><strong>Date Range : </strong>{{ item.date_range }}</p>
                     <p><strong>Amount Of Days : </strong>{{ item.days }}</p>
                     <p><strong>Price Per Night : </strong>£{{ item.property.price_per_night | floatformat:2 }}</p>
+                    {% if total_days > discount_threshold %}
+                        <p><strong>DISCOUNT APPLIED! <span class="text-danger">£{{ discount_amount | floatformat:2 }}</span></strong></p>
+                    <p><strong>Property Total (discount applied): </strong>£{{ item.property_total | floatformat:2 }}</p>
+                    {% else %}
                     <p><strong>Property Total : </strong>£{{ item.property_total | floatformat:2 }}</p>
+                    {% endif %}
                     {% if item.taxi_price %}
                         <p class="taxi"><strong>Taxi Price : </strong>£{{ item.taxi_price | floatformat:2 }}</p> 
                     {% endif %}
