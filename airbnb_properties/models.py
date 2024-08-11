@@ -23,7 +23,7 @@ class Property(models.Model):
     location = models.CharField(max_length=254, null=True, blank=False)
     description = models.TextField()
     full_description = models.TextField(null=True, blank=False)
-    price_per_night = models.IntegerField(null=True, blank=True)
+    price_per_night = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     distance_to_airport = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True, default=1)
     has_wifi = models.BooleanField(default=False)

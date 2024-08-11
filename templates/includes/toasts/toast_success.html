@@ -43,10 +43,11 @@
                                 <p class="my-0 small"><strong>Taxi Price : £{{ item.taxi_price | floatformat:2 }}</strong></p> 
                             {% endif %}
                             <p class="my-0 small"><strong>Sub Total: £{{ item.sub_total | floatformat:2 }}</strong></p>
-                            <hr>                   
+                            <hr>                               
                         </div>
                     </div>
                 {% endfor %}
+                <p class="my-0 small text-right"><strong>Grand Total: £{{ grand_total | floatformat:2 }}</strong></p>
             </div>
         {% endif %}
     </div>

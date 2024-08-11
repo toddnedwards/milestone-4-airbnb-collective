@@ -1,3 +1,4 @@
+from decimal import Decimal
 from datetime import datetime
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -32,12 +33,12 @@ def cart_contents(request):
                     original_property_total = days * property.price_per_night
 
                     if total_days > settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
-                        discount_amount = original_property_total * 0.1
-                        property_total = original_property_total * 0.9
+                        discount_amount = original_property_total * Decimal('0.1')
+                        property_total = original_property_total * Decimal('0.9')
                     else:
                         property_total = days * property.price_per_night
                                 
-                    taxi_quote = property.distance_to_airport * 3
+                    taxi_quote = property.distance_to_airport * Decimal('3')
                     sub_total = property_total + taxi_price
 
                     grand_total += sub_total
