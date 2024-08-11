@@ -90,8 +90,7 @@
                 <br>
                 <button class="btn btn-primary" type="submit">Go To Checkout</button>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </form>
-            
+            </form>      
             {% if request.user.is_superuser %}
                 <div class="mt-2">
                     <a href="{% url 'edit_property' property.id %}" class="btn btn-success btn-sm" role="button" aria-disabled="true">Edit</a>

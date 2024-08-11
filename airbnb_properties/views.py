@@ -106,11 +106,13 @@ def property_details(request, property_id):
         'property': property,
         'form': form,
         'date_range': date_range,
+        'guest_count': guest_count,
         'max_length': property.bedrooms * 2,
         'guest_count_range': range(1, property.bedrooms * 2 + 1),
     }
 
     return render(request, 'properties/property_details.html', context)
+
 
 
 @login_required

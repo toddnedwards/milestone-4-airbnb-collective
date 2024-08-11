@@ -1,18 +1,15 @@
+# forms.py
 from django import forms
 from django.forms import ModelForm
-from .models import Date
+from .models import Date, Property
 
-from .models import Property
-
-
-from django import forms
-from django.forms import ModelForm
-from .models import Property
-
+class DateRangeInput(forms.DateInput):
+    input_type = 'text'
 
 class PropertyForm(forms.ModelForm):
     guest_count = forms.ChoiceField(
-        label='Guest Count', choices=[(i, i) for i in range(1, 20)],
+        label='Guest Count',
+        choices=[(i, i) for i in range(1, 20)],
         required=False
     )
 
@@ -21,7 +18,7 @@ class PropertyForm(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(PropertyForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         placeholders = {
             'category': 'Category',
@@ -48,16 +45,10 @@ class PropertyForm(forms.ModelForm):
                     {'placeholder': placeholder}
                 )
 
-
-class DateRangeInput(forms.DateInput):
-    input_type = "text"
-
-
 class DateForm(forms.ModelForm):
-
     class Meta:
         model = Date
         fields = ['date_range']
         widgets = {
-            'date_range': DateRangeInput()
+            'date_range': DateRangeInput(),
         }

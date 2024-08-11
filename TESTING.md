@@ -480,4 +480,6 @@ Testing was performed on the following browsers:
 
 #### **Unsolved Bugs**
 
-The only bug I couldn't solve was irregularly the bootstrap navbar in full screen mode will not let me choose a nav link from the 'my account' dropdown. This is usually after I have used django auth somehow, such as logging in, registering or logging out, but these may be a coincidence of being based also inside the 'my account' dropdown menu too. Refreshing the page or clicking on another link usually refreshes the page to allow user to user all links again without problems.
+I couldn't solve was irregularly the bootstrap navbar in full screen mode will not let me choose a nav link from the 'my account' dropdown. This is usually after I have used django auth somehow, such as logging in, registering or logging out, but these may be a coincidence of being based also inside the 'my account' dropdown menu too. Refreshing the page or clicking on another link usually refreshes the page to allow user to user all links again without problems.
+
+The other problem I had was autofilling the value of guest_count when the user clicks edit booking. This should fill the guest_count dropdown with the number they chose, but it doesn't work. I tried several attempts at the code but had no luck in updating. Hopefully its something that can be fixed in the near future.
