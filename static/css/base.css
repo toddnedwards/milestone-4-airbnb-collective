@@ -60,7 +60,6 @@ img {
 
 .nav-link {
   color: blue !important;
-  padding: 0;
 }
 
 a.nav-link {
@@ -217,5 +216,8 @@ a.nav-link {
   }
   .carousel h2 {
     width: 80%
+  }
+  .shopping-bag i {
+    font-size: 25px;
   }
 }
