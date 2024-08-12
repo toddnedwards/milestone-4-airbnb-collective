@@ -63,13 +63,6 @@
                 </div>
             </form>
         </div>   
-        {% if filtered %}
-        <div class="col text-center mb-4">
-            <form method="GET" action="{% url 'properties' %}">
-                <button class="btn btn-primary" type="submit">Reset Search</button>
-            </form>
-        </div>
-        {% endif %}
         <div class="col-1 d-sm-block d-md-block d-lg-none">
             <div class="nav-item shopping-bag">
                 <a href="{% url 'cart' %}" aria-label="Shopping Cart">

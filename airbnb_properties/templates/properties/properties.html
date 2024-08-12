@@ -21,6 +21,13 @@
 </div>
 
 <!-- Sorting section -->
+{% if filtered %}
+<div class="col text-center mb-4">
+    <form method="GET" action="{% url 'properties' %}">
+        <button class="btn btn-primary" type="submit">Reset Search</button>
+    </form>
+</div>
+{% endif %}
 <div class="row mx-0">
   <div class="col text-center">
     <div class="dropdown">
