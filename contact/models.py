@@ -8,4 +8,4 @@ class Contact(models.Model):
     message = models.TextField(max_length=255, null=False, blank=False)
 
     def __str__(self):
-        return self.contact_email
+        return self.name
