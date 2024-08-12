@@ -30,7 +30,7 @@
                             <p class="my-0 small"><strong>Name: {{ item.property.name }}</strong></p>
                             <p class="my-0 small"><strong>Date Range: {{ item.date_range }}</strong></p>
                             <p class="my-0 small"><strong>Total Days: {{ item.total_days }}</strong></p>
-                            {% if total_days > discount_threshold %}
+                            {% if total_days >= discount_threshold %}
                                 <br>
                                 <p class="text-uppercase"><strong>10% Discount added!</strong></p>
                                 <p><strong>You've received <span class="text-danger">£{{ discount_amount | floatformat:2 }}</span> off your order!</strong></p>

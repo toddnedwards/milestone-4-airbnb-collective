@@ -31,7 +31,7 @@ def cart_contents(request):
                     property_count += 1
                     original_property_total = days * property.price_per_night
 
-                    if total_days > settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
+                    if total_days >= settings.TOTAL_DAYS_DISCOUNT_THRESHOLD:
                         discount_amount = original_property_total * Decimal('0.1')
                         property_total = original_property_total - discount_amount
                     else:
