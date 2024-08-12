@@ -60,6 +60,7 @@ img {
 
 .nav-link {
   color: blue !important;
+  padding: 0;
 }
 
 a.nav-link {
