@@ -8,6 +8,7 @@ from user_profile.models import UserProfile
 
 # Create your views here.
 
+
 def contact(request):
     form = ContactForm()
 
@@ -36,7 +37,7 @@ def contact(request):
                 recipient_list=[settings.DEFAULT_FROM_EMAIL],
                 fail_silently=False,
             )
-            
+
             return redirect('success')
 
     if request.user.is_authenticated:
@@ -46,9 +47,10 @@ def contact(request):
                 'email': user_profile.user.email,
             })
         except UserProfile.DoesNotExist:
-            pass 
+            pass
 
     return render(request, 'contact.html', {'form': form})
+
 
 def success(request):
     return render(request, 'success.html')
